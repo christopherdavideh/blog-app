@@ -1,0 +1,272 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  @include backdrop-blur;
+  border-bottom: 1px solid rgba($accent-cyan, 0.1);
+  box-shadow: 0 5px 25px -10px rgba(116, 121, 130, 0.7);
+  transition: all $transition-normal;
+
+  &__container {
+    @include container;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+  }
+
+  &__logo {
+    @extend .logo;
+  }
+
+  &__nav {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xl;
+    }
+
+    &-link {
+      color: $text-secondary;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all $transition-normal;
+      position: relative;
+
+      &:hover {
+        color: $accent-cyan;
+      }
+
+      &--active {
+        color: $accent-cyan;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $accent-cyan;
+        transition: width $transition-normal;
+        .light & {
+          background-color: $light-accent-cyan;
+        }
+      }
+
+      &:hover::after,
+      &--active::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__nav-left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  &__mobile {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &-actions {
+      margin-top: $spacing-md;
+      padding-top: $spacing-md;
+      border-top: 1px solid rgba($accent-cyan, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 7px;
+
+    .social-link {
+      color: $text-secondary;
+      padding: $spacing-sm;
+      border-radius: $border-radius-md;
+      transition: all $transition-normal;
+
+      &:hover {
+        color: $accent-cyan;
+        background-color: rgba($accent-cyan, 0.1);
+      }
+    }
+  }
+
+  &__menu-button {
+    @extend .button;
+    @extend .button--ghost;
+    color: $text-secondary;
+    padding: 0.45rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+    &:hover {
+      color: $accent-cyan;
+      background-color: rgba($accent-cyan, 0.1);
+    }
+  }
+
+  &__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    .header__nav-link {
+      color: $text-secondary;
+      font-size: $spacing-md;
+      font-weight: 500;
+      padding: $spacing-md 0;
+      border-bottom: 1px solid rgba($accent-cyan, 0.1);
+      transition: color $transition-normal;
+      .light & {
+        color: $light-text-primary;
+        border-bottom: 1px solid $light-border-color;
+      }
+
+      &:hover,
+      &--active {
+        color: $accent-cyan;
+        .light & {
+          color: $light-accent-cyan;
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__mobile-menu {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    @include backdrop-blur;
+    border-bottom: 1px solid rgba($accent-cyan, 0.1);
+    padding: $spacing-md;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all $transition-normal;
+    .light & {
+      background-color: $light-primary-bg !important;
+      border-bottom: 1px solid $light-border-color;
+    }
+    &--open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      background-color: rgba(17, 38, 69, 0.906);
+      .light & {
+        background-color: $light-secondary-bg !important;
+      }
+    }
+  }
+
+  &__mobile-actions {
+    margin-top: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid rgba($accent-cyan, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    .light & {
+      border-top: 1px solid $light-border-color;
+    }
+    .header__cv-button {
+      @extend .button;
+      @extend .button--primary;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+    }
+  }
+
+  &__theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    border: 2px solid transparent;
+    background: transparent;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      border-color: $accent-cyan;
+      background: rgba($accent-cyan, 0.08);
+      .header__theme-icon {
+        color: $accent-cyan;
+      }
+    }
+    &:active {
+      border-color: $accent-blue;
+      background: rgba($accent-blue, 0.12);
+      .header__theme-icon {
+        color: $accent-blue;
+      }
+    }
+    .header__theme-icon {
+      color: $text-primary;
+      font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+    .light & {
+      border-color: transparent;
+      background: transparent;
+      &:hover,
+      &:focus {
+        border-color: $light-accent-cyan;
+        background: rgba($light-accent-cyan, 0.08);
+        .header__theme-icon {
+          color: $light-accent-cyan;
+        }
+      }
+      &:active {
+        border-color: $light-accent-blue;
+        background: rgba($light-accent-blue, 0.12);
+        .header__theme-icon {
+          color: $light-accent-blue;
+        }
+      }
+      .header__theme-icon {
+        color: $light-text-primary;
+      }
+    }
+  }
+}

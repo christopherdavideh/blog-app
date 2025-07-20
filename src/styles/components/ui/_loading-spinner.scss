@@ -1,0 +1,61 @@
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &__circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $accent-cyan;
+    animation: loading-bounce 1.4s ease-in-out infinite both;
+
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0s;
+    }
+  }
+
+  &--small {
+    .loading-spinner__circle {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  &--large {
+    gap: 0.75rem;
+
+    .loading-spinner__circle {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .light & {
+    .loading-spinner__circle {
+      background-color: $light-accent-cyan;
+    }
+  }
+}
+
+@keyframes loading-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

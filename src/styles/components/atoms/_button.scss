@@ -1,0 +1,61 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 0.85rem;
+  background: $accent-cyan;
+  color: $primary-bg;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  &--primary {
+    background: $accent-cyan;
+    color: $primary-bg;
+    &:hover:not(:disabled) {
+      background: darken($accent-cyan, 8%);
+    }
+  }
+  &--secondary {
+    background: $secondary-bg;
+    color: $text-secondary;
+    border: 1.5px solid $border-color;
+    &:hover:not(:disabled) {
+      border-color: $accent-cyan;
+      color: $accent-cyan;
+    }
+  }
+  &--ghost {
+    background: transparent;
+    color: $accent-cyan;
+    border: 1.5px solid transparent;
+    &:hover:not(:disabled) {
+      background: rgba($accent-cyan, 0.08);
+      color: $accent-cyan;
+      border-color: $accent-cyan;
+    }
+  }
+  &--small {
+    font-size: 0.95rem;
+    padding: 0.45rem 1rem;
+    border-radius: 0.4rem;
+  }
+  &--large {
+    font-size: 1.15rem;
+    padding: 1rem 2rem;
+    border-radius: 0.7rem;
+  }
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.4rem;
+    font-size: 1.1em;
+  }
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

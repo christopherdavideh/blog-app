@@ -1,0 +1,209 @@
+.contact-page {
+  &__hero {
+    padding: 5rem 0 2rem 0;
+    background: $primary-bg;
+    text-align: center;
+    .light & {
+      background: $light-primary-bg;
+    }
+  }
+  &__hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  &__hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+  &__hero-divider {
+    width: 96px;
+    height: 4px;
+    background: $accent-cyan;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 2px;
+  }
+  &__hero-description {
+    font-size: 1.1rem;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
+  &__content {
+    padding: 2rem 0 4rem 0;
+    background: $secondary-bg;
+    .light & {
+      background: $light-secondary-bg;
+    }
+  }
+  &__content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @media (min-width: 900px) {
+      flex-direction: row;
+      gap: 4rem;
+    }
+  }
+  &__info {
+    flex: 1 1 0;
+    background: $primary-bg;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+  &__info-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: $text-primary;
+  }
+  &__info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  &__info-icon {
+    color: $accent-cyan;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+  &__info-content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__info-label {
+    font-size: 0.95rem;
+    color: $text-secondary;
+  }
+  &__info-value {
+    font-size: 1.1rem;
+    color: $text-primary;
+    font-weight: 500;
+  }
+  &__info-social {
+    margin-top: 2.5rem;
+  }
+  &__info-social-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: $text-primary;
+  }
+  &__info-social-list {
+    display: flex;
+    gap: 1.2rem;
+  }
+  &__info-social-link {
+    color: $text-secondary;
+    transition: color 0.2s;
+    &:hover {
+      color: $accent-cyan;
+    }
+  }
+  &__form {
+    flex: 1 1 0;
+    background: $primary-bg;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+  &__form-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: $text-primary;
+  }
+  &__form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  &__form-label {
+    font-size: 1rem;
+    color: $text-secondary;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  &__form-input,
+  &__form-textarea {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid $border-color;
+    font-size: 1rem;
+    color: $text-primary;
+    background: $primary-bg;
+    transition: border-color 0.2s;
+
+    .light & {
+      background: $light-primary-bg;
+    }
+    &:focus {
+      border-color: $accent-cyan;
+      outline: none;
+    }
+  }
+  &__form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  &__form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  &__form-submit {
+    min-width: 140px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: $accent-cyan;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    &:hover:not(:disabled) {
+      background: darken($accent-cyan, 8%);
+    }
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+  &__form-reset {
+    min-width: 100px;
+    font-weight: 500;
+    background: $secondary-bg;
+    color: $text-secondary;
+    border: 1.5px solid $border-color;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.2rem;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    &:hover {
+      border-color: $accent-cyan;
+      color: $accent-cyan;
+    }
+  }
+  &__form-spinner {
+    margin-right: 0.5rem;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+  }
+  &__form-send-icon {
+    margin-right: 0.5rem;
+    display: inline-block;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

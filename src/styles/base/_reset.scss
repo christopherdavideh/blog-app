@@ -1,0 +1,56 @@
+// Reset y base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $primary-bg;
+  color: $text-primary;
+  font-family: $font-family-primary;
+  font-feature-settings: $font-feature-settings;
+  line-height: 1.6;
+}
+
+#__next {
+  background-color: $primary-bg;
+}
+
+// Remove default button styles
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+// Remove default link styles
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Remove default list styles
+ul,
+ol {
+  list-style: none;
+}
+
+// Remove default input styles
+input,
+textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+// Remove default image styles
+img {
+  max-width: 100%;
+  height: auto;
+}

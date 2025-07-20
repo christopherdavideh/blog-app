@@ -1,0 +1,54 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background: $secondary-bg;
+  color: $accent-cyan;
+  border: 1.5px solid $border-color;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  .light & {
+    background: $light-secondary-bg;
+    color: $light-accent-cyan;
+    border-color: $light-border-color;
+  }
+  &--active {
+    background: $accent-cyan;
+    color: $primary-bg;
+    border-color: $accent-cyan;
+    .light & {
+      background: $light-accent-cyan;
+      color: $light-primary-bg;
+      border-color: $light-accent-cyan;
+    }
+  }
+  &--inactive {
+    background: $secondary-bg;
+    color: $accent-cyan;
+    border-color: $border-color;
+    &:hover {
+      background: rgba($accent-cyan, 0.08);
+      border-color: $accent-cyan;
+      color: $accent-cyan;
+    }
+    .light & {
+      background: $light-secondary-bg;
+      color: $light-accent-cyan;
+      border-color: $light-border-color;
+    }
+  }
+  &__icon {
+    margin-right: 0.3rem;
+    display: inline-block;
+  }
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}

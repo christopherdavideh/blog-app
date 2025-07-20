@@ -1,0 +1,35 @@
+.section-layout {
+  @include section;
+
+  &--secondary {
+    background-color: $secondary-bg;
+  }
+
+  &-container {
+    @include container;
+  }
+
+  &-header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+
+    .section-title {
+      @include heading-xl;
+      margin-bottom: $spacing-xl;
+    }
+
+    .section-divider {
+      width: 6rem;
+      height: 0.25rem;
+      background-color: $accent-cyan;
+      margin: 0 auto $spacing-xl;
+    }
+
+    .section-description {
+      @include text-body;
+      color: $text-secondary;
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+  }
+}

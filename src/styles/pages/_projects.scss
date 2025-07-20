@@ -1,0 +1,40 @@
+.projects-page {
+  &__hero {
+    padding: 5rem 0 2rem 0;
+    background: $primary-bg;
+    text-align: center;
+    .light & {
+      background: $light-primary-bg;
+    }
+  }
+  &__hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  &__hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+  &__hero-divider {
+    width: 96px;
+    height: 4px;
+    background: $accent-cyan;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 2px;
+  }
+  &__hero-description {
+    font-size: 1.1rem;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
+  &__grid {
+    padding: 2rem 0 4rem 0;
+    background: $primary-bg;
+  }
+  &__grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

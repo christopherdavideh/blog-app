@@ -1,0 +1,101 @@
+.blog-page {
+  &__hero {
+    padding: 5rem 0 2rem 0;
+    background: $primary-bg;
+    text-align: center;
+    .light & {
+      background: $light-primary-bg;
+    }
+  }
+  &__hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  &__hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+  &__hero-divider {
+    width: 96px;
+    height: 4px;
+    background: $accent-cyan;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 2px;
+  }
+  &__hero-description {
+    font-size: 1.1rem;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
+  &__filters {
+    padding: 2rem 0 1rem 0;
+    background: $primary-bg;
+  }
+  &__filters-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  &__posts {
+    padding: 2rem 0 4rem 0;
+    background: $primary-bg;
+    .light & {
+      background: $light-primary-bg;
+    }
+  }
+  &__posts-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  &__posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  &__no-posts {
+    text-align: center;
+    color: $text-secondary;
+    margin: 2rem 0;
+  }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  &__pagination-list {
+    display: flex;
+    gap: 0.5rem;
+  }
+  &__pagination-item {
+    display: flex;
+  }
+  &__pagination-button {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background: $secondary-bg;
+    color: $text-secondary;
+    border: 1.5px solid $secondary-bg;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover,
+    &.active {
+      color: $accent-cyan;
+      border-color: $accent-cyan;
+      background: rgba($accent-cyan, 0.08);
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.heading {
+  &-xl {
+    @include heading-xl;
+  }
+
+  &-lg {
+    @include heading-lg;
+  }
+
+  &-md {
+    @include heading-md;
+  }
+
+  &-sm {
+    @include heading-sm;
+  }
+}
+
+.text {
+  &-body {
+    @include text-body;
+  }
+
+  &-sm {
+    @include text-sm;
+  }
+
+  &-primary {
+    color: $text-primary;
+  }
+
+  &-secondary {
+    color: $text-secondary;
+  }
+
+  &-accent {
+    color: $accent-cyan;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+}
+
+.logo {
+  font-family: $font-family-mono;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $accent-cyan;
+  transition: color $transition-normal;
+
+  &:hover {
+    color: $accent-blue;
+  }
+}

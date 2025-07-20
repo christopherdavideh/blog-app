@@ -1,0 +1,410 @@
+// Media Queries
+@mixin mobile {
+  @media (max-width: #{$mobile - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile}) and (max-width: #{$tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large}) {
+    @content;
+  }
+}
+
+// Typography
+@mixin heading-xl {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.1;
+
+  @include desktop {
+    font-size: 4rem;
+  }
+
+  @include large {
+    font-size: 5rem;
+  }
+}
+
+@mixin heading-lg {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.1;
+
+  @include desktop {
+    font-size: 3rem;
+  }
+
+  @include large {
+    font-size: 4rem;
+  }
+}
+
+@mixin heading-md {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+
+  @include desktop {
+    font-size: 2rem;
+  }
+}
+
+@mixin heading-sm {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.3;
+
+  @include desktop {
+    font-size: 1.5rem;
+  }
+}
+
+@mixin text-body {
+  font-size: 1.125rem;
+  line-height: 1.6;
+
+  @include desktop {
+    font-size: 1.25rem;
+  }
+}
+
+@mixin text-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+// Layout
+@mixin container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @include desktop {
+    padding: 0 $spacing-xl;
+  }
+}
+
+@mixin section {
+  padding: $spacing-3xl 0;
+
+  @include desktop {
+    padding: $spacing-2xl * 3 0;
+  }
+}
+
+// Buttons
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: 2px solid $accent-cyan;
+    outline-offset: 2px;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $accent-cyan;
+  color: $primary-bg;
+
+  &:hover:not(:disabled) {
+    background-color: adjust-color($accent-cyan, $lightness: -10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: transparent;
+  color: $accent-cyan;
+  border: 2px solid $accent-cyan;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(100, 255, 218, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin button-ghost {
+  @include button-base;
+  background-color: transparent;
+  color: $text-secondary;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(136, 146, 176, 0.1);
+    color: $accent-cyan;
+  }
+}
+
+// Size variants
+@mixin button-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+@mixin button-medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+@mixin button-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+// Input Mixins
+@mixin input-base {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid $secondary-bg;
+  border-radius: 0.5rem;
+  background-color: $secondary-bg;
+  color: $text-primary;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $accent-cyan;
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Card Mixins
+@mixin card-base {
+  background-color: $secondary-bg;
+  border: 1px solid $secondary-bg;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(100, 255, 218, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Typography Mixins
+@mixin heading-xl {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $text-primary;
+
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 5rem;
+  }
+}
+
+@mixin heading-lg {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: $text-primary;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+@mixin heading-md {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $text-primary;
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
+}
+
+@mixin heading-sm {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: $text-primary;
+}
+
+@mixin body-lg {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: $text-secondary;
+}
+
+@mixin body-md {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $text-secondary;
+}
+
+@mixin body-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: $text-secondary;
+}
+
+// Layout Mixins
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 640px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 2rem;
+  }
+}
+
+@mixin section-padding {
+  padding: 4rem 0;
+
+  @media (min-width: 768px) {
+    padding: 6rem 0;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 8rem 0;
+  }
+}
+
+// Animation Mixins
+@mixin fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@mixin slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@mixin scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+// Utility Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin grid-responsive($columns: 1) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(min($columns + 1, 3), 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat($columns, 1fr);
+  }
+}
+
+// Cards
+@mixin card {
+  background-color: $secondary-bg;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  border: 1px solid rgba($accent-cyan, 0.1);
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba($accent-cyan, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Animations
+@mixin fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@mixin slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@mixin slide-down {
+  animation: slideDown 0.8s ease-out forwards;
+}
+
+@mixin scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+// Focus states
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $accent-cyan;
+    outline-offset: 2px;
+  }
+}
+
+// Backdrop blur
+@mixin backdrop-blur {
+  background-color: rgba($primary-bg, 0.8);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}

@@ -1,0 +1,61 @@
+// Color Palette
+$primary-bg: #0a192f;
+$secondary-bg: #112240;
+$text-primary: #ccd6f6;
+$text-secondary: #8892b0;
+$accent-cyan: #64ffda;
+$accent-blue: #3b82f6;
+$accent-purple: #8b5cf6;
+
+// Typography
+$font-family-primary: "Inter", sans-serif;
+$font-family-mono: "JetBrains Mono", monospace;
+$font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+$large: 1280px;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+// Border Radius
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.5rem;
+$border-radius-lg: 0.75rem;
+$border-radius-xl: 1rem;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;
+
+// Border
+$border-color: #233554;
+
+// Light Mode Palette
+$light-primary-bg: #f8fafc;
+$light-secondary-bg: #e2e8f0;
+$light-text-primary: #1e293b;
+$light-text-secondary: #64748b;
+$light-accent-cyan: #2c4a69; // Verde teal oscuro, excelente contraste
+$light-accent-blue: #2563eb;
+$light-accent-purple: #7c3aed;
+$light-border-color: #cbd5e1;

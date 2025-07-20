@@ -1,0 +1,134 @@
+.experience__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.experience__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.experience__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 1rem;
+}
+.experience__divider {
+  width: 96px;
+  height: 4px;
+  background: $accent-cyan;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 2px;
+}
+.experience__subtitle {
+  font-size: 1.25rem;
+  color: $text-secondary;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.experience__main {
+  margin-bottom: 3rem;
+}
+.experience__main-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.experience__main-title-icon {
+  color: $accent-cyan;
+  .light & {
+    color: $light-accent-cyan;
+  }
+}
+.experience__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.experience__education-title,
+.experience__certifications-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.experience__education-title-icon,
+.experience__certifications-title-icon {
+  color: $accent-cyan;
+  .light & {
+    color: $light-accent-cyan;
+  }
+}
+.experience__education-list,
+.experience__certifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.experience__education-item,
+.experience__certifications-item {
+  background: $secondary-bg;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1.5px solid $secondary-bg;
+  transition: all 0.3s;
+  .light & {
+    background: $light-secondary-bg;
+    border: 1.5px solid $light-border-color;
+  }
+  &:hover {
+    border-color: $accent-cyan;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+    .light & {
+      border: 1px solid $light-accent-cyan;
+    }
+  }
+}
+.experience__education-header,
+.experience__certifications-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.experience__education-degree,
+.experience__certifications-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $text-primary;
+}
+.experience__education-period,
+.experience__certifications-year {
+  color: $accent-cyan;
+  font-size: 1rem;
+  font-weight: 500;
+  .light & {
+    color: $light-accent-cyan;
+  }
+}
+.experience__education-institution,
+.experience__certifications-issuer {
+  color: $accent-cyan;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  .light & {
+    color: $light-accent-cyan;
+  }
+}
+.experience__education-desc,
+.experience__certifications-desc {
+  color: $text-secondary;
+  font-size: 0.98rem;
+}

@@ -1,0 +1,181 @@
+// Base
+@import "base/variables";
+@import "base/reset";
+@import "base/mixins";
+@import "base/animations";
+
+// Import component styles
+@import "components/atoms/button";
+@import "components/atoms/input";
+@import "components/atoms/typography";
+@import "components/atoms/badge";
+
+@import "components/molecules/card";
+@import "components/molecules/search";
+@import "components/molecules/tag";
+
+@import "components/organisms/header";
+@import "components/organisms/footer";
+@import "components/organisms/navigation";
+@import "components/organisms/hero";
+@import "components/organisms/blog-post";
+@import "components/organisms/contact-form";
+@import "components/organisms/about-section";
+@import "components/organisms/skills-section";
+@import "components/organisms/projects-section";
+@import "components/organisms/experience-section";
+@import "components/ui/loading-spinner";
+
+@import "components/layouts/page-layout";
+@import "components/layouts/section-layout";
+
+// Import page-specific styles
+@import "pages/home";
+@import "pages/about";
+@import "pages/projects";
+@import "pages/blog";
+@import "pages/contact";
+
+// Cursor spotlight effect
+.cursor-spotlight {
+  position: relative;
+  overflow: hidden;
+  background-color: $primary-bg !important;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.cursor-spotlight::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(100, 255, 218, 0.08),
+    transparent 50%
+  );
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+// Ensure content is above the spotlight effect
+.cursor-spotlight > * {
+  position: relative;
+}
+
+.contact-page__content {
+  background: $primary-bg;
+}
+
+.contact-page__form {
+  background: $secondary-bg;
+}
+
+.light {
+  // Fondos
+  body,
+  #__next,
+  .cursor-spotlight {
+    background-color: $light-primary-bg !important;
+    color: $light-text-primary;
+  }
+  .header,
+  .footer,
+  .about-page,
+  .about-page__skills,
+  .about-page__experience,
+  .home__section--skills,
+  .home__section--projects,
+  .projects-page,
+  .projects-page__grid,
+  .blog-page,
+  .blog-page__filters,
+  .contact-page,
+  .contact-page__content {
+    background: $light-primary-bg !important;
+    color: $light-text-primary;
+  }
+  .card,
+  .about-page__info,
+  .contact-page__form {
+    background: $light-secondary-bg !important;
+    color: $light-text-primary;
+    border-color: $light-border-color !important;
+  }
+  // Textos
+  .text-primary,
+  .heading,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $light-text-primary !important;
+  }
+  .text-secondary {
+    color: $light-text-secondary !important;
+  }
+  // Accentos y botones
+  .button--primary,
+  .badge--primary {
+    background: $light-accent-cyan !important;
+    color: $light-primary-bg !important;
+    border-color: $light-accent-cyan !important;
+    box-shadow: 0 2px 8px rgba(4, 120, 87, 0.08);
+  }
+  .button--primary:hover,
+  .badge--primary:hover {
+    background: darken($light-accent-cyan, 8%) !important;
+    color: $light-primary-bg !important;
+    border-color: darken($light-accent-cyan, 8%) !important;
+  }
+  .button--secondary,
+  .badge--secondary {
+    background: $light-secondary-bg !important;
+    color: $light-accent-cyan !important;
+    border-color: $light-accent-cyan !important;
+  }
+  .button--ghost {
+    background: transparent !important;
+    color: $light-accent-cyan !important;
+  }
+  .tag--active {
+    background: $light-accent-cyan !important;
+    color: $light-primary-bg !important;
+    border-color: $light-accent-cyan !important;
+  }
+  .tag--inactive {
+    background: $light-secondary-bg !important;
+    color: $light-accent-cyan !important;
+    border-color: $light-border-color !important;
+  }
+  // Links y social icons
+  a,
+  .projects__card-link,
+  .about__cv-link,
+  .header__social-links .social-link {
+    color: $light-accent-cyan !important;
+    background: transparent !important;
+    transition: color 0.2s;
+  }
+  a:hover,
+  .projects__card-link:hover,
+  .about__cv-link:hover,
+  .header__social-links .social-link:hover {
+    color: darken($light-accent-cyan, 8%) !important;
+  }
+  // Spotlight efecto
+  .cursor-spotlight::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(4, 120, 87, 0.08),
+      transparent 50%
+    );
+  }
+}

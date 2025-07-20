@@ -1,0 +1,55 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem $spacing-md $spacing-xl;
+  
+  @include desktop {
+    padding: 8rem $spacing-xl $spacing-3xl;
+  }
+  
+  &-content {
+    @include container;
+    width: 100%;
+    
+    .hero-greeting {
+      color: $accent-cyan;
+      font-size: $spacing-md;
+      font-weight: 400;
+      margin-bottom: $spacing-sm;
+      
+      @include desktop {
+        font-size: 1.125rem;
+      }
+    }
+    
+    .hero-name {
+      @include heading-xl;
+      color: $text-primary;
+      margin-bottom: $spacing-md;
+    }
+    
+    .hero-title {
+      @include heading-lg;
+      color: $text-secondary;
+      margin-bottom: $spacing-lg;
+    }
+    
+    .hero-description {
+      @include text-body;
+      color: $text-secondary;
+      max-width: 600px;
+      margin-bottom: $spacing-xl;
+    }
+    
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+      
+      @include mobile {
+        flex-direction: row;
+      }
+    }
+  }
+} 

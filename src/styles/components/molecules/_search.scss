@@ -1,0 +1,33 @@
+.search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  background: $secondary-bg;
+  border-radius: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  .light & {
+    background: $light-secondary-bg;
+    border: 1px solid $light-border-color;
+  }
+
+  &__input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: $text-primary;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    &::placeholder {
+      color: $text-secondary;
+      opacity: 0.8;
+    }
+  }
+}
+
+.search-group {
+  @extend .input-group;
+}

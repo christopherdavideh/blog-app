@@ -1,0 +1,65 @@
+.home {
+  &__hero {
+    padding: 6rem 0 3rem 0;
+    background: $primary-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    .light & {
+      background: $light-primary-bg;
+    }
+  }
+  &__hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__hero-greeting {
+    font-size: 1.25rem;
+    color: $accent-cyan;
+    margin-bottom: 1rem;
+  }
+  &__hero-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+  &__hero-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
+  &__hero-description {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    margin-bottom: 2rem;
+  }
+  &__hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  &__section {
+    padding: 4rem 0;
+    &--skills {
+      background: $primary-bg;
+      .light & {
+        background: $light-secondary-bg;
+      }
+    }
+    &--projects {
+      background: $primary-bg;
+      .light & {
+        background: $light-secondary-bg;
+      }
+    }
+  }
+  &__section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+}

@@ -1,0 +1,32 @@
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.9em;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  background: $accent-cyan;
+  color: $primary-bg;
+  border: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  &--primary {
+    background: $accent-cyan;
+    color: $primary-bg;
+  }
+  &--secondary {
+    background: $secondary-bg;
+    color: $accent-cyan;
+  }
+  &--outline {
+    background: transparent;
+    color: $accent-cyan;
+    border: 1.5px solid $accent-cyan;
+  }
+  &--small {
+    font-size: 0.85rem;
+    padding: 0.15em 0.7em;
+  }
+  &--large {
+    font-size: 1.15rem;
+    padding: 0.35em 1.2em;
+  }
+}
