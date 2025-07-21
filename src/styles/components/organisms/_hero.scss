@@ -38,10 +38,9 @@
     &-greeting {
       display: block;
       color: $accent-cyan;
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       font-weight: 400;
       margin-bottom: $spacing-sm;
-
       .light & {
         color: $light-accent-cyan;
       }
@@ -49,10 +48,15 @@
 
     &-name {
       display: block;
-      @include heading-xl;
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
       color: $text-primary;
       margin-bottom: $spacing-md;
-
+      letter-spacing: -1px;
+      @include desktop {
+        font-size: 3.5rem;
+      }
       .light & {
         color: $light-text-primary;
       }
@@ -60,15 +64,19 @@
   }
 
   &__subtitle {
-    @include body-lg;
+    font-size: 2rem;
+    font-weight: 600;
     color: $text-secondary;
-    max-width: 600px;
-    margin: 0 auto $spacing-xl;
-
+    margin-bottom: $spacing-lg;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
     @include desktop {
-      margin: 0 0 $spacing-xl 0;
+      font-size: 2.2rem;
+      margin-bottom: $spacing-xl;
+      margin-left: 0;
+      margin-right: 0;
     }
-
     .light & {
       color: $light-text-secondary;
     }
@@ -76,15 +84,9 @@
 
   &__actions {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: $spacing-md;
     justify-content: center;
-
-    @include mobile {
-      flex-direction: row;
-      justify-content: center;
-    }
-
     @include desktop {
       justify-content: flex-start;
     }
@@ -156,6 +158,86 @@
       filter: drop-shadow(0 0 20px rgba($light-accent-cyan, 0.5));
     }
   }
+}
+
+.hero__title-greeting {
+  display: block;
+  color: $accent-cyan;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: $spacing-sm;
+  text-align: center;
+  @include desktop {
+    text-align: left;
+  }
+}
+
+.hero__title-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+  letter-spacing: -1px;
+  text-align: center;
+  @include desktop {
+    font-size: 3.5rem;
+    text-align: left;
+  }
+  .light & {
+    color: $light-text-primary;
+  }
+}
+
+.hero__subtitle-main {
+  font-size: 2rem;
+  font-weight: 600;
+  color: $text-secondary;
+  margin-bottom: $spacing-lg;
+  text-align: center;
+  @include desktop {
+    font-size: 2.2rem;
+    margin-bottom: $spacing-xl;
+    text-align: left;
+  }
+  .light & {
+    color: $light-text-secondary;
+  }
+}
+
+.hero__subtitle-desc {
+  font-size: 1.15rem;
+  color: $text-secondary;
+  margin-bottom: $spacing-xl;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  @include desktop {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .light & {
+    color: $light-text-secondary;
+  }
+}
+
+.hero__actions--fullwidth {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  align-items: stretch;
+  width: 100%;
+  margin-top: $spacing-lg;
+}
+
+.button--block {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 1rem 0;
 }
 
 // Efectos especiales para el hero

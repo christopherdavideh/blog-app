@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 interface TypewriterTextProps {
   text: string;
@@ -19,29 +19,37 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
 }) => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (delay > 0) {
-      const delayTimer = setTimeout(() => {
-        setCurrentIndex(0);
-      }, delay);
-      return () => clearTimeout(delayTimer);
-    } else {
+    // Reiniciar el texto y el índice
+    setDisplayText("");
+    setCurrentIndex(0);
+    // Limpiar cualquier timer previo
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    // Iniciar la animación después del delay
+    timerRef.current = setTimeout(() => {
       setCurrentIndex(0);
-    }
-  }, [delay, text]);
+    }, delay);
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [text, delay]);
 
   useEffect(() => {
     if (currentIndex < text.length) {
-      const timer = setTimeout(() => {
-        setDisplayText((prev) => prev + text[currentIndex]);
+      timerRef.current = setTimeout(() => {
+        setDisplayText(text.slice(0, currentIndex + 1));
         setCurrentIndex((prev) => prev + 1);
       }, speed);
-
-      return () => clearTimeout(timer);
     } else if (onComplete) {
       onComplete();
     }
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
   }, [currentIndex, text, speed, onComplete]);
 
   return (

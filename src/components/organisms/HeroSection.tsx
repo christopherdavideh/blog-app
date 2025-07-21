@@ -1,51 +1,54 @@
+"use client";
+
 import Link from "next/link";
 import { FloatingParticles } from "@/components/ui/FloatingParticles";
 import { TypewriterText } from "@/components/ui/TypewriterText";
+import React, { useState } from "react";
 
 export default function HeroSection() {
+  const [showSubtitle, setShowSubtitle] = useState(false);
+
   return (
     <section className="hero">
       <FloatingParticles count={15} />
       <div className="hero__container">
         <div className="hero__content">
-          <h1 className="hero__title">
-            <span className="hero__title-greeting animate--text-reveal animate--delay-1">
-              Hola, soy
-            </span>
-            <span className="hero__title-name animate--bounce-in animate--delay-2">
-              <TypewriterText
-                text="Christopher"
-                speed={150}
-                delay={800}
-                className="typewriter-text--large typewriter-text--accent typewriter-text--neon"
-              />
-            </span>
-          </h1>
-          <p className="hero__subtitle animate--text-reveal animate--delay-3">
+          <span className="hero__title-greeting">Hola, mi nombre es</span>
+          <h1 className="hero__title-name">
             <TypewriterText
-              text="Desarrollador Full-Stack apasionado por crear experiencias digitales excepcionales"
-              speed={50}
-              delay={2000}
-              className="typewriter-text--medium"
+              text="Christopher David Erazo Herrera"
+              speed={70}
+              delay={400}
+              onComplete={() => setShowSubtitle(true)}
             />
+          </h1>
+          <h2 className="hero__subtitle-main">
+            {showSubtitle && (
+              <TypewriterText text="Software Developer" speed={60} />
+            )}
+          </h2>
+          <p className="hero__subtitle-desc">
+            Especializado en React, Angular, Java SpringBoot, C# .NET y
+            desarrollo móvil.
+            <br />
+            Creando experiencias digitales excepcionales.
           </p>
-          <div className="hero__actions animate--slide-up-stagger animate--delay-4">
+          <div className="hero__actions hero__actions--fullwidth">
             <Link
               href="/projects"
-              className="button button--primary hover--neon"
+              className="button button--primary button--block"
             >
               Ver Proyectos
             </Link>
             <Link
               href="/contact"
-              className="button button--secondary hover--morph"
+              className="button button--secondary button--block"
             >
               Contactar
             </Link>
           </div>
         </div>
-
-        <div className="hero__visual animate--tilt-in animate--delay-5">
+        <div className="hero__visual animate--zoom-in">
           <div className="hero__image-container hover--tilt">
             <div className="hero__image-placeholder animate--morphing">
               <div className="hero__image-icon animate--neon-pulse">👨‍💻</div>
