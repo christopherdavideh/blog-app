@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 25px;
+    padding: 0 1.5rem;
   }
 
   &__logo {
@@ -33,17 +34,21 @@
 
     &-link {
       color: $text-secondary;
-      font-size: 0.875rem;
+      font-size: 0.95rem;
       font-weight: 500;
       transition: all $transition-normal;
       position: relative;
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.5rem;
 
       &:hover {
         color: $accent-cyan;
+        background: rgba($accent-cyan, 0.08);
       }
 
       &--active {
         color: $accent-cyan;
+        background: rgba($accent-cyan, 0.12);
       }
 
       &::after {
@@ -145,15 +150,15 @@
       font-weight: 500;
       padding: $spacing-md 0;
       border-bottom: 1px solid rgba($accent-cyan, 0.1);
-      transition: color $transition-normal;
-      .light & {
-        color: $light-text-primary;
-        border-bottom: 1px solid $light-border-color;
+      transition: color 0.22s, background 0.22s, box-shadow 0.18s;
+      &::after {
+        transition: width 0.22s, background 0.22s;
       }
-
       &:hover,
       &--active {
         color: $accent-cyan;
+        background: rgba($accent-cyan, 0.12);
+        box-shadow: 0 2px 8px rgba(100, 255, 218, 0.1);
         .light & {
           color: $light-accent-cyan;
         }

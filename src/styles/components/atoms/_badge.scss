@@ -7,7 +7,12 @@
   background: $accent-cyan;
   color: $primary-bg;
   border: none;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.18s;
+  &:hover {
+    background: $accent-blue;
+    color: $primary-bg;
+    transform: scale(1.06);
+  }
   &--primary {
     background: $accent-cyan;
     color: $primary-bg;

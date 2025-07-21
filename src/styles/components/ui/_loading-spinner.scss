@@ -47,6 +47,24 @@
   }
 }
 
+.loading-spinner--circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loading-spinner__svg {
+    display: block;
+    animation: spinner-rotate 1s linear infinite;
+  }
+  .loading-spinner__arc {
+    stroke: $accent-cyan;
+    opacity: 0.9;
+    transition: stroke 0.2s;
+  }
+  .light & .loading-spinner__arc {
+    stroke: $light-accent-cyan;
+  }
+}
+
 @keyframes loading-bounce {
   0%,
   80%,
@@ -57,5 +75,11 @@
   40% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes spinner-rotate {
+  100% {
+    transform: rotate(360deg);
   }
 }

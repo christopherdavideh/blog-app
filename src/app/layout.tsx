@@ -5,6 +5,8 @@ import { Header } from "@/components/organisms/Header";
 import { Footer } from "@/components/organisms/Footer";
 import { CursorSpotlight } from "@/components/ui/CursorSpotlight";
 import { FloatingParticles } from "@/components/ui/FloatingParticles";
+import SchemaMarkup from "@/components/organisms/SchemaMarkup";
+import ClientLayoutShell from "@/components/ClientLayoutShell";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,13 +46,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <link rel="icon" href="/images/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/images/ChristopherErazo.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/images/LOGO.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/ChristopherErazo_1.png"
+        />
+        <link rel="shortcut icon" href="/images/ChristopherErazo.ico" />
+        <meta property="og:image" content="/images/seo.png" />
+        <SchemaMarkup />
+      </head>
       <body className={inter.className}>
-        <CursorSpotlight>
-          <FloatingParticles count={10} />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </CursorSpotlight>
+        <ClientLayoutShell>{children}</ClientLayoutShell>
       </body>
     </html>
   );

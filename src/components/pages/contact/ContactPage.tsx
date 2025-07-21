@@ -12,6 +12,8 @@ import {
   Github,
   Linkedin,
   Twitter,
+  CheckCircle,
+  XCircle,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -22,6 +24,7 @@ export default function ContactPage() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<null | "success" | "error">(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,13 +39,19 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simular envío del formulario
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    // Aquí se implementaría la lógica real de envío
-    console.log("Formulario enviado:", formData);
+    setStatus(null);
+    try {
+      // Simular envío del formulario
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setIsSubmitting(false);
+      setStatus("success");
+      // Aquí se implementaría la lógica real de envío
+      console.log("Formulario enviado:", formData);
+      handleReset();
+    } catch (error) {
+      setIsSubmitting(false);
+      setStatus("error");
+    }
   };
 
   const handleReset = (): void => {
@@ -73,6 +82,33 @@ export default function ContactPage() {
         <div className="contact-page__content-container">
           <div className="contact-page__form">
             <h2 className="contact-page__form-title">Envíame un mensaje</h2>
+            {/* Mensaje de feedback visual */}
+            {status === "success" && (
+              <div
+                className="contact-page__form-feedback contact-page__form-feedback--success"
+                role="status"
+                tabIndex={-1}
+              >
+                <CheckCircle
+                  size={20}
+                  className="contact-page__form-feedback-icon"
+                />
+                ¡Mensaje enviado correctamente! Te responderé pronto.
+              </div>
+            )}
+            {status === "error" && (
+              <div
+                className="contact-page__form-feedback contact-page__form-feedback--error"
+                role="alert"
+                tabIndex={-1}
+              >
+                <XCircle
+                  size={20}
+                  className="contact-page__form-feedback-icon"
+                />
+                Ocurrió un error al enviar el mensaje. Intenta nuevamente.
+              </div>
+            )}
 
             <form onSubmit={handleSubmit}>
               <div className="contact-page__form-group">

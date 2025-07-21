@@ -6,11 +6,19 @@
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.25s, transform 0.18s;
   border: 1.5px solid $border-color;
+  @media (max-width: 480px) {
+    padding: 1.2rem 0.7rem;
+  }
   &:hover {
-    box-shadow: 0 8px 32px rgba(100, 255, 218, 0.1);
-    transform: translateY(-4px) scale(1.025);
+    box-shadow: 0 12px 36px rgba(100, 255, 218, 0.18);
+    transform: translateY(-6px) scale(1.03);
+  }
+  &:focus-within {
+    outline: 2.5px solid $accent-cyan;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.18);
   }
   &--blog {
     border-left: 4px solid $accent-cyan;

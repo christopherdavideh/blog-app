@@ -1,6 +1,6 @@
 .about-page {
   &__hero {
-    padding: 5rem 0 2rem 0;
+    padding: 5rem 1.5rem 2rem 1.5rem;
     background: $primary-bg;
     text-align: center;
     .light & {
@@ -10,6 +10,7 @@
   &__hero-content {
     max-width: 700px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
   &__hero-title {
     font-size: 2.5rem;
@@ -39,6 +40,7 @@
   &__content-container {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
   &__skills {
     padding: 2rem 0;
@@ -50,6 +52,7 @@
   &__skills-container {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
   &__experience {
     padding: 2rem 0 4rem 0;

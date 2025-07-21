@@ -1,6 +1,6 @@
 .home {
   &__hero {
-    padding: 6rem 0 3rem 0;
+    padding: 6rem 1.5rem 3rem 1.5rem;
     background: $primary-bg;
     display: flex;
     align-items: center;
@@ -14,6 +14,7 @@
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    padding: 0 1rem;
   }
   &__hero-greeting {
     font-size: 1.25rem;
@@ -44,12 +45,7 @@
   }
   &__section {
     padding: 4rem 0;
-    &--skills {
-      background: $primary-bg;
-      .light & {
-        background: $light-secondary-bg;
-      }
-    }
+    &--skills,
     &--projects {
       background: $primary-bg;
       .light & {

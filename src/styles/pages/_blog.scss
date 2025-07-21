@@ -1,6 +1,6 @@
 .blog-page {
   &__hero {
-    padding: 5rem 0 2rem 0;
+    padding: 5rem 1.5rem 2rem 1.5rem;
     background: $primary-bg;
     text-align: center;
     .light & {
@@ -10,6 +10,7 @@
   &__hero-content {
     max-width: 700px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
   &__hero-title {
     font-size: 2.5rem;
@@ -39,6 +40,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    padding: 0 1rem;
   }
   &__posts {
     padding: 2rem 0 4rem 0;
@@ -50,6 +52,7 @@
   &__posts-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
   &__posts-grid {
     display: grid;

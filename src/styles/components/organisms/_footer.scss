@@ -14,6 +14,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
   }
   &__copyright {
     color: $text-secondary;
@@ -37,7 +38,9 @@
   }
   &__social {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-top: 7px;
+    justify-content: center;
   }
   &__social-link {
     padding: 0.75rem;
@@ -45,11 +48,11 @@
     background: $secondary-bg;
     color: $text-secondary;
     border: 1px solid $secondary-bg;
-    transition: all 0.3s;
-    &:hover {
-      background: rgba($accent-cyan, 0.08);
+    transition: color 0.22s, transform 0.18s;
+    &:hover,
+    &:focus {
       color: $accent-cyan;
-      border-color: $accent-cyan;
+      transform: scale(1.13);
     }
   }
 }

@@ -63,7 +63,11 @@ export const Header: React.FC = () => {
           <span className="header__logo-text">CD</span>
         </Link>
         {/* Desktop Navigation */}
-        <nav className={`header__nav ${isMenuOpen ? "header__nav--open" : ""}`}>
+        <nav
+          role="navigation"
+          aria-label="Navegación principal"
+          className={`header__nav ${isMenuOpen ? "header__nav--open" : ""}`}
+        >
           {siteConfig.navigation.map((item) => (
             <Link
               key={item.id}
@@ -71,6 +75,7 @@ export const Header: React.FC = () => {
               className={`header__nav-link ${
                 isActive(item.href) ? "header__nav-link--active" : ""
               } hover--bright`}
+              aria-current={isActive(item.href) ? "page" : undefined}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}

@@ -4,13 +4,18 @@ import React, { useEffect, useRef, useState } from "react";
 
 interface FloatingParticlesProps {
   count?: number;
+  isMobile?: boolean;
   className?: string;
 }
 
 export const FloatingParticles: React.FC<FloatingParticlesProps> = ({
-  count = 200,
-  className = "",
+  count = 10,
+  isMobile = false,
 }) => {
+  if (isMobile) {
+    // En mobile, no renderizar partículas
+    return null;
+  }
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLight, setIsLight] = useState(false);
 
@@ -106,7 +111,7 @@ export const FloatingParticles: React.FC<FloatingParticlesProps> = ({
   return (
     <canvas
       ref={canvasRef}
-      className={`floating-particles ${className}`}
+      className={`floating-particles`}
       style={{
         position: "fixed",
         top: 0,
@@ -114,6 +119,8 @@ export const FloatingParticles: React.FC<FloatingParticlesProps> = ({
         width: "100vw",
         height: "100vh",
         pointerEvents: "none",
+        // zIndex 1: asegura que las partículas estén detrás del contenido pero delante del fondo del body.
+        // Si usas overlays/modales, sube su z-index a 10+ para que estén por encima de las partículas.
         zIndex: 1,
         inset: 0,
         display: "block",

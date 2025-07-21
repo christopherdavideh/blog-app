@@ -12,23 +12,25 @@ export interface CardProps {
   className?: string;
 }
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ variant = "default", children, className }, ref) => {
-    const baseClasses = "card";
-    const variantClasses = {
-      default: "",
-      blog: "card--blog",
-      project: "card--project",
-    };
+export const Card = React.memo(
+  forwardRef<HTMLDivElement, CardProps>(
+    ({ variant = "default", children, className }, ref) => {
+      const baseClasses = "card";
+      const variantClasses = {
+        default: "",
+        blog: "card--blog",
+        project: "card--project",
+      };
 
-    const classes = cn(baseClasses, variantClasses[variant], className);
+      const classes = cn(baseClasses, variantClasses[variant], className);
 
-    return (
-      <div ref={ref} className={classes}>
-        {children}
-      </div>
-    );
-  }
+      return (
+        <div ref={ref} className={classes}>
+          {children}
+        </div>
+      );
+    }
+  )
 );
 
 Card.displayName = "Card";
@@ -45,68 +47,70 @@ export interface BlogCardProps {
   className?: string;
 }
 
-export const BlogCard: React.FC<BlogCardProps> = ({
-  title,
-  excerpt,
-  date,
-  readTime,
-  tags,
-  featured = false,
-  onReadMore,
-  className,
-}) => {
-  const { elementRef, isVisible } = useScrollAnimation();
+export const BlogCard: React.FC<BlogCardProps> = React.memo(
+  ({
+    title,
+    excerpt,
+    date,
+    readTime,
+    tags,
+    featured = false,
+    onReadMore,
+    className,
+  }) => {
+    const { elementRef, isVisible } = useScrollAnimation();
 
-  return (
-    <Card
-      variant="blog"
-      ref={elementRef}
-      className={`${
-        isVisible ? "scroll-animate--scale visible" : "scroll-animate--scale"
-      } hover--lift ${className || ""}`.trim()}
-    >
-      {featured && (
-        <Badge
-          variant="primary"
-          size="small"
-          className="card__badge animate--pulse"
-        >
-          Destacado
-        </Badge>
-      )}
-      <div className="card__image hover--bright">
-        <div className="card__logo">CE</div>
-      </div>
-      <div className="card__content">
-        <div className="card__meta">
-          <div className="card__meta-item">
-            <Calendar size={16} />
-            {new Date(date).toLocaleDateString("es-ES", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+    return (
+      <Card
+        variant="blog"
+        ref={elementRef}
+        className={`${
+          isVisible ? "scroll-animate--scale visible" : "scroll-animate--scale"
+        } hover--lift ${className || ""}`.trim()}
+      >
+        {featured && (
+          <Badge
+            variant="primary"
+            size="small"
+            className="card__badge animate--pulse"
+          >
+            Destacado
+          </Badge>
+        )}
+        <div className="card__image hover--bright">
+          <div className="card__logo">CE</div>
+        </div>
+        <div className="card__content">
+          <div className="card__meta">
+            <div className="card__meta-item">
+              <Calendar size={16} />
+              {new Date(date).toLocaleDateString("es-ES", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </div>
+            <span>•</span>
+            <span>{readTime}</span>
           </div>
-          <span>•</span>
-          <span>{readTime}</span>
+          <h2 className="card__title">{title}</h2>
+          <p className="card__excerpt">{excerpt}</p>
+          <div className="card__tags">
+            {tags.slice(0, 3).map((tag) => (
+              <span key={tag} className="card__tag hover--scale">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <button className="card__action hover--glow" onClick={onReadMore}>
+            Leer más
+            <ArrowRight size={16} />
+          </button>
         </div>
-        <h2 className="card__title">{title}</h2>
-        <p className="card__excerpt">{excerpt}</p>
-        <div className="card__tags">
-          {tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="card__tag hover--scale">
-              {tag}
-            </span>
-          ))}
-        </div>
-        <button className="card__action hover--glow" onClick={onReadMore}>
-          Leer más
-          <ArrowRight size={16} />
-        </button>
-      </div>
-    </Card>
-  );
-};
+      </Card>
+    );
+  }
+);
 
 // Project Card Component
 export interface ProjectCardProps {

@@ -4,9 +4,17 @@ import { useEffect, useState } from "react";
 
 interface CursorSpotlightProps {
   children: React.ReactNode;
+  isMobile?: boolean;
 }
 
-export const CursorSpotlight = ({ children }: CursorSpotlightProps) => {
+export const CursorSpotlight = ({
+  children,
+  isMobile = false,
+}: CursorSpotlightProps) => {
+  if (isMobile) {
+    return <>{children}</>;
+  }
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {

@@ -9,24 +9,21 @@ export interface TagProps {
   className?: string;
 }
 
-export const Tag: React.FC<TagProps> = ({
-  label,
-  active = false,
-  onClick,
-  className,
-}) => {
-  const baseClasses = "tag";
-  const stateClasses = active ? "tag--active" : "tag--inactive";
+export const Tag: React.FC<TagProps> = React.memo(
+  ({ label, active = false, onClick, className }) => {
+    const baseClasses = "tag";
+    const stateClasses = active ? "tag--active" : "tag--inactive";
 
-  const classes = cn(baseClasses, stateClasses, className);
+    const classes = cn(baseClasses, stateClasses, className);
 
-  return (
-    <button className={classes} onClick={onClick}>
-      <TagIcon size={16} className="tag__icon" />
-      {label}
-    </button>
-  );
-};
+    return (
+      <button className={classes} onClick={onClick}>
+        <TagIcon size={16} className="tag__icon" />
+        {label}
+      </button>
+    );
+  }
+);
 
 export interface TagListProps {
   tags: string[];

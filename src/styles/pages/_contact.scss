@@ -1,6 +1,6 @@
 .contact-page {
   &__hero {
-    padding: 5rem 0 2rem 0;
+    padding: 5rem 1.5rem 2rem 1.5rem;
     background: $primary-bg;
     text-align: center;
     .light & {
@@ -10,6 +10,7 @@
   &__hero-content {
     max-width: 700px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
   &__hero-title {
     font-size: 2.5rem;
@@ -42,6 +43,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    padding: 0 1rem;
     @media (min-width: 900px) {
       flex-direction: row;
       gap: 4rem;
@@ -199,6 +201,46 @@
   &__form-send-icon {
     margin-right: 0.5rem;
     display: inline-block;
+  }
+}
+
+.contact-page__form-feedback {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  animation: feedback-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  &--success {
+    background: linear-gradient(
+      90deg,
+      var(--color-accent-cyan),
+      var(--color-accent-blue)
+    );
+    color: #fff;
+    border: 1.5px solid var(--color-accent-cyan);
+  }
+  &--error {
+    background: linear-gradient(90deg, #ff4d4f, #ffb199);
+    color: #fff;
+    border: 1.5px solid #ff4d4f;
+  }
+  &-icon {
+    flex-shrink: 0;
+  }
+}
+@keyframes feedback-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

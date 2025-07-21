@@ -17,8 +17,17 @@ body {
   line-height: 1.6;
 }
 
+.light body {
+  background-color: $light-primary-bg;
+  color: $light-text-primary;
+}
+
 #__next {
   background-color: $primary-bg;
+}
+
+.light #__next {
+  background-color: $light-primary-bg;
 }
 
 // Remove default button styles
