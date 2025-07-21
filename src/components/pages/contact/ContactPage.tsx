@@ -46,7 +46,6 @@ export default function ContactPage() {
       setIsSubmitting(false);
       setStatus("success");
       // Aquí se implementaría la lógica real de envío
-      console.log("Formulario enviado:", formData);
       handleReset();
     } catch (error) {
       setIsSubmitting(false);
@@ -87,30 +86,38 @@ export default function ContactPage() {
               <div
                 className="contact-page__form-feedback contact-page__form-feedback--success"
                 role="status"
-                tabIndex={-1}
+                aria-live="polite"
               >
                 <CheckCircle
                   size={20}
                   className="contact-page__form-feedback-icon"
+                  aria-hidden="true"
                 />
-                ¡Mensaje enviado correctamente! Te responderé pronto.
+                Mensaje enviado correctamente. ¡Gracias por contactarme!
               </div>
             )}
             {status === "error" && (
               <div
                 className="contact-page__form-feedback contact-page__form-feedback--error"
                 role="alert"
-                tabIndex={-1}
+                aria-live="assertive"
               >
                 <XCircle
                   size={20}
                   className="contact-page__form-feedback-icon"
+                  aria-hidden="true"
                 />
-                Ocurrió un error al enviar el mensaje. Intenta nuevamente.
+                Ocurrió un error al enviar el mensaje. Por favor, inténtalo de
+                nuevo.
               </div>
             )}
 
-            <form onSubmit={handleSubmit}>
+            <form
+              className="contact-page__form"
+              onSubmit={handleSubmit}
+              aria-label="Formulario de contacto"
+              role="form"
+            >
               <div className="contact-page__form-group">
                 <label htmlFor="name" className="contact-page__form-label">
                   Nombre
