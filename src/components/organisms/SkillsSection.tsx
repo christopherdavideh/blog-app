@@ -139,9 +139,7 @@ const SkillsSection = () => {
             (skill, index) => (
               <div
                 key={skill.name}
-                className={`skills__item hover--tilt animate--bounce-in animate--delay-${
-                  5 + index
-                }`}
+                className={`skills__item hover--tilt animate--zoom-in`}
               >
                 <div className="skills__item-header">
                   <h3 className="skills__item-title animate--text-reveal">

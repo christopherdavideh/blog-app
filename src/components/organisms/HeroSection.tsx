@@ -27,13 +27,13 @@ export default function HeroSection() {
               <TypewriterText text="Software Developer" speed={60} />
             )}
           </h2>
-          <p className="hero__subtitle-desc">
+          <p className="hero__subtitle-desc animate--slide-up-stagger">
             Especializado en React, Angular, Java SpringBoot, C# .NET y
             desarrollo móvil.
             <br />
             Creando experiencias digitales excepcionales.
           </p>
-          <div className="hero__actions hero__actions--fullwidth">
+          <div className="hero__actions hero__actions--fullwidth animate--slide-up-stagger">
             <Link
               href="/projects"
               className="button button--primary button--block"
