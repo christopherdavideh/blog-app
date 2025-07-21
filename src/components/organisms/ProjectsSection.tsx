@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ExternalLink, Github, Eye, Tag } from "lucide-react";
-import { ProjectCard } from "@/components/molecules/Card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -125,32 +125,96 @@ export default function ProjectsSection() {
         </div>
         {/* Projects Grid */}
         <div className="projects__grid">
-          {filteredProjects.map((project, idx) => (
-            <div key={project.id} className="projects__item">
-              {/* Project Image */}
-              <div className="projects__card-image">
-                <div className="projects__card-image-content">
-                  <span className="projects__card-image-title">
-                    {project.title.split(" ")[0]}
-                  </span>
+          {filteredProjects.map((project, idx) => {
+            const { elementRef, isVisible } = useScrollAnimation();
+            return (
+              <div
+                key={project.id}
+                ref={elementRef}
+                className={`projects__item ${
+                  isVisible
+                    ? "scroll-animate--scale visible"
+                    : "scroll-animate--scale"
+                } hover--lift`}
+              >
+                {/* Project Image */}
+                <div className="projects__card-image hover--shimmer-effect">
+                  <div className="projects__card-image-content">
+                    <span className="projects__card-image-title">
+                      {project.title.split(" ")[0]}
+                    </span>
+                  </div>
+                  {project.featured && (
+                    <div className="projects__card-featured animate--neon-pulse">
+                      Destacado
+                    </div>
+                  )}
+                  {/* Overlay */}
+                  <div className="projects__card-overlay">
+                    <div className="projects__card-overlay-actions">
+                      {project.github && (
+                        <Link
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="projects__card-overlay-btn hover--neon"
+                        >
+                          <Github
+                            size={20}
+                            className="projects__card-overlay-icon"
+                          />
+                        </Link>
+                      )}
+                      {project.live && (
+                        <Link
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="projects__card-overlay-btn hover--neon"
+                        >
+                          <ExternalLink
+                            size={20}
+                            className="projects__card-overlay-icon"
+                          />
+                        </Link>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                {project.featured && (
-                  <div className="projects__card-featured">Destacado</div>
-                )}
-                {/* Overlay */}
-                <div className="projects__card-overlay">
-                  <div className="projects__card-overlay-actions">
+                {/* Project Content */}
+                <div className="projects__card-content">
+                  <h3 className="projects__card-title animate--text-reveal">
+                    {project.title}
+                  </h3>
+                  <p className="projects__card-desc">{project.description}</p>
+                  {/* Technologies */}
+                  <div className="projects__card-techs">
+                    {project.technologies.map((tech, techIdx) => (
+                      <span
+                        key={tech}
+                        className={`projects__card-tech animate--slide-up-stagger animate--delay-${
+                          techIdx + 1
+                        }`}
+                      >
+                        <Tag size={12} className="projects__card-tech-icon" />
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  {/* Project Links */}
+                  <div className="projects__card-links">
                     {project.github && (
                       <Link
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="projects__card-overlay-btn"
+                        className="projects__card-link hover--neon"
                       >
                         <Github
-                          size={20}
-                          className="projects__card-overlay-icon"
+                          size={16}
+                          className="projects__card-link-icon"
                         />
+                        Código
                       </Link>
                     )}
                     {project.live && (
@@ -158,68 +222,27 @@ export default function ProjectsSection() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="projects__card-overlay-btn"
+                        className="projects__card-link hover--neon"
                       >
                         <ExternalLink
-                          size={20}
-                          className="projects__card-overlay-icon"
+                          size={16}
+                          className="projects__card-link-icon"
                         />
+                        Demo
                       </Link>
                     )}
                   </div>
                 </div>
               </div>
-              {/* Project Content */}
-              <div className="projects__card-content">
-                <h3 className="projects__card-title">{project.title}</h3>
-                <p className="projects__card-desc">{project.description}</p>
-                {/* Technologies */}
-                <div className="projects__card-techs">
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className="projects__card-tech">
-                      <Tag size={12} className="projects__card-tech-icon" />
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                {/* Project Links */}
-                <div className="projects__card-links">
-                  {project.github && (
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="projects__card-link"
-                    >
-                      <Github size={16} className="projects__card-link-icon" />
-                      Código
-                    </Link>
-                  )}
-                  {project.live && (
-                    <Link
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="projects__card-link"
-                    >
-                      <ExternalLink
-                        size={16}
-                        className="projects__card-link-icon"
-                      />
-                      Demo
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         {/* Call to Action */}
-        <div className="projects__cta">
+        <div className="projects__cta animate--bounce-in animate--delay-8">
           <p className="projects__cta-text">
             ¿Te gusta lo que ves? ¡Trabajemos juntos en tu próximo proyecto!
           </p>
-          <Link href="/contact" className="projects__cta-btn">
+          <Link href="/contact" className="projects__cta-btn hover--neon">
             <Eye size={20} className="projects__cta-btn-icon" />
             Ver más proyectos
           </Link>

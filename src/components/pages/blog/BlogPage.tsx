@@ -6,6 +6,7 @@ import { Search } from "@/components/molecules/Search";
 import { TagList } from "@/components/molecules/Tag";
 import { BlogCard } from "@/components/molecules/Card";
 import { Button } from "@/components/atoms/Button";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const blogPosts = [
   {
@@ -148,44 +149,50 @@ export default function BlogPage() {
   };
 
   return (
-    <>
-      <Header />
-      <main className="blog-page">
-        {/* Hero Section */}
-        <section className="blog-page__hero">
-          <div className="blog-page__hero-content">
-            <h1 className="blog-page__hero-title">Mi Blog</h1>
-            <div className="blog-page__hero-divider"></div>
-            <p className="blog-page__hero-description">
-              Compartiendo conocimientos, experiencias y mejores prácticas en
-              desarrollo de software
-            </p>
-          </div>
-        </section>
+    <main className="blog-page">
+      {/* Hero Section */}
+      <section className="blog-page__hero">
+        <div className="blog-page__hero-content">
+          <h1 className="blog-page__hero-title">Mi Blog</h1>
+          <div className="blog-page__hero-divider"></div>
+          <p className="blog-page__hero-description">
+            Compartiendo conocimientos, experiencias y mejores prácticas en
+            desarrollo de software
+          </p>
+        </div>
+      </section>
 
-        {/* Search and Filters */}
-        <section className="blog-page__filters">
-          <div className="blog-page__filters-content">
-            <Search
-              placeholder="Buscar posts..."
-              value={searchTerm}
-              onChange={setSearchTerm}
-            />
-            <TagList
-              tags={allTags}
-              selectedTags={selectedTags}
-              onTagToggle={handleTagToggle}
-            />
-          </div>
-        </section>
+      {/* Search and Filters */}
+      <section className="blog-page__filters">
+        <div className="blog-page__filters-content">
+          <Search
+            placeholder="Buscar posts..."
+            value={searchTerm}
+            onChange={setSearchTerm}
+          />
+          <TagList
+            tags={allTags}
+            selectedTags={selectedTags}
+            onTagToggle={handleTagToggle}
+          />
+        </div>
+      </section>
 
-        {/* Blog Posts */}
-        <section className="blog-page__posts">
-          <div className="blog-page__posts-content">
-            {currentPosts.length > 0 ? (
-              <div className="blog-page__posts-grid">
-                {currentPosts.map((post) => (
-                  <div key={post.id} className="animate-fade-in-up">
+      {/* Blog Posts */}
+      <section className="blog-page__posts">
+        <div className="blog-page__posts-content">
+          {currentPosts.length > 0 ? (
+            <div className="blog-page__posts-grid">
+              {currentPosts.map((post) => {
+                const { elementRef, isVisible } = useScrollAnimation();
+                return (
+                  <div
+                    key={post.id}
+                    ref={elementRef}
+                    className={`scroll-animate--scale ${
+                      isVisible ? "visible" : ""
+                    }`}
+                  >
                     <BlogCard
                       title={post.title}
                       excerpt={post.excerpt}
@@ -196,40 +203,40 @@ export default function BlogPage() {
                       onReadMore={() => handleReadMore(post.slug)}
                     />
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div className="blog-page__no-posts">
-                <p className="blog-page__no-posts-text">
-                  No se encontraron posts que coincidan con tu búsqueda.
-                </p>
-              </div>
-            )}
+                );
+              })}
+            </div>
+          ) : (
+            <div className="blog-page__no-posts">
+              <p className="blog-page__no-posts-text">
+                No se encontraron posts que coincidan con tu búsqueda.
+              </p>
+            </div>
+          )}
 
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <div className="blog-page__pagination">
-                <div className="blog-page__pagination-list">
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                    (page) => (
-                      <div key={page} className="blog-page__pagination-item">
-                        <Button
-                          variant={currentPage === page ? "primary" : "ghost"}
-                          size="small"
-                          onClick={() => setCurrentPage(page)}
-                          className="blog-page__pagination-button"
-                        >
-                          {page}
-                        </Button>
-                      </div>
-                    )
-                  )}
-                </div>
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="blog-page__pagination">
+              <div className="blog-page__pagination-list">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => (
+                    <div key={page} className="blog-page__pagination-item">
+                      <Button
+                        variant={currentPage === page ? "primary" : "ghost"}
+                        size="small"
+                        onClick={() => setCurrentPage(page)}
+                        className="blog-page__pagination-button"
+                      >
+                        {page}
+                      </Button>
+                    </div>
+                  )
+                )}
               </div>
-            )}
-          </div>
-        </section>
-      </main>
-    </>
+            </div>
+          )}
+        </div>
+      </section>
+    </main>
   );
 }

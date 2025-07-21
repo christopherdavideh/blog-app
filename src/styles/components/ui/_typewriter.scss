@@ -1,0 +1,64 @@
+.typewriter-text {
+  display: inline-block;
+  position: relative;
+
+  .typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: $accent-cyan;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+
+    .light & {
+      background-color: $light-accent-cyan;
+    }
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+// Variantes del typewriter
+.typewriter-text {
+  &--large {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  &--medium {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  &--small {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  &--accent {
+    color: $accent-cyan;
+    .light & {
+      color: $light-accent-cyan;
+    }
+  }
+
+  &--neon {
+    text-shadow: 0 0 5px rgba($accent-cyan, 0.5),
+      0 0 10px rgba($accent-cyan, 0.3), 0 0 15px rgba($accent-cyan, 0.1);
+
+    .light & {
+      text-shadow: 0 0 5px rgba($light-accent-cyan, 0.5),
+        0 0 10px rgba($light-accent-cyan, 0.3),
+        0 0 15px rgba($light-accent-cyan, 0.1);
+    }
+  }
+}

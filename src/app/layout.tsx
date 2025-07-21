@@ -1,108 +1,56 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/styles/main.scss";
-import SchemaMarkup from "@/components/organisms/SchemaMarkup";
+import "./globals.scss";
+import { Header } from "@/components/organisms/Header";
+import { Footer } from "@/components/organisms/Footer";
 import { CursorSpotlight } from "@/components/ui/CursorSpotlight";
+import { FloatingParticles } from "@/components/ui/FloatingParticles";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Christopher David Erazo - Software Developer",
-    template: "%s | Christopher David Erazo",
-  },
+  title: "Christopher Erazo - Desarrollador Full-Stack",
   description:
-    "Software Developer especializado en React, Angular, Java SpringBoot, C# .NET y desarrollo móvil. Creando experiencias digitales excepcionales.",
+    "Portfolio personal de Christopher Erazo, desarrollador Full-Stack especializado en React, Node.js y tecnologías modernas.",
   keywords: [
-    "Software Developer",
-    "React",
-    "Angular",
-    "Java SpringBoot",
-    "C# .NET",
-    "Flutter",
-    "Xamarin",
-    "Full Stack Developer",
-    "Colombia",
-    "Desarrollo Web",
-    "Desarrollo Móvil",
+    "desarrollador",
+    "full-stack",
+    "react",
+    "node.js",
+    "typescript",
+    "portfolio",
   ],
-  authors: [{ name: "Christopher David Erazo Herrera" }],
-  creator: "Christopher David Erazo Herrera",
-  publisher: "Christopher David Erazo Herrera",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://christopherdavideh.com"),
-  alternates: {
-    canonical: "/",
-  },
+  authors: [{ name: "Christopher Erazo" }],
+  creator: "Christopher Erazo",
   openGraph: {
-    type: "website",
-    locale: "es_CO",
-    url: "https://christopherdavideh.com",
-    title: "Christopher David Erazo - Software Developer",
+    title: "Christopher Erazo - Desarrollador Full-Stack",
     description:
-      "Software Developer especializado en React, Angular, Java SpringBoot, C# .NET y desarrollo móvil.",
-    siteName: "Christopher David Erazo Portfolio",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Christopher David Erazo - Software Developer",
-      },
-    ],
+      "Portfolio personal de Christopher Erazo, desarrollador Full-Stack especializado en React, Node.js y tecnologías modernas.",
+    type: "website",
+    locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christopher David Erazo - Software Developer",
+    title: "Christopher Erazo - Desarrollador Full-Stack",
     description:
-      "Software Developer especializado en React, Angular, Java SpringBoot, C# .NET y desarrollo móvil.",
-    images: ["/og-image.jpg"],
-    creator: "@christopdavideh",
+      "Portfolio personal de Christopher Erazo, desarrollador Full-Stack especializado en React, Node.js y tecnologías modernas.",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: "/manifest.json",
-};
-
-export const viewport: Viewport = {
-  themeColor: "#0a192f",
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="es">
-      <head>
-        <SchemaMarkup />
-      </head>
       <body className={inter.className}>
-        <CursorSpotlight>{children}</CursorSpotlight>
+        <CursorSpotlight>
+          <FloatingParticles count={10} />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </CursorSpotlight>
       </body>
     </html>
   );

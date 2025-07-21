@@ -73,6 +73,125 @@
   }
 }
 
+// NUEVAS ANIMACIONES IMPACTANTES
+@keyframes morphing {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes textReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-20px);
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes tiltIn {
+  0% {
+    opacity: 0;
+    transform: rotateX(90deg) translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+  }
+}
+
+@keyframes slideUpStagger {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-100px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes rotate3D {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes neonPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba($accent-cyan, 0.5),
+      0 0 10px rgba($accent-cyan, 0.3), 0 0 15px rgba($accent-cyan, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba($accent-cyan, 0.8),
+      0 0 20px rgba($accent-cyan, 0.6), 0 0 30px rgba($accent-cyan, 0.4);
+  }
+}
+
 // Clases utilitarias de animación
 .animate {
   &--fade-in {
@@ -102,10 +221,66 @@
   &--pulse {
     animation: pulse 2s ease-in-out infinite;
   }
+
+  // NUEVAS ANIMACIONES IMPACTANTES
+  &--morphing {
+    animation: morphing 8s ease-in-out infinite;
+  }
+
+  &--text-reveal {
+    animation: textReveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  &--gradient-shift {
+    background: linear-gradient(
+      -45deg,
+      $accent-cyan,
+      $accent-blue,
+      $accent-cyan,
+      $accent-blue
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  &--tilt-in {
+    animation: tiltIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  &--slide-up-stagger {
+    animation: slideUpStagger 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  &--bounce-in {
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
+  &--shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  &--rotate-3d {
+    animation: rotate3D 2s linear infinite;
+  }
+
+  &--wave {
+    animation: wave 2s ease-in-out infinite;
+  }
+
+  &--neon-pulse {
+    animation: neonPulse 2s ease-in-out infinite;
+  }
 }
 
 // Delays para animaciones escalonadas
-@for $i from 1 through 10 {
+@for $i from 1 through 20 {
   .animate--delay-#{$i} {
     animation-delay: #{$i * 0.1}s;
   }
@@ -141,13 +316,58 @@
       filter: brightness(1.1);
     }
   }
+
+  // NUEVOS EFECTOS HOVER IMPACTANTES
+  &--morph {
+    transition: border-radius 0.6s ease;
+    &:hover {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+  }
+
+  &--neon {
+    transition: all 0.3s ease;
+    &:hover {
+      box-shadow: 0 0 10px rgba($accent-cyan, 0.5),
+        0 0 20px rgba($accent-cyan, 0.3), 0 0 30px rgba($accent-cyan, 0.1);
+      transform: translateY(-2px);
+    }
+  }
+
+  &--tilt {
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
+    }
+  }
+
+  &--shimmer-effect {
+    position: relative;
+    overflow: hidden;
+    &:hover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transition: left 0.5s;
+      left: 100%;
+    }
+  }
 }
 
 // Animaciones de scroll (para usar con Intersection Observer)
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease;
 
   &.visible {
     opacity: 1;
@@ -173,5 +393,79 @@
     &.visible {
       transform: scale(1);
     }
+  }
+
+  // NUEVAS ANIMACIONES DE SCROLL IMPACTANTES
+  &--tilt-in {
+    transform: perspective(1000px) rotateX(90deg) translateY(50px);
+    &.visible {
+      transform: perspective(1000px) rotateX(0deg) translateY(0);
+    }
+  }
+
+  &--bounce-in {
+    transform: scale(0.3) translateY(-100px);
+    &.visible {
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  &--text-reveal {
+    clip-path: inset(0 100% 0 0);
+    &.visible {
+      clip-path: inset(0 0% 0 0);
+    }
+  }
+}
+
+// Efectos de partículas (para usar con CSS)
+.particles {
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: $accent-cyan;
+    border-radius: 50%;
+    animation: float 3s ease-in-out infinite;
+  }
+  &::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  &::after {
+    top: 60%;
+    right: 20%;
+    animation-delay: 1.5s;
+  }
+}
+
+// Efecto de typing para texto
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid $accent-cyan;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: $accent-cyan;
   }
 }

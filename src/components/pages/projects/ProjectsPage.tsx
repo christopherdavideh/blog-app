@@ -5,16 +5,13 @@ import ProjectsSection from "@/components/organisms/ProjectsSection";
 
 export default function ProjectsPage() {
   return (
-    <>
-      <Header />
-      <main className="projects-page">
-        {/* Projects Grid */}
-        <section className="projects-page__grid">
-          <div className="projects-page__grid-container">
-            <ProjectsSection />
-          </div>
-        </section>
-      </main>
-    </>
+    <main className="projects-page">
+      {/* Projects Grid */}
+      <section className="projects-page__grid">
+        <div className="projects-page__grid-container">
+          <ProjectsSection />
+        </div>
+      </section>
+    </main>
   );
 }

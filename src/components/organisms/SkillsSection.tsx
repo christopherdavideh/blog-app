@@ -112,7 +112,7 @@ const SkillsSection = () => {
           </p>
         </div>
 
-        <div className="skills__categories animate--fade-in animate--delay-3">
+        <div className="skills__categories animate--slide-up-stagger animate--delay-3">
           {categories.map((category) => {
             const Icon = category.icon;
             return (
@@ -123,7 +123,9 @@ const SkillsSection = () => {
                   activeCategory === category.id
                     ? "skills__category-btn--active"
                     : ""
-                } hover--scale`}
+                } hover--neon animate--wave animate--delay-${
+                  categories.indexOf(category) + 1
+                }`}
               >
                 <Icon size={20} className="skills__category-icon" />
                 <span>{category.name}</span>
@@ -132,22 +134,26 @@ const SkillsSection = () => {
           })}
         </div>
 
-        <div className="skills__grid animate--fade-in animate--delay-4">
+        <div className="skills__grid animate--slide-up-stagger animate--delay-4">
           {skills[activeCategory as keyof typeof skills]?.map(
             (skill, index) => (
               <div
                 key={skill.name}
-                className={`skills__item hover--lift animate--fade-in animate--delay-${
+                className={`skills__item hover--tilt animate--bounce-in animate--delay-${
                   5 + index
                 }`}
               >
                 <div className="skills__item-header">
-                  <h3 className="skills__item-title">{skill.name}</h3>
-                  <span className="skills__item-level">{skill.level}%</span>
+                  <h3 className="skills__item-title animate--text-reveal">
+                    {skill.name}
+                  </h3>
+                  <span className="skills__item-level animate--neon-pulse">
+                    {skill.level}%
+                  </span>
                 </div>
                 <div className="skills__item-bar-bg">
                   <div
-                    className="skills__item-bar"
+                    className="skills__item-bar-fill animate--gradient-shift"
                     style={{
                       width: `${skill.level}%`,
                       backgroundColor: skill.color,
@@ -165,8 +171,8 @@ const SkillsSection = () => {
           )}
         </div>
 
-        <div className="skills__strengths animate--fade-in animate--delay-9">
-          <h3 className="skills__strengths-title">
+        <div className="skills__strengths animate--slide-up-stagger animate--delay-9">
+          <h3 className="skills__strengths-title animate--text-reveal">
             ¿Por qué estas tecnologías?
           </h3>
           <div className="skills__strengths-grid">
@@ -175,11 +181,11 @@ const SkillsSection = () => {
               return (
                 <div
                   key={index}
-                  className={`skills__strength hover--lift animate--fade-in animate--delay-${
+                  className={`skills__strength hover--morph animate--tilt-in animate--delay-${
                     10 + index
                   }`}
                 >
-                  <Icon className="skills__strength-icon" />
+                  <Icon className="skills__strength-icon animate--neon-pulse" />
                   <h4 className="skills__strength-title">{strength.title}</h4>
                   <p className="skills__strength-desc">
                     {strength.description}
