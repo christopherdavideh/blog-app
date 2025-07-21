@@ -74,7 +74,7 @@ export const FloatingParticles: React.FC<FloatingParticlesProps> = ({
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = `${color}${particle.opacity})`;
         ctx.shadowColor = shadow;
-        ctx.shadowBlur = 12;
+        ctx.shadowBlur = 10;
         ctx.fill();
         ctx.shadowBlur = 0;
       });
@@ -114,7 +114,7 @@ export const FloatingParticles: React.FC<FloatingParticlesProps> = ({
         width: "100vw",
         height: "100vh",
         pointerEvents: "none",
-        zIndex: 0,
+        zIndex: 1,
         inset: 0,
         display: "block",
       }}

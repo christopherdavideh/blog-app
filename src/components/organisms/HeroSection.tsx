@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { FloatingParticles } from "@/components/ui/FloatingParticles";
 import { TypewriterText } from "@/components/ui/TypewriterText";
 import React, { useState } from "react";
 
@@ -10,7 +9,6 @@ export default function HeroSection() {
 
   return (
     <section className="hero">
-      <FloatingParticles count={15} />
       <div className="hero__container">
         <div className="hero__content">
           <span className="hero__title-greeting">Hola, mi nombre es</span>
