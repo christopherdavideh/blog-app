@@ -31,14 +31,14 @@
     margin-bottom: 1.5rem;
   }
   &__content {
-    padding: 2rem 0 4rem 0;
+    padding: 0rem 1.5rem 2rem 1.5rem;
     background: $secondary-bg;
     .light & {
       background: $light-secondary-bg;
     }
   }
   &__content-container {
-    max-width: 1200px;
+    max-width: 750px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -110,8 +110,11 @@
     flex: 1 1 0;
     background: $primary-bg;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    @include desktop {
+      padding: 2rem;
+    }
   }
   &__form-title {
     font-size: 1.4rem;
@@ -156,8 +159,11 @@
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
   &__form-submit {
+    width: 100%;
     min-width: 140px;
     font-weight: 600;
     display: flex;
@@ -170,6 +176,13 @@
     padding: 0.75rem 1.5rem;
     cursor: pointer;
     transition: background 0.2s;
+    @include tablet {
+      width: 45%;
+    }
+    @include desktop {
+      width: 45%;
+    }
+
     &:hover:not(:disabled) {
       background: darken($accent-cyan, 8%);
     }
@@ -179,6 +192,7 @@
     }
   }
   &__form-reset {
+    width: 100%;
     min-width: 100px;
     font-weight: 500;
     background: $secondary-bg;
@@ -188,6 +202,14 @@
     padding: 0.75rem 1.2rem;
     cursor: pointer;
     transition: border-color 0.2s, color 0.2s;
+    @include tablet {
+      width: 45%;
+    }
+
+    @include desktop {
+      width: 45%;
+    }
+
     &:hover {
       border-color: $accent-cyan;
       color: $accent-cyan;
