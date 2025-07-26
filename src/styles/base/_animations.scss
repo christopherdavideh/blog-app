@@ -365,9 +365,11 @@
   }
 
   &--tilt {
-    transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
     &:hover {
-      transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
+      transform: perspective(900px) scale(1.04) rotateX(4deg) rotateY(5deg)
+        translateY(-6px);
     }
   }
 
