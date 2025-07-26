@@ -2,12 +2,12 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 6rem $spacing-md $spacing-xl;
+  padding: 8rem $spacing-md $spacing-2xl;
   position: relative;
   overflow: hidden;
 
   @include desktop {
-    padding: 8rem $spacing-xl $spacing-3xl;
+    padding: 5rem $spacing-xl $spacing-3xl;
   }
 
   &__container {
@@ -48,14 +48,14 @@
 
     &-name {
       display: block;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 800;
       line-height: 1.1;
       color: $text-primary;
       margin-bottom: $spacing-md;
       letter-spacing: -1px;
       @include desktop {
-        font-size: 3.5rem;
+        font-size: 3rem;
       }
       .light & {
         color: $light-text-primary;
@@ -64,7 +64,7 @@
   }
 
   &__subtitle {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: $text-secondary;
     margin-bottom: $spacing-lg;
@@ -72,7 +72,7 @@
     margin-left: auto;
     margin-right: auto;
     @include desktop {
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: $spacing-xl;
       margin-left: 0;
       margin-right: 0;
@@ -157,35 +157,6 @@
     .light & {
       filter: drop-shadow(0 0 20px rgba($light-accent-cyan, 0.5));
     }
-  }
-}
-
-.hero__title-greeting {
-  display: block;
-  color: $accent-cyan;
-  font-size: 1.25rem;
-  font-weight: 400;
-  margin-bottom: $spacing-sm;
-  text-align: center;
-  @include desktop {
-    text-align: left;
-  }
-}
-
-.hero__title-name {
-  font-size: 2.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  color: $text-primary;
-  margin-bottom: $spacing-md;
-  letter-spacing: -1px;
-  text-align: center;
-  @include desktop {
-    font-size: 3.5rem;
-    text-align: left;
-  }
-  .light & {
-    color: $light-text-primary;
   }
 }
 

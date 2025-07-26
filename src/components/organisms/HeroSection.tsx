@@ -4,6 +4,9 @@ import Link from "next/link";
 import { TypewriterText } from "@/components/ui/TypewriterText";
 import React, { useState } from "react";
 
+import Image from "next/image";
+const profileImagePath = "/images/christopher.png";
+
 export default function HeroSection() {
   const [showSubtitle, setShowSubtitle] = useState(false);
 
@@ -11,7 +14,6 @@ export default function HeroSection() {
     <section className="hero">
       <div className="hero__container">
         <div className="hero__content">
-          <span className="hero__title-greeting">Hola, mi nombre es</span>
           <h1 className="hero__title-name">
             <TypewriterText
               text="Christopher David Erazo Herrera"
@@ -26,9 +28,6 @@ export default function HeroSection() {
             )}
           </h2>
           <p className="hero__subtitle-desc animate--slide-up-stagger">
-            Especializado en React, Angular, Java SpringBoot, C# .NET y
-            desarrollo móvil.
-            <br />
             Creando experiencias digitales excepcionales.
           </p>
           <div className="hero__actions hero__actions--fullwidth animate--slide-up-stagger">
@@ -49,7 +48,15 @@ export default function HeroSection() {
         <div className="hero__visual animate--zoom-in">
           <div className="hero__image-container hover--tilt">
             <div className="hero__image-placeholder animate--morphing">
-              <div className="hero__image-icon animate--neon-pulse">👨‍💻</div>
+              <Image
+                src={profileImagePath}
+                alt="Christopher Erazo"
+                className="hero__image"
+                width={300}
+                height={300}
+                priority
+                fill={false}
+              />
             </div>
           </div>
         </div>
