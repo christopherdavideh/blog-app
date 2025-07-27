@@ -16,7 +16,7 @@ export default function HeroSection() {
         <div className="hero__content">
           <h1 className="hero__title-name">
             <TypewriterText
-              text="Christopher David Erazo Herrera"
+              text="Christopher Erazo"
               speed={70}
               delay={400}
               onComplete={() => setShowSubtitle(true)}
@@ -35,13 +35,13 @@ export default function HeroSection() {
               href="/projects"
               className="button button--primary button--block"
             >
-              Ver Proyectos
+              See projects
             </Link>
             <Link
               href="/contact"
               className="button button--secondary button--block"
             >
-              Contactar
+              Contact
             </Link>
           </div>
         </div>

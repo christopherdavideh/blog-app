@@ -20,53 +20,41 @@ const SkillsSection = () => {
   const { elementRef, isVisible } = useScrollAnimation();
 
   const categories = [
-    { id: "frontend", name: "Frontend", icon: Globe, color: "#61DAFB" },
-    { id: "backend", name: "Backend", icon: Server, color: "#6DB33F" },
-    { id: "database", name: "Base de Datos", icon: Database, color: "#336791" },
-    { id: "mobile", name: "Mobile", icon: Smartphone, color: "#02569B" },
-    { id: "tools", name: "Herramientas", icon: Code, color: "#F05032" },
-    { id: "design", name: "Diseño", icon: Palette, color: "#F24E1E" },
+    { id: "frontend", name: "Frontend", icon: Globe },
+    { id: "backend", name: "Backend", icon: Server },
+    { id: "database", name: "Databases", icon: Database },
+    { id: "mobile", name: "Mobile", icon: Smartphone },
+    { id: "tools", name: "Tools", icon: Code },
   ];
 
   const skills = {
     frontend: [
-      { name: "HTML5", level: 95, color: "#E34F26" },
-      { name: "CSS3", level: 90, color: "#1572B6" },
-      { name: "JavaScript", level: 88, color: "#F7DF1E" },
-      { name: "React", level: 85, color: "#61DAFB" },
-      { name: "Angular", level: 80, color: "#DD0031" },
-      { name: "TypeScript", level: 75, color: "#3178C6" },
-      { name: "Bootstrap", level: 85, color: "#7952B3" },
-      { name: "jQuery", level: 80, color: "#0769AD" },
+      { name: "React" },
+      { name: "Angular" },
+      { name: "TypeScript" },
+      { name: "JavaScript" },
+      { name: "HTML" },
+      { name: "Sass" },
     ],
     backend: [
-      { name: "Java SpringBoot", level: 85, color: "#6DB33F" },
-      { name: "C# .NET", level: 80, color: "#512BD4" },
-      { name: "PHP", level: 75, color: "#777BB4" },
-      { name: "Laravel", level: 70, color: "#FF2D20" },
-      { name: "Python", level: 70, color: "#3776AB" },
-      { name: "Django", level: 65, color: "#092E20" },
+      { name: "Spring Boot" },
+      { name: "Python" },
+      { name: ".NET" },
+      { name: "Laravel" },
     ],
     database: [
-      { name: "MySQL", level: 85, color: "#4479A1" },
-      { name: "PostgreSQL", level: 80, color: "#336791" },
-      { name: "SQL Server", level: 75, color: "#CC2927" },
+      { name: "Postgres" },
+      { name: "MySQL" },
+      { name: "SQL Server" },
+      { name: "Redis" },
+      { name: "MongoDB" },
     ],
-    mobile: [
-      { name: "Flutter", level: 75, color: "#02569B" },
-      { name: "Xamarin", level: 70, color: "#3498DB" },
-    ],
+    mobile: [{ name: "React Native" }, { name: "MAUI" }],
     tools: [
-      { name: "Git", level: 90, color: "#F05032" },
-      { name: "GitHub", level: 85, color: "#181717" },
-      { name: "VS Code", level: 95, color: "#007ACC" },
-      { name: "Postman", level: 80, color: "#FF6C37" },
-      { name: "Docker", level: 65, color: "#2496ED" },
-    ],
-    design: [
-      { name: "Figma", level: 70, color: "#F24E1E" },
-      { name: "Adobe XD", level: 65, color: "#FF61F6" },
-      { name: "Photoshop", level: 60, color: "#31A8FF" },
+      { name: "Git" },
+      { name: "GitHub" },
+      { name: "Postman" },
+      { name: "Figma" },
     ],
   };
 
@@ -142,27 +130,17 @@ const SkillsSection = () => {
                 className={`skills__item hover--tilt animate--zoom-in`}
               >
                 <div className="skills__item-header">
+                  <img
+                    src={`/icons/${skill.name
+                      .toLowerCase()
+                      .replace(/\s|\./g, "-")}.svg`}
+                    alt={skill.name}
+                    className="skills__item-icon"
+                    style={{ width: 40, height: 40, marginBottom: 8 }}
+                  />
                   <h3 className="skills__item-title animate--text-reveal">
                     {skill.name}
                   </h3>
-                  <span className="skills__item-level animate--neon-pulse">
-                    {skill.level}%
-                  </span>
-                </div>
-                <div className="skills__item-bar-bg">
-                  <div
-                    className="skills__item-bar-fill animate--gradient-shift"
-                    style={{
-                      width: `${skill.level}%`,
-                      backgroundColor: skill.color,
-                    }}
-                  />
-                </div>
-                <div className="skills__item-indicator">
-                  <span>Básico</span>
-                  <span>Intermedio</span>
-                  <span>Avanzado</span>
-                  <span>Experto</span>
                 </div>
               </div>
             )
