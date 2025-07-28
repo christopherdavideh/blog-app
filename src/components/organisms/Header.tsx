@@ -65,8 +65,8 @@ export const Header: React.FC = () => {
             src={isLight ? "/images/logo-light.png" : "/images/logo.png"}
             alt="Logo"
             className="header__logo-img"
-            width={150}
-            height={24}
+            width={120}
+            height={36}
             priority
           />
         </Link>
