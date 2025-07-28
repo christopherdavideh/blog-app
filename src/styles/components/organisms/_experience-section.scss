@@ -25,6 +25,9 @@
   color: $text-secondary;
   max-width: 700px;
   margin: 0 auto;
+  .light & {
+    color: $light-text-secondary;
+  }
 }
 .experience__main {
   margin-bottom: 3rem;
@@ -131,4 +134,7 @@
 .experience__certifications-desc {
   color: $text-secondary;
   font-size: 0.98rem;
+  .light & {
+    color: $light-text-secondary;
+  }
 }

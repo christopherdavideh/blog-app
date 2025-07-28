@@ -5,7 +5,6 @@ import { TypewriterText } from "@/components/ui/TypewriterText";
 import React, { useState } from "react";
 
 import Image from "next/image";
-const profileImagePath = "/images/christopher.png";
 
 export default function HeroSection() {
   const [showSubtitle, setShowSubtitle] = useState(false);
@@ -49,7 +48,7 @@ export default function HeroSection() {
           <div className="hero__image-container hover--tilt">
             <div className="hero__image-placeholder animate--morphing">
               <Image
-                src={profileImagePath}
+                src="/images/christopher.png"
                 alt="Christopher Erazo"
                 className="hero__image"
                 width={300}

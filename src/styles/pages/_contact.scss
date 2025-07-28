@@ -29,6 +29,9 @@
     font-size: 1.1rem;
     color: $text-secondary;
     margin-bottom: 1.5rem;
+    .light & {
+      color: $light-text-secondary;
+    }
   }
   &__content {
     padding: 0rem 1.5rem 2rem 1.5rem;
@@ -131,6 +134,9 @@
     color: $text-secondary;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    .light & {
+      color: $light-text-secondary;
+    }
   }
   &__form-input,
   &__form-textarea {

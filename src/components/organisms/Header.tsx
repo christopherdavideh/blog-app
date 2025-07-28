@@ -7,6 +7,7 @@ import { Menu, X, Heart, Download, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/atoms/Button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Image from "next/image";
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,7 +61,14 @@ export const Header: React.FC = () => {
     >
       <div className="header__container">
         <Link href="/" className="header__logo hover--scale">
-          <span className="header__logo-text">CD</span>
+          <Image
+            src={isLight ? "/images/logo-light.png" : "/images/logo.png"}
+            alt="Logo"
+            className="header__logo-img"
+            width={150}
+            height={24}
+            priority
+          />
         </Link>
         {/* Desktop Navigation */}
         <nav
@@ -128,7 +136,7 @@ export const Header: React.FC = () => {
         }`}
       >
         <nav className="header__mobile-nav">
-          {siteConfig.navigation.map((item) => (
+          {siteConfig.mobileNavigation.map((item) => (
             <Link
               key={item.id}
               href={item.href}

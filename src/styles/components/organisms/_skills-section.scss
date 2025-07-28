@@ -25,6 +25,9 @@
   color: $text-secondary;
   max-width: 600px;
   margin: 0 auto;
+  .light & {
+    color: $light-text-secondary;
+  }
 }
 .skills__categories {
   display: flex;
@@ -49,6 +52,7 @@
   .light & {
     background: $light-secondary-bg;
     border: 1.5px solid $light-border-color;
+    color: $light-text-secondary;
   }
   &:hover {
     border-color: $accent-cyan;
@@ -210,6 +214,9 @@
 .skills__strength-desc {
   color: $text-secondary;
   font-size: 0.95rem;
+  .light & {
+    color: $light-text-secondary;
+  }
 }
 .skills__extra {
   text-align: center;

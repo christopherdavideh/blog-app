@@ -84,6 +84,7 @@ export interface SiteConfig {
     bio: string;
   };
   navigation: NavigationItem[];
+  mobileNavigation: NavigationItem[];
   socialLinks: SocialLinkWithIcon[];
   cvUrl: string;
   socials: SocialLink[];

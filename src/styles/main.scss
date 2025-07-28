@@ -26,6 +26,7 @@
 @import "components/organisms/experience-section";
 @import "components/ui/loading-spinner";
 @import "components/ui/typewriter";
+@import "components/ui/timeline";
 
 @import "components/layouts/page-layout";
 @import "components/layouts/section-layout";
@@ -158,7 +159,7 @@
     border-color: $light-border-color !important;
   }
   // Links y social icons
-  a,
+  .footer__social-links a,
   .projects__card-link,
   .about__cv-link,
   .header__social-links .social-link {

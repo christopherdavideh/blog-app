@@ -1,270 +1,225 @@
-.about__container {
-  max-width: 1200px;
-  padding: 5rem 0 2rem 0;
-}
-.about__content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-.about__header {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-.about__title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: $text-primary;
-  margin-bottom: 1rem;
-}
-.about__divider {
-  width: 96px;
-  height: 4px;
-  background: $accent-cyan;
-  margin: 0 auto 1.5rem auto;
-  border-radius: 2px;
-}
-.about__subtitle {
-  font-size: 1.25rem;
-  color: $text-secondary;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.about__main {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-.about__main-content {
-  flex: 1 1 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.about__main-texts {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.about__main-paragraph {
-  font-size: 1.1rem;
-  color: $text-secondary;
-  line-height: 1.7;
-}
-.about__cv {
-  padding-top: 1.5rem;
-}
-.about__cv-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: $accent-cyan;
-  color: $primary-bg;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  transition: all 0.3s;
-  &:hover {
-    background: lighten($accent-cyan, 10%);
-    transform: scale(1.05);
+.about {
+  &__container {
+    max-width: 1200px;
+    padding: 5rem 0 2rem 0;
   }
-}
-.about__cv-icon {
-  margin-right: 0.5rem;
-}
-.about__main-image {
-  flex: 1 1 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.about__main-image-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 260px;
-}
-.about__main-image-content {
-  aspect-ratio: 1/1;
-  background: $secondary-bg;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid rgba($accent-cyan, 0.2);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 2;
-}
-.about__main-image-logo {
-  font-size: 4rem;
-  font-weight: 700;
-  color: $accent-cyan;
-  margin-bottom: 0.5rem;
-}
-.about__main-image-role {
-  color: $text-secondary;
-  font-size: 1.1rem;
-}
-.about__main-image-bg {
-  position: absolute;
-  inset: -16px;
-  background: linear-gradient(90deg, rgba($accent-cyan, 0.15), transparent);
-  border-radius: 1.5rem;
-  z-index: 1;
-  filter: blur(8px);
-}
-.about__highlights {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  @media (min-width: 768px) {
+  &__content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  &__header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 1rem;
+  }
+  &__divider {
+    width: 96px;
+    height: 4px;
+    background: $accent-cyan;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 2px;
+  }
+  &__subtitle {
+    font-size: 1.25rem;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  &__main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  &__main-content {
+    flex: 1 1 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  &__main-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  &__main-paragraph {
+    font-size: 1.1rem;
+    color: $text-secondary;
+    line-height: 1.7;
+    .light & {
+      color: $light-text-secondary;
+    }
+  }
+  &__cv {
+    padding-top: 1.5rem;
+  }
+  &__cv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $accent-cyan;
+    color: $primary-bg;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    transition: all 0.3s;
+    &:hover {
+      background: lighten($accent-cyan, 10%);
+      transform: scale(1.05);
+    }
+  }
+  &__cv-icon {
+    margin-right: 0.5rem;
+  }
+  &__main-image {
+    flex: 1 1 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__image {
+    border-radius: 25%;
+    object-fit: cover;
+    width: 90%;
+    height: 90%;
+    margin-top: -40px;
+  }
+  &__main-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+  }
+  &__main-image-content {
+    aspect-ratio: 1/1;
+    background: $secondary-bg;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid rgba($accent-cyan, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+  }
+  &__main-image-logo {
+    font-size: 4rem;
+    font-weight: 700;
+    color: $accent-cyan;
+    margin-bottom: 0.5rem;
+  }
+  &__main-image-role {
+    color: $text-secondary;
+    font-size: 1.1rem;
+  }
+  &__main-image-bg {
+    position: absolute;
+    inset: -16px;
+    background: linear-gradient(90deg, rgba($accent-cyan, 0.15), transparent);
+    border-radius: 1.5rem;
+    z-index: 1;
+    filter: blur(8px);
+  }
+  &__highlights {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  &__highlight {
+    background: $secondary-bg;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1.5px solid $secondary-bg;
+    transition: all 0.3s;
+    .light & {
+      background: $light-secondary-bg;
+      border-color: $light-border-color;
+      color: $light-text-primary;
+    }
+    &:hover {
+      border-color: $accent-cyan;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+  }
+  &__highlight-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: $accent-cyan;
+    margin-bottom: 1rem;
+    .light & {
+      color: $light-accent-cyan;
+    }
+  }
+  &__highlight-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+  &__highlight-desc {
+    color: $text-secondary;
+    font-size: 0.95rem;
+    .light & {
+      color: $light-text-secondary;
+    }
+  }
+  &__stats {
+    background: $secondary-bg;
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1.5px solid rgba($accent-cyan, 0.2);
+    margin-bottom: 2.5rem;
+    .light & {
+      background: $light-secondary-bg;
+      border-color: $light-border-color;
+      color: $light-text-primary;
+    }
+  }
+  &__stats-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  &__stats-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
+  &__stats-item {
+    text-align: center;
   }
-}
-.about__highlight {
-  background: $secondary-bg;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  border: 1.5px solid $secondary-bg;
-  transition: all 0.3s;
-  .light & {
-    background: $light-secondary-bg;
-    border-color: $light-border-color;
-    color: $light-text-primary;
+  &__stats-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $accent-cyan;
+    margin-bottom: 0.5rem;
+    .light & {
+      color: $light-accent-cyan;
+    }
   }
-  &:hover {
-    border-color: $accent-cyan;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  &__stats-label {
+    color: $text-secondary;
+    font-size: 1rem;
+    .light & {
+      color: $light-text-secondary;
+    }
   }
-}
-.about__highlight-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  color: $accent-cyan;
-  margin-bottom: 1rem;
-  .light & {
-    color: $light-accent-cyan;
-  }
-}
-.about__highlight-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: $text-primary;
-  margin-bottom: 0.5rem;
-}
-.about__highlight-desc {
-  color: $text-secondary;
-  font-size: 0.95rem;
-}
-.about__stats {
-  background: $secondary-bg;
-  border-radius: 1rem;
-  padding: 2rem;
-  border: 1.5px solid rgba($accent-cyan, 0.2);
-  margin-bottom: 2.5rem;
-  .light & {
-    background: $light-secondary-bg;
-    border-color: $light-border-color;
-    color: $light-text-primary;
-  }
-}
-.about__stats-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: $text-primary;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.about__stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.about__stats-item {
-  text-align: center;
-}
-.about__stats-value {
-  font-size: 2rem;
-  font-weight: 700;
-  color: $accent-cyan;
-  margin-bottom: 0.5rem;
-  .light & {
-    color: $light-accent-cyan;
-  }
-}
-.about__stats-label {
-  color: $text-secondary;
-  font-size: 1rem;
-}
-.about__experience {
-  margin-top: 3rem;
-}
-.about__experience-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: $text-primary;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.about__experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.about__experience-item {
-  background: $secondary-bg;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  border: 1.5px solid $secondary-bg;
-  transition: all 0.3s;
-  .light & {
-    background: $light-secondary-bg;
-    border-color: $light-secondary-bg;
-  }
-  &:hover {
-    border-color: $accent-cyan;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  }
-}
-.about__experience-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-.about__experience-position {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: $text-primary;
-}
-.about__experience-company {
-  color: $accent-cyan;
-  font-size: 1rem;
-  font-weight: 500;
-  .light & {
-    color: $light-accent-cyan;
-  }
-}
-.about__experience-period {
-  display: flex;
-  align-items: center;
-  color: $text-secondary;
-  font-size: 0.95rem;
-}
-.about__experience-period-icon {
-  margin-right: 0.5rem;
-}
-.about__experience-desc {
-  color: $text-secondary;
-  font-size: 0.98rem;
-  margin-top: 0.5rem;
 }

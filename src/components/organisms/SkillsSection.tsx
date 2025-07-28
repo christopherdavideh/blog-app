@@ -91,7 +91,7 @@ const SkillsSection = () => {
       <div className="skills__container">
         <div className="skills__header">
           <h2 className="skills__title animate--fade-in animate--delay-1">
-            Habilidades y Tecnologías
+            Skills
           </h2>
           <div className="skills__divider"></div>
           <p className="skills__subtitle animate--fade-in animate--delay-2">

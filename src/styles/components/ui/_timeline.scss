@@ -1,0 +1,82 @@
+@import "../../base/variables";
+
+.timeline {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+  }
+
+  &__item {
+    background: $secondary-bg;
+    border-radius: $border-radius-xl;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: $spacing-lg;
+    transition: transform $transition-fast, background $transition-normal,
+      color $transition-normal;
+    color: $text-primary;
+    border: 1.5px solid $secondary-bg;
+    &:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__position {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: $text-primary;
+  }
+
+  &__company {
+    font-size: 0.95rem;
+    color: $accent-cyan;
+    margin: 0.1rem 0 0 0;
+  }
+
+  &__period {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: $accent-cyan;
+    gap: 0.3rem;
+  }
+
+  &__period-icon {
+    margin-right: 0.2rem;
+  }
+
+  &__desc {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.98rem;
+    color: $text-secondary;
+  }
+
+  // Light mode support
+  .light & {
+    &__item {
+      background: $light-secondary-bg;
+      color: $light-text-primary;
+      border: 1.5px solid $light-secondary-bg;
+    }
+    &__position {
+      color: $light-text-primary;
+    }
+    &__company {
+      color: $light-accent-cyan;
+    }
+    &__period {
+      color: $light-accent-cyan;
+    }
+    &__desc {
+      color: $light-text-secondary;
+    }
+  }
+}

@@ -1,4 +1,5 @@
-import { Calendar, MapPin, Building } from "lucide-react";
+import { Calendar } from "lucide-react";
+import "@/styles/components/ui/_timeline.scss";
 
 interface TimelineItem {
   id: number;
@@ -16,56 +17,21 @@ interface TimelineProps {
 
 export const Timeline = ({ items }: TimelineProps) => {
   return (
-    <div className="relative">
-      {/* Timeline line */}
-      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#112240]" />
-
-      <div className="space-y-8">
-        {items.map((item, index) => (
-          <div key={item.id} className="relative flex items-start group">
-            {/* Timeline dot */}
-            <div className="absolute left-6 w-4 h-4 bg-[#64ffda] rounded-full border-4 border-[#0a192f] shadow-lg transform -translate-x-1/2 group-hover:scale-125 transition-transform duration-300" />
-
-            {/* Content */}
-            <div className="ml-16 bg-[#112240] rounded-xl p-6 shadow-xl flex-1 border border-[#112240] hover:border-[#64ffda]/20 transition-all duration-300 group-hover:shadow-2xl">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-xl font-bold text-[#ccd6f6] mb-2 md:mb-0 group-hover:text-[#64ffda] transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <div className="flex items-center gap-4 text-sm text-[#64ffda]">
-                  <div className="flex items-center gap-1">
-                    <Calendar size={16} />
-                    {item.period}
-                  </div>
-                </div>
+    <div className="timeline">
+      <div className="timeline__list">
+        {items.map((item) => (
+          <div key={item.id} className="timeline__item">
+            <div className="timeline__header">
+              <div>
+                <h4 className="timeline__position">{item.title}</h4>
+                <p className="timeline__company">{item.company}</p>
               </div>
-
-              <div className="flex items-center gap-4 mb-4 text-sm text-[#8892b0]">
-                <div className="flex items-center gap-1">
-                  <Building size={16} />
-                  {item.company}
-                </div>
-                <div className="flex items-center gap-1">
-                  <MapPin size={16} />
-                  {item.location}
-                </div>
-              </div>
-
-              <p className="text-[#8892b0] mb-4 leading-relaxed">
-                {item.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {item.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-[#0a192f] text-[#64ffda] text-sm rounded-full border border-[#64ffda]/20 hover:border-[#64ffda]/40 transition-all duration-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="timeline__period">
+                <Calendar size={16} className="timeline__period-icon" />
+                {item.period}
               </div>
             </div>
+            <p className="timeline__desc">{item.description}</p>
           </div>
         ))}
       </div>

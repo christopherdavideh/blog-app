@@ -26,6 +26,9 @@
     font-size: 0.95rem;
     text-align: center;
     margin-top: 0.5rem;
+    .light & {
+      color: $light-text-secondary;
+    }
   }
   &__grid {
     margin: 1rem 0rem;
@@ -49,6 +52,11 @@
     color: $text-secondary;
     border: 1px solid $secondary-bg;
     transition: color 0.22s, transform 0.18s;
+    .light & {
+      color: $light-accent-cyan !important;
+      background: transparent !important;
+      transition: color 0.2s;
+    }
     &:hover,
     &:focus {
       color: $accent-cyan;

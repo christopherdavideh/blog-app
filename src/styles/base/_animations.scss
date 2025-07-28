@@ -329,6 +329,9 @@
     transition: box-shadow 0.3s ease;
     &:hover {
       box-shadow: 0 0 20px rgba($accent-cyan, 0.4);
+      .light & {
+        box-shadow: 0 0 20px rgba($light-accent-cyan, 0.4);
+      }
     }
   }
 

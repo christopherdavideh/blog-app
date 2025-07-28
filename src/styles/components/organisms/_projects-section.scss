@@ -24,6 +24,9 @@
   color: $text-secondary;
   max-width: 700px;
   margin: 0 auto;
+  .light & {
+    color: $light-text-secondary;
+  }
 }
 .projects__filters {
   display: flex;
@@ -45,6 +48,7 @@
   .light & {
     background: $light-secondary-bg;
     border: 1.5px solid $light-border-color;
+    color: $light-text-secondary;
   }
   &:hover {
     border-color: $accent-cyan;
@@ -193,6 +197,9 @@
   font-size: 1rem;
   margin-bottom: 1rem;
   line-clamp: 3;
+  .light & {
+    color: $light-text-secondary;
+  }
 }
 .projects__card-techs {
   display: flex;

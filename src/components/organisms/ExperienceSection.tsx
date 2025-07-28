@@ -124,10 +124,6 @@ const ExperienceSection = () => {
       </div>
       {/* Work Experience */}
       <div className="experience__main">
-        <h3 className="experience__main-title">
-          <Building size={24} className="experience__main-title-icon" />
-          Experiencia Laboral
-        </h3>
         <Timeline
           items={experiences.map((exp) => ({
             id: exp.id,

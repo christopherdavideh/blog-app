@@ -29,6 +29,9 @@
     font-size: 1.1rem;
     color: $text-secondary;
     margin-bottom: 1.5rem;
+    .light & {
+      color: $light-text-secondary;
+    }
   }
   &__filters {
     padding: 2rem 0 1rem 0;
