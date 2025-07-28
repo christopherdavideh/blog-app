@@ -53,7 +53,7 @@
     border: 1px solid $secondary-bg;
     transition: color 0.22s, transform 0.18s;
     .light & {
-      color: $light-accent-cyan !important;
+      color: $light-text-secondary !important;
       background: transparent !important;
       transition: color 0.2s;
     }
