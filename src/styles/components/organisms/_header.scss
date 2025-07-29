@@ -84,12 +84,11 @@
   &__nav-left {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 1rem;
   }
 
   &__mobile {
     display: flex;
-    align-items: center;
     gap: $spacing-md;
 
     @include tablet {
@@ -103,7 +102,7 @@
 
   &__social-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 7px;
 
     .social-link {

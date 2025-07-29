@@ -60,6 +60,9 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      <div className="hero__scroll-indicator">
+        <span className="hero__arrow-down">▾</span>
+      </div>
     </section>
   );
 }

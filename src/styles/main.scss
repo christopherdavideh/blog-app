@@ -233,6 +233,7 @@ video,
 canvas,
 svg {
   max-width: 100%;
+  min-width: 25px;
   height: auto;
   display: block;
 }
