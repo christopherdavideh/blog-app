@@ -5,12 +5,12 @@ export const siteConfig: SiteConfig = {
   title: "Christopher David Erazo Herrera",
   description:
     "Software Developer especializado en React, Angular, Java SpringBoot, C# .NET y desarrollo móvil. Creando experiencias digitales excepcionales.",
-  url: "https://christopher-blog-df3dc.netlify.app",
+  url: "https://christopherdavideh.com/",
   author: {
     name: "Christopher David Erazo Herrera",
-    email: "christopherdavideh@gmail.com",
+    email: "christopher.erazo.herrera@gmail.com",
     image: "/images/christopher-profile.jpg",
-    bio: "Software Developer con 4+ años de experiencia en desarrollo web y móvil. Apasionado por crear soluciones innovadoras y escalables.",
+    bio: "Software Developer con 5 años de experiencia en desarrollo web y móvil. Apasionado por crear soluciones innovadoras y escalables.",
   },
   navigation: [
     { id: "inicio", href: "/", label: "Inicio" },
@@ -63,7 +63,7 @@ export const siteConfig: SiteConfig = {
     },
   ],
   contact: {
-    email: "christopherdavideh@gmail.com",
+    email: "christopher.erazo.herrera@gmail.com",
     linkedin: "https://www.linkedin.com/in/christopherdavideh/",
     github: "https://github.com/christopherdavideh",
     twitter: "https://twitter.com/christopdavideh",
