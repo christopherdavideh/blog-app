@@ -95,6 +95,8 @@
   transition: all 0.3s;
   .light & {
     background: $light-secondary-bg;
+    border: 1.5px solid $light-border-color;
+    box-shadow: 0 8px 25px rgba($light-accent-cyan, 0.1);
   }
 }
 .projects__card {
@@ -110,6 +112,11 @@
     border-color: $accent-cyan;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
   }
+  .light & {
+    background: $light-secondary-bg;
+    border: 1.5px solid $light-border-color;
+    box-shadow: 0 8px 25px rgba($light-accent-cyan, 0.1);
+  }
 }
 .projects__card-image {
   position: relative;
@@ -119,7 +126,7 @@
   align-items: center;
   justify-content: center;
 
-  .light {
+  .light & {
     background: $light-secondary-bg;
     color: $light-text-primary;
   }
@@ -185,12 +192,19 @@
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+  .light & {
+    background: $light-secondary-bg;
+    color: $light-text-primary;
+  }
 }
 .projects__card-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: $text-primary;
   margin-bottom: 0.5rem;
+  .light & {
+    color: $light-text-primary;
+  }
 }
 .projects__card-desc {
   color: $text-secondary;
@@ -217,6 +231,11 @@
   color: $accent-cyan;
   border: 1px solid rgba($accent-cyan, 0.2);
   font-weight: 500;
+  .light & {
+    background: $light-accent-cyan;
+    color: $light-primary-bg;
+    border: 1px solid rgba($light-accent-cyan, 0.2);
+  }
 }
 .projects__card-tech-icon {
   margin-right: 0.3rem;
@@ -232,8 +251,16 @@
   font-size: 0.95rem;
   font-weight: 500;
   transition: color 0.2s;
+  border-radius: 8px;
+  padding: 0.5rem;
+  .light & {
+    color: $light-accent-cyan;
+  }
   &:hover {
     color: lighten($accent-cyan, 10%);
+    .light & {
+      color: darken($light-accent-cyan, 10%);
+    }
   }
 }
 .projects__card-link-icon {

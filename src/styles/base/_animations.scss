@@ -364,6 +364,11 @@
       box-shadow: 0 0 10px rgba($accent-cyan, 0.5),
         0 0 20px rgba($accent-cyan, 0.3), 0 0 30px rgba($accent-cyan, 0.1);
       transform: translateY(-2px);
+      .light & {
+        box-shadow: 0 0 10px rgba($light-accent-cyan, 0.5),
+          0 0 20px rgba($light-accent-cyan, 0.3),
+          0 0 30px rgba($light-accent-cyan, 0.1);
+      }
     }
   }
 

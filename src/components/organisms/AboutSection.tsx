@@ -93,7 +93,7 @@ const AboutSection = () => {
             </div>
           </div>
           {/* Download CV Button */}
-          <div className="about__cv">
+          {/* <div className="about__cv">
             <a
               href="/cv-christopher-erazo.pdf"
               target="_blank"
@@ -103,7 +103,7 @@ const AboutSection = () => {
               <Download size={20} className="about__cv-icon" />
               Descargar CV
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

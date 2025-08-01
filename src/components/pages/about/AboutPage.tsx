@@ -13,11 +13,11 @@ export default function AboutPage() {
         </div>
       </section>
       {/* Experience Section */}
-      <section className="about-page__experience">
+      {/* <section className="about-page__experience">
         <div className="about-page__experience-container">
           <ExperienceSection />
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

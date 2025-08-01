@@ -41,11 +41,15 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setStatus(null);
     try {
-      // Simular envío del formulario
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Construir el enlace mailto
+      const mailto = `mailto:christopher.erazo.herrera@gmail.com?subject=${encodeURIComponent(
+        formData.subject
+      )}&body=${encodeURIComponent(
+        `Nombre: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
+      )}`;
+      window.location.href = mailto;
       setIsSubmitting(false);
       setStatus("success");
-      // Aquí se implementaría la lógica real de envío
       handleReset();
     } catch (error) {
       setIsSubmitting(false);

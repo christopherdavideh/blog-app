@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
     { id: "inicio", href: "/", label: "Inicio" },
     { id: "sobre-mi", href: "/about", label: "Sobre mí" },
     { id: "proyectos", href: "/projects", label: "Proyectos" },
-    { id: "blog", href: "/blog", label: "Blog" },
+    // { id: "blog", href: "/blog", label: "Blog" },
     { id: "contacto", href: "/contact", label: "Contacto" },
   ],
 
@@ -24,7 +24,7 @@ export const siteConfig: SiteConfig = {
     { id: "inicio", href: "/", label: "Inicio" },
     { id: "sobre-mi", href: "/about", label: "Sobre mí" },
     { id: "proyectos", href: "/projects", label: "Proyectos" },
-    { id: "blog", href: "/blog", label: "Blog" },
+    // { id: "blog", href: "/blog", label: "Blog" },
     { id: "contacto", href: "/contact", label: "Contacto" },
   ],
   socialLinks: [

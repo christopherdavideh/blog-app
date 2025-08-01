@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ExternalLink, Github, Eye, Tag } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Image from "next/image";
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -22,11 +22,11 @@ export default function ProjectsSection() {
       title: "To-do React App",
       description:
         "Aplicación web para gestionar y organizar tareas con React y TypeScript. Incluye funcionalidades CRUD completas y diseño responsive.",
-      image: "/images/todo-react.png",
+      image: "/projects/todo-react.png",
       category: "web",
-      technologies: ["React", "TypeScript", "Tailwind CSS"],
+      technologies: ["React", "JavaScript"],
       github: "https://github.com/christopherdavideh/todo-react-app",
-      live: "https://todo-react-app-demo.netlify.app",
+      live: "https://christopherdavideh.github.io/todo-react-app/",
       featured: true,
     },
     {
@@ -34,11 +34,11 @@ export default function ProjectsSection() {
       title: "Recap Movies & TV",
       description:
         "Aplicación web que consume The Movie Database (TMDB) API para mostrar información de películas y series de televisión.",
-      image: "/images/recap.png",
+      image: "/projects/recap.png",
       category: "web",
-      technologies: ["JavaScript", "Axios", "TMDB API", "CSS3"],
+      technologies: ["JavaScript", "TMDB API", "HTML", "CSS"],
       github: "https://github.com/christopherdavideh/recap-movies",
-      live: "https://recap-movies-demo.netlify.app",
+      live: "https://christopherdavideh.github.io/RecapMovies/",
       featured: true,
     },
     {
@@ -46,7 +46,7 @@ export default function ProjectsSection() {
       title: "API Rest con .NET 6",
       description:
         "API REST completa desarrollada con .NET 6 y PostgreSQL para gestión de datos. Incluye autenticación JWT y documentación Swagger.",
-      image: "/images/api-dotnet.png",
+      image: "/projects/api-dotnet.png",
       category: "api",
       technologies: ["C#", ".NET 6", "PostgreSQL", "Entity Framework"],
       github: "https://github.com/christopherdavideh/api-dotnet",
@@ -55,38 +55,38 @@ export default function ProjectsSection() {
     },
     {
       id: 4,
-      title: "Laravel E-commerce",
+      title: "Laravel 9 Project",
       description:
-        "Plataforma de comercio electrónico completa desarrollada con Laravel y MySQL. Incluye carrito de compras, pagos y panel de administración.",
-      image: "/images/laravel-project.png",
+        "Aplicación web desarrollada con Laravel 9 y PHP 8.0, la aplicación web nos permite Administrar Roles y Usuarios.",
+      image: "/projects/laravel_9.png",
       category: "fullstack",
-      technologies: ["Laravel", "PHP", "MySQL", "Bootstrap", "JavaScript"],
-      github: "https://github.com/christopherdavideh/laravel-ecommerce",
-      live: "https://laravel-ecommerce-demo.netlify.app",
+      technologies: ["Laravel", "PHP", "Bootstrap"],
+      github: "https://github.com/christopherdavideh/laverix",
+      live: null,
       featured: false,
     },
     {
       id: 5,
-      title: "Mobile App con Xamarin",
+      title: "Pomodoro Timer App",
       description:
-        "Aplicación móvil multiplataforma desarrollada con Xamarin.Forms. Funcionalidades de geolocalización y sincronización offline.",
-      image: "/images/mobile-first.png",
+        "Aplicación realizada con Xamarin.Forms que nos permite aplicar la técnica pomodoro para maximizar nuestra concentración.",
+      image: "/projects/app_dev.gif",
       category: "mobile",
-      technologies: ["Xamarin", "C#", "XAML", "SQLite"],
-      github: "https://github.com/christopherdavideh/xamarin-app",
+      technologies: ["Xamarin", "C#"],
+      github: "https://github.com/christopherdavideh/PomodoroApp",
       live: null,
       featured: false,
     },
     {
       id: 6,
-      title: "Pomodoro Timer App",
+      title: "Google Clone",
       description:
-        "Aplicación de temporizador Pomodoro para mejorar la productividad. Incluye configuraciones personalizables y estadísticas de uso.",
-      image: "/images/pomodoro-app.png",
+        "Clonación de Google utilizando HTML5 semántico, estilos con CSS y diseño responsivo para fines prácticos.",
+      image: "/projects/google.png",
       category: "web",
-      technologies: ["React", "JavaScript", "CSS3", "LocalStorage"],
-      github: "https://github.com/christopherdavideh/pomodoro-app",
-      live: "https://pomodoro-app-demo.netlify.app",
+      technologies: ["HTML", "CSS"],
+      github: "https://github.com/christopherdavideh/GoogleClone",
+      live: "https://christopherdavideh.github.io/GoogleClone/",
       featured: false,
     },
   ];
@@ -135,9 +135,12 @@ export default function ProjectsSection() {
               {/* Project Image */}
               <div className="projects__card-image hover--shimmer-effect">
                 <div className="projects__card-image-content">
-                  <span className="projects__card-image-title">
-                    {project.title.split(" ")[0]}
-                  </span>
+                  <Image
+                    src={project.image}
+                    alt="Christopher Erazo"
+                    priority
+                    fill={true}
+                  />
                 </div>
                 {project.featured && (
                   <div className="projects__card-featured animate--neon-pulse">
@@ -229,7 +232,7 @@ export default function ProjectsSection() {
           ))}
         </div>
         {/* Call to Action */}
-        <div className="projects__cta animate--bounce-in animate--delay-8">
+        {/* <div className="projects__cta animate--bounce-in animate--delay-8">
           <p className="projects__cta-text">
             ¿Te gusta lo que ves? ¡Trabajemos juntos en tu próximo proyecto!
           </p>
@@ -237,7 +240,7 @@ export default function ProjectsSection() {
             <Eye size={20} className="projects__cta-btn-icon" />
             Ver más proyectos
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );
