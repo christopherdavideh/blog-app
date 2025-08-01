@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://christopherdavideh.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow specific paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/ 
