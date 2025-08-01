@@ -13,18 +13,19 @@ export const siteConfig: SiteConfig = {
     bio: "Software Developer con 4+ años de experiencia en desarrollo web y móvil. Apasionado por crear soluciones innovadoras y escalables.",
   },
   navigation: [
-    { id: "sobre-mi", href: "/about", label: "About" },
-    { id: "proyectos", href: "/projects", label: "Projects" },
+    { id: "inicio", href: "/", label: "Inicio" },
+    { id: "sobre-mi", href: "/about", label: "Sobre mí" },
+    { id: "proyectos", href: "/projects", label: "Proyectos" },
     { id: "blog", href: "/blog", label: "Blog" },
-    { id: "contacto", href: "/contact", label: "Contact" },
+    { id: "contacto", href: "/contact", label: "Contacto" },
   ],
 
   mobileNavigation: [
-    { id: "inicio", href: "/", label: "Home" },
-    { id: "sobre-mi", href: "/about", label: "About" },
-    { id: "proyectos", href: "/projects", label: "Projects" },
+    { id: "inicio", href: "/", label: "Inicio" },
+    { id: "sobre-mi", href: "/about", label: "Sobre mí" },
+    { id: "proyectos", href: "/projects", label: "Proyectos" },
     { id: "blog", href: "/blog", label: "Blog" },
-    { id: "contacto", href: "/contact", label: "Contact" },
+    { id: "contacto", href: "/contact", label: "Contacto" },
   ],
   socialLinks: [
     {

@@ -219,10 +219,10 @@
 
   &__image {
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
     width: 90%;
     height: 90%;
-    margin-top: -40px;
+    margin-top: -15px;
   }
 
   &__image-icon {

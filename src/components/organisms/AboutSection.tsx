@@ -55,23 +55,27 @@ const AboutSection = () => {
             <div className="about__main-content">
               <div className="about__main-texts">
                 <p className="about__main-paragraph">
-                  I am Ecuadorian, originally from Quito, self-taught and
-                  passionate about software development technologies, who likes
-                  to continue discovering new things.
+                  Mi nombre es Christopher David Erazo Herrera, de Quito,
+                  Ecuador 🇪🇨. Mi pasión por la programación empezó al descubrir
+                  cómo unas líneas de código generan un alto impacto en nuestras
+                  actividades diarias a través de Webs y Apps. Actualmente
+                  lidero equipos de desarrollo en el Sector Financiero
                 </p>
                 <p className="about__main-paragraph">
-                  Software Developer with four years of experience in Web
-                  Application Development. I have participated in the
-                  development of mobile applications with Xamarin.Forms, now
-                  MAUI and some web applications for the financial sector using
-                  technologies such as React and Angular.
+                  Ingeniero de Software con más de 5 años de experiencia en el
+                  desarrollo de aplicaciones móviles y web en el sector
+                  financiero. Uno de los proyectos más relevantes en mi
+                  trayectoria fue el desarrollo del flujo digital para la
+                  apertura de la Cuenta Ahorro Flexible de Banco Pichincha, una
+                  de las más grandes entidades financieras del Ecuador. Esta
+                  solución tuvo un impacto significativo en la forma de ahorrar
+                  de los clientes, fortaleciendo la estrategia de captación
+                  digital.
                 </p>
                 <p className="about__main-paragraph">
-                  I am self-taught and passionate about software development
-                  technologies who likes to keep discovering new things. My
-                  purpose is to continue expanding professionally, enhancing my
-                  skills and proposing my ideas, which support the constant
-                  development of Startups or Companies.
+                  Mi propósito es seguir creciendo profesionalmente, liderando o
+                  participando en proyectos que generen un alto impacto, tanto
+                  en startups en etapa inicial como en empresas consolidadas.
                 </p>
               </div>
             </div>

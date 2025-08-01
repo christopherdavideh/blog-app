@@ -84,11 +84,10 @@
     justify-content: center;
   }
   &__image {
-    border-radius: 25%;
+    border-radius: 15%;
     object-fit: cover;
     width: 90%;
     height: 90%;
-    margin-top: -70px;
   }
   &__main-image-wrapper {
     position: relative;
