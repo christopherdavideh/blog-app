@@ -34,13 +34,13 @@ export default function HeroSection() {
               href="/projects"
               className="button button--primary button--block"
             >
-              See projects
+              Ver Proyectos
             </Link>
             <Link
               href="/contact"
               className="button button--secondary button--block"
             >
-              Contact
+              Contacto
             </Link>
           </div>
         </div>
