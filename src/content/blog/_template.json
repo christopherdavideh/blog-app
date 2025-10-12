@@ -1,0 +1,15 @@
+{
+  "id": "mi-post-slug",
+  "title": "Título del Post",
+  "description": "Descripción breve del post (max 160 caracteres para SEO)",
+  "content": "# Título Principal\n\nPrimer párrafo del contenido.\n\n## Sección 1\n\nContenido de la sección...\n\n### Subsección\n\n- Punto 1\n- Punto 2\n- Punto 3\n\n```typescript\n// Ejemplo de código\nconst example = 'Hola mundo';\nconsole.log(example);\n```\n\n## Conclusión\n\nTexto final del post.\n\n---\n\n¿Te gustó este contenido? Sígueme para más.",
+  "image": "/images/blog/nombre-imagen.png",
+  "tags": ["Tag1", "Tag2", "Tag3"],
+  "publishedAt": "2024-02-15",
+  "updatedAt": "2024-02-15",
+  "readingTime": "5 min",
+  "author": {
+    "name": "Christopher Erazo",
+    "image": "/images/favicon.ico"
+  }
+}

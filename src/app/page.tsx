@@ -1,21 +1,20 @@
-import { Button } from "@/components/atoms/Button";
-import AboutSection from "@/components/organisms/AboutSection";
 import ProjectsSection from "@/components/organisms/ProjectsSection";
 import SkillsSection from "@/components/organisms/SkillsSection";
-import { ExperienceSection } from "@/components/organisms/ExperienceSection";
 import HeroSection from "@/components/organisms/HeroSection";
+import { siteConfig } from "@/lib/site-config";
+import { loadAllProjects } from "@/lib/content-loader";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Inicio | Christopher Erazo - Desarrollador Full-Stack",
+export const metadata: Metadata = {
+  title: "Inicio",
   description:
     "Descubre mis proyectos, habilidades y experiencia en desarrollo web y móvil. ¡Conectemos y llevemos tus ideas al siguiente nivel!",
   openGraph: {
     title: "Inicio | Christopher Erazo - Desarrollador Full-Stack",
     description:
       "Descubre proyectos, habilidades y experiencia en desarrollo web y móvil.",
-    url: "https://tusitio.com/",
+    url: siteConfig.url,
     type: "website",
-    locale: "es_ES",
     images: [
       {
         url: "/images/seo.png",
@@ -35,6 +34,9 @@ export const metadata = {
 };
 
 export default function HomePage() {
+  // Cargar proyectos en el servidor
+  const projects = loadAllProjects();
+  
   return (
     <main className="home">
       {/* Hero Section con animaciones */}
@@ -50,7 +52,7 @@ export default function HomePage() {
       {/* Projects Section */}
       <section className="home__section home__section--projects">
         <div className="home__section-container">
-          <ProjectsSection />
+          <ProjectsSection projects={projects} />
         </div>
       </section>
     </main>

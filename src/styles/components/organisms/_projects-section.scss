@@ -122,9 +122,14 @@
   position: relative;
   height: 12rem;
   background: $primary-bg;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+
+  > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
 
   .light & {
     background: $light-secondary-bg;
@@ -197,11 +202,28 @@
     color: $light-text-primary;
   }
 }
+.projects__card-content > a {
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+
+  &:hover .projects__card-title {
+    color: $accent-cyan;
+    transform: translateX(4px);
+
+    .light & {
+      color: $light-accent-cyan;
+    }
+  }
+}
 .projects__card-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: $text-primary;
-  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+
   .light & {
     color: $light-text-primary;
   }

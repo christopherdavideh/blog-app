@@ -1,16 +1,18 @@
 import BlogPage from "@/components/pages/blog/BlogPage";
+import { siteConfig } from "@/lib/site-config";
+import { loadAllBlogPosts, getAllBlogTags } from "@/lib/content-loader";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Blog | Christopher Erazo - Desarrollo y Tecnología",
+export const metadata: Metadata = {
+  title: "Blog",
   description:
     "Artículos, tutoriales y recursos sobre desarrollo web, móvil y mejores prácticas de programación. Aprende y crece conmigo en el mundo tech.",
   openGraph: {
     title: "Blog | Christopher Erazo - Desarrollo y Tecnología",
     description:
       "Artículos y tutoriales sobre desarrollo web, móvil y mejores prácticas de programación.",
-    url: "https://tusitio.com/blog",
-    type: "article",
-    locale: "es_ES",
+    url: `${siteConfig.url}/blog`,
+    type: "website",
     images: [
       {
         url: "/images/starter-preview.png",
@@ -30,5 +32,9 @@ export const metadata = {
 };
 
 export default function Blog() {
-  return <BlogPage />;
+  // Cargar datos en el servidor (Server Component)
+  const blogPosts = loadAllBlogPosts();
+  const allTags = getAllBlogTags();
+  
+  return <BlogPage posts={blogPosts} tags={allTags} />;
 }

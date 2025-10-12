@@ -1,15 +1,17 @@
 import ProjectsPage from "@/components/pages/projects/ProjectsPage";
+import { siteConfig } from "@/lib/site-config";
+import { loadAllProjects } from "@/lib/content-loader";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Proyectos | Christopher Erazo - Desarrollador Full-Stack",
+export const metadata: Metadata = {
+  title: "Proyectos",
   description:
     "Explora proyectos en desarrollo web, móvil y APIs. Descubre cómo puedo aportar valor a tu empresa o idea.",
   openGraph: {
     title: "Proyectos | Christopher Erazo - Desarrollador Full-Stack",
     description: "Explora proyectos en desarrollo web, móvil y APIs.",
-    url: "https://tusitio.com/projects",
+    url: `${siteConfig.url}/projects`,
     type: "website",
-    locale: "es_ES",
     images: [
       {
         url: "/images/todo-react.png",
@@ -28,5 +30,8 @@ export const metadata = {
 };
 
 export default function Projects() {
-  return <ProjectsPage />;
+  // Cargar proyectos en el servidor
+  const projects = loadAllProjects();
+  
+  return <ProjectsPage projects={projects} />;
 }

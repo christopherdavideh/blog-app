@@ -1,16 +1,17 @@
 import AboutPage from "@/components/pages/about/AboutPage";
+import { siteConfig } from "@/lib/site-config";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Sobre mí | Christopher Erazo - Desarrollador Full-Stack",
+export const metadata: Metadata = {
+  title: "Sobre mí",
   description:
     "Conoce mi experiencia, habilidades y valores como desarrollador full-stack. Descubre mi pasión por la tecnología y el aprendizaje continuo.",
   openGraph: {
     title: "Sobre mí | Christopher Erazo - Desarrollador Full-Stack",
     description:
       "Conoce mi experiencia, habilidades y trayectoria como desarrollador full-stack.",
-    url: "https://tusitio.com/about",
+    url: `${siteConfig.url}/about`,
     type: "profile",
-    locale: "es_ES",
     images: [
       {
         url: "/images/ChristopherErazo_1.png",

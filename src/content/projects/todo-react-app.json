@@ -1,0 +1,14 @@
+{
+  "id": "todo-react-app",
+  "title": "To-do React App",
+  "description": "Aplicación web para gestionar y organizar tareas con React y TypeScript. Incluye funcionalidades CRUD completas y diseño responsive.",
+  "content": "# To-do React App\n\nUna aplicación completa de gestión de tareas construida con React y TypeScript.\n\n## Características\n\n- ✅ Crear, editar y eliminar tareas\n- 📱 Diseño responsive y mobile-first\n- 🎨 Interfaz intuitiva y moderna\n- 💾 Persistencia de datos en LocalStorage\n- 🔍 Filtrado y búsqueda de tareas\n\n## Tecnologías Utilizadas\n\n- React 18\n- TypeScript\n- CSS Modules\n- LocalStorage API\n\n## Aprendizajes Clave\n\nEste proyecto me permitió profundizar en el manejo de estado con React Hooks, implementación de TypeScript en proyectos React, y mejores prácticas de desarrollo frontend.",
+  "image": "/projects/todo-react.png",
+  "technologies": ["React", "TypeScript", "CSS", "LocalStorage"],
+  "github": "https://github.com/christopherdavideh/todo-react-app",
+  "live": "https://christopherdavideh.github.io/todo-react-app/",
+  "featured": true,
+  "category": "web",
+  "publishedAt": "2024-01-15",
+  "updatedAt": "2024-01-15"
+}

@@ -4,7 +4,8 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    // Habilitar strict mode para mejor type safety (Best Practice)
+    "strict": true,
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
@@ -17,6 +18,11 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    // Opciones adicionales para código más robusto
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
     "plugins": [
       {
         "name": "next"

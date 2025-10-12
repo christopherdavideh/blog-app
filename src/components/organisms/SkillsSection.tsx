@@ -7,7 +7,6 @@ import {
   Smartphone,
   Globe,
   Server,
-  Palette,
   Zap,
   Shield,
   Rocket,
@@ -124,7 +123,7 @@ const SkillsSection = () => {
 
         <div className="skills__grid animate--slide-up-stagger animate--delay-4">
           {skills[activeCategory as keyof typeof skills]?.map(
-            (skill, index) => (
+            (skill) => (
               <div
                 key={skill.name}
                 className={`skills__item hover--tilt animate--zoom-in`}

@@ -1,17 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/components/organisms/Header";
 import { Input } from "@/components/atoms/Input";
 import { Button } from "@/components/atoms/Button";
 import {
-  Mail,
-  Phone,
-  MapPin,
   Send,
-  Github,
-  Linkedin,
-  Twitter,
   CheckCircle,
   XCircle,
 } from "lucide-react";

@@ -25,6 +25,20 @@
     background: transparent;
     color: $accent-cyan;
     border: 1.5px solid $accent-cyan;
+
+    .light & {
+      color: $light-accent-cyan;
+      border-color: $light-accent-cyan;
+      background: rgba(4, 120, 87, 0.08);
+    }
+
+    &:hover {
+      background: rgba($accent-cyan, 0.15);
+      
+      .light & {
+        background: rgba(4, 120, 87, 0.15);
+      }
+    }
   }
   &--small {
     font-size: 0.85rem;

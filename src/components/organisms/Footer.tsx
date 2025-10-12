@@ -1,33 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    {
-      name: "GitHub",
-      url: "https://github.com/christopherdavideh",
-      icon: Github,
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/christopherdavideh/",
-      icon: Linkedin,
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/christopdavideh",
-      icon: Twitter,
-    },
-    {
-      name: "Email",
-      url: "mailto:christopherdavideh@gmail.com",
-      icon: Mail,
-    },
-  ];
 
   return (
     <footer className="footer">
@@ -35,7 +12,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="footer__bottom">
           <p className="footer__copyright">
-            © {currentYear} Christopher David Erazo Herrera. Todos los derechos
+            © {currentYear} {siteConfig.author.name}. Todos los derechos
             reservados.
           </p>
         </div>
@@ -43,16 +20,16 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="footer__brand">
             <div className="footer__social">
-              {socialLinks.map((social) => {
+              {siteConfig.socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
                   <Link
-                    key={social.name}
-                    href={social.url}
+                    key={social.label}
+                    href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer__social-link"
-                    aria-label={social.name}
+                    aria-label={social.label}
                   >
                     <Icon size={20} />
                   </Link>

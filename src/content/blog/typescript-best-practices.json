@@ -1,0 +1,15 @@
+{
+  "id": "typescript-best-practices",
+  "title": "TypeScript: Mejores Prácticas para Proyectos Escalables",
+  "description": "Aprende las mejores prácticas de TypeScript para construir aplicaciones robustas y mantenibles a largo plazo.",
+  "content": "# TypeScript: Mejores Prácticas para Proyectos Escalables\n\nTypeScript se ha convertido en el estándar para desarrollo JavaScript empresarial.\n\n## ¿Por qué TypeScript?\n\n- ✅ Type safety\n- 🔍 Mejor IntelliSense\n- 🐛 Menos bugs en producción\n- 📚 Código autodocumentado\n- 🔄 Refactoring seguro\n\n## Mejores Prácticas\n\n### 1. Usar Strict Mode\n\nSiempre activa el modo estricto en `tsconfig.json`:\n\n```json\n{\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"noImplicitAny\": true,\n    \"strictNullChecks\": true\n  }\n}\n```\n\n### 2. Evitar `any`\n\nEl tipo `any` elimina los beneficios de TypeScript. Usa `unknown` cuando no conozcas el tipo:\n\n```typescript\n// ❌ Malo\nfunction processData(data: any) { }\n\n// ✅ Bueno\nfunction processData(data: unknown) {\n  if (typeof data === 'string') {\n    // TypeScript sabe que data es string aquí\n  }\n}\n```\n\n### 3. Interfaces vs Types\n\n- Usa **interfaces** para objetos y clases\n- Usa **types** para uniones, intersecciones y primitivos\n\n### 4. Utility Types\n\nAprovecha los tipos utilitarios de TypeScript:\n\n- `Partial`: Hace todas las propiedades opcionales\n- `Required`: Hace todas las propiedades requeridas\n- `Pick`: Selecciona propiedades específicas\n- `Omit`: Omite propiedades específicas\n\n## Conclusión\n\nTypeScript no es solo \"JavaScript con tipos\", es una herramienta poderosa para construir software de calidad.",
+  "image": "/images/blog/typescript.png",
+  "tags": ["TypeScript", "JavaScript", "Best Practices", "Clean Code"],
+  "publishedAt": "2024-01-20",
+  "updatedAt": "2024-01-20",
+  "readingTime": "7 min",
+  "author": {
+    "name": "Christopher Erazo",
+    "image": "/images/favicon.ico"
+  }
+}

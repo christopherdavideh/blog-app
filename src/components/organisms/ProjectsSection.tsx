@@ -2,10 +2,15 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ExternalLink, Github, Eye, Tag } from "lucide-react";
+import { ExternalLink, Github as GithubIcon, Tag } from "lucide-react";
 import Image from "next/image";
+import { Project } from "@/types";
 
-export default function ProjectsSection() {
+interface ProjectsSectionProps {
+  readonly projects?: Project[];
+}
+
+export default function ProjectsSection({ projects = [] }: Readonly<ProjectsSectionProps>) {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filters = [
@@ -14,81 +19,6 @@ export default function ProjectsSection() {
     { id: "mobile", name: "Mobile" },
     { id: "api", name: "API" },
     { id: "fullstack", name: "Full Stack" },
-  ];
-
-  const projects = [
-    {
-      id: 1,
-      title: "To-do React App",
-      description:
-        "Aplicación web para gestionar y organizar tareas con React y TypeScript. Incluye funcionalidades CRUD completas y diseño responsive.",
-      image: "/projects/todo-react.png",
-      category: "web",
-      technologies: ["React", "JavaScript"],
-      github: "https://github.com/christopherdavideh/todo-react-app",
-      live: "https://christopherdavideh.github.io/todo-react-app/",
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "Recap Movies & TV",
-      description:
-        "Aplicación web que consume The Movie Database (TMDB) API para mostrar información de películas y series de televisión.",
-      image: "/projects/recap.png",
-      category: "web",
-      technologies: ["JavaScript", "TMDB API", "HTML", "CSS"],
-      github: "https://github.com/christopherdavideh/recap-movies",
-      live: "https://christopherdavideh.github.io/RecapMovies/",
-      featured: true,
-    },
-    {
-      id: 3,
-      title: "API Rest con .NET 6",
-      description:
-        "API REST completa desarrollada con .NET 6 y PostgreSQL para gestión de datos. Incluye autenticación JWT y documentación Swagger.",
-      image: "/projects/api-dotnet.png",
-      category: "api",
-      technologies: ["C#", ".NET 6", "PostgreSQL", "Entity Framework"],
-      github: "https://github.com/christopherdavideh/api-dotnet",
-      live: null,
-      featured: true,
-    },
-    {
-      id: 4,
-      title: "Laravel 9 Project",
-      description:
-        "Aplicación web desarrollada con Laravel 9 y PHP 8.0, la aplicación web nos permite Administrar Roles y Usuarios.",
-      image: "/projects/laravel_9.png",
-      category: "fullstack",
-      technologies: ["Laravel", "PHP", "Bootstrap"],
-      github: "https://github.com/christopherdavideh/laverix",
-      live: null,
-      featured: false,
-    },
-    {
-      id: 5,
-      title: "Pomodoro Timer App",
-      description:
-        "Aplicación realizada con Xamarin.Forms que nos permite aplicar la técnica pomodoro para maximizar nuestra concentración.",
-      image: "/projects/app_dev.gif",
-      category: "mobile",
-      technologies: ["Xamarin", "C#"],
-      github: "https://github.com/christopherdavideh/PomodoroApp",
-      live: null,
-      featured: false,
-    },
-    {
-      id: 6,
-      title: "Google Clone",
-      description:
-        "Clonación de Google utilizando HTML5 semántico, estilos con CSS y diseño responsivo para fines prácticos.",
-      image: "/projects/google.png",
-      category: "web",
-      technologies: ["HTML", "CSS"],
-      github: "https://github.com/christopherdavideh/GoogleClone",
-      live: "https://christopherdavideh.github.io/GoogleClone/",
-      featured: false,
-    },
   ];
 
   const filteredProjects =
@@ -134,14 +64,16 @@ export default function ProjectsSection() {
             >
               {/* Project Image */}
               <div className="projects__card-image hover--shimmer-effect">
-                <div className="projects__card-image-content">
-                  <Image
-                    src={project.image}
-                    alt="Christopher Erazo"
-                    priority
-                    fill={true}
-                  />
-                </div>
+                <Link href={`/projects/${project.id}`}>
+                  <div className="projects__card-image-content">
+                    <Image
+                      src={project.image}
+                      alt="Christopher Erazo"
+                      priority
+                      fill={true}
+                    />
+                  </div>
+                </Link>
                 {project.featured && (
                   <div className="projects__card-featured animate--neon-pulse">
                     Destacado
@@ -151,39 +83,45 @@ export default function ProjectsSection() {
                 <div className="projects__card-overlay">
                   <div className="projects__card-overlay-actions">
                     {project.github && (
-                      <Link
+                      <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="projects__card-overlay-btn hover--neon"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label={`Ver código de ${project.title} en GitHub`}
                       >
-                        <Github
+                        <GithubIcon
                           size={20}
                           className="projects__card-overlay-icon"
                         />
-                      </Link>
+                      </a>
                     )}
                     {project.live && (
-                      <Link
+                      <a
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="projects__card-overlay-btn hover--neon"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label={`Ver demo de ${project.title}`}
                       >
                         <ExternalLink
                           size={20}
                           className="projects__card-overlay-icon"
                         />
-                      </Link>
+                      </a>
                     )}
                   </div>
                 </div>
               </div>
               {/* Project Content */}
               <div className="projects__card-content">
-                <h3 className="projects__card-title animate--text-reveal">
-                  {project.title}
-                </h3>
+                <Link href={`/projects/${project.id}`}>
+                  <h3 className="projects__card-title animate--text-reveal">
+                    {project.title}
+                  </h3>
+                </Link>
                 <p className="projects__card-desc">{project.description}</p>
                 {/* Technologies */}
                 <div className="projects__card-techs">
@@ -208,7 +146,10 @@ export default function ProjectsSection() {
                       rel="noopener noreferrer"
                       className="projects__card-link hover--neon"
                     >
-                      <Github size={16} className="projects__card-link-icon" />
+                      <GithubIcon
+                        size={16}
+                        className="projects__card-link-icon"
+                      />
                       Código
                     </Link>
                   )}

@@ -7,9 +7,9 @@ import { Footer } from "@/components/organisms/Footer";
 
 export default function ClientLayoutShell({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);

@@ -2,9 +2,8 @@ import React, { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/atoms/Badge";
 import { Button } from "@/components/atoms/Button";
-import { Calendar, ArrowRight, ExternalLink, Github } from "lucide-react";
+import { Calendar, ArrowRight, ExternalLink, Github as GithubIcon } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import Link from "next/link";
 
 export interface CardProps {
   variant?: "default" | "blog" | "project";
@@ -179,7 +178,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <Button
                 variant="ghost"
                 size="small"
-                icon={<Github size={16} />}
+                icon={<GithubIcon size={16} />}
                 className="hover--glow"
               >
                 GitHub

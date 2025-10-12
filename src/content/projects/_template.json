@@ -1,0 +1,14 @@
+{
+  "id": "mi-proyecto-slug",
+  "title": "Nombre del Proyecto",
+  "description": "Descripción breve del proyecto (qué hace, para quién)",
+  "content": "# Nombre del Proyecto\n\nDescripción detallada del proyecto.\n\n## Características\n\n- ✨ Característica 1\n- 🚀 Característica 2\n- 🎨 Característica 3\n\n## Tecnologías Utilizadas\n\n- React 18\n- TypeScript\n- Node.js\n\n## Desafíos y Soluciones\n\nExplica los desafíos que enfrentaste y cómo los resolviste.\n\n## Aprendizajes\n\nQué aprendiste construyendo este proyecto.",
+  "image": "/projects/nombre-proyecto.png",
+  "technologies": ["React", "TypeScript", "Node.js"],
+  "github": "https://github.com/usuario/proyecto",
+  "live": "https://proyecto-demo.com",
+  "featured": false,
+  "category": "web",
+  "publishedAt": "2024-02-15",
+  "updatedAt": "2024-02-15"
+}

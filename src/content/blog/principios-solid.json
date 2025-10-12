@@ -1,0 +1,15 @@
+{
+  "id": "principios-solid",
+  "title": "SOLID: Principios Fundamentales para Código Limpio",
+  "description": "Entiende y aplica los 5 principios SOLID para escribir código orientado a objetos más mantenible y flexible.",
+  "content": "# SOLID: Principios Fundamentales para Código Limpio\n\nSOLID es un acrónimo de cinco principios de diseño orientado a objetos que ayudan a crear software mantenible.\n\n## Los 5 Principios\n\n### S - Single Responsibility Principle (SRP)\n\nUna clase debe tener una, y solo una, razón para cambiar.\n\n```typescript\n// ❌ Malo - múltiples responsabilidades\nclass User {\n  saveToDatabase() { }\n  sendEmail() { }\n  generateReport() { }\n}\n\n// ✅ Bueno - responsabilidad única\nclass User { }\nclass UserRepository { saveToDatabase() { } }\nclass EmailService { sendEmail() { } }\nclass ReportGenerator { generateReport() { } }\n```\n\n### O - Open/Closed Principle (OCP)\n\nAbierto para extensión, cerrado para modificación.\n\n### L - Liskov Substitution Principle (LSP)\n\nLos objetos de una superclase deben poder ser reemplazados por objetos de una subclase sin afectar el programa.\n\n### I - Interface Segregation Principle (ISP)\n\nNingún cliente debe ser forzado a depender de métodos que no usa.\n\n### D - Dependency Inversion Principle (DIP)\n\nDepende de abstracciones, no de concreciones.\n\n## Beneficios\n\n- 📐 Código más organizado\n- 🔧 Fácil de mantener\n- 🧪 Más testeable\n- 🔄 Flexible a cambios\n\n## Conclusión\n\nSOLID no es solo teoría, es práctica diaria que mejora la calidad del código.",
+  "image": "/images/blog/solid.png",
+  "tags": ["SOLID", "Clean Code", "OOP", "Software Design"],
+  "publishedAt": "2024-01-10",
+  "updatedAt": "2024-01-10",
+  "readingTime": "10 min",
+  "author": {
+    "name": "Christopher Erazo",
+    "image": "/images/favicon.ico"
+  }
+}

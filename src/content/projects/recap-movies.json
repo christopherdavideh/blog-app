@@ -1,0 +1,14 @@
+{
+  "id": "recap-movies",
+  "title": "Recap Movies & TV",
+  "description": "Aplicación web que consume The Movie Database (TMDB) API para mostrar información de películas y series de televisión.",
+  "content": "# Recap Movies & TV\n\nAplicación web de consulta de películas y series utilizando TMDB API.\n\n## Características\n\n- 🎬 Búsqueda de películas y series\n- 📊 Información detallada (rating, sinopsis, cast)\n- 🎨 Interfaz visual atractiva\n- 🔄 Consumo de API REST\n- 📱 Responsive design\n\n## Tecnologías Utilizadas\n\n- React\n- TMDB API\n- Axios\n- CSS3\n\n## Aprendizajes\n\nEste proyecto me enseñó a trabajar con APIs externas, manejo de estados asíncronos, y optimización de llamadas a APIs.",
+  "image": "/projects/recap.png",
+  "technologies": ["React", "API REST", "Axios", "CSS"],
+  "github": "https://github.com/christopherdavideh/recap-movies",
+  "live": "https://christopherdavideh.github.io/recap-movies/",
+  "featured": true,
+  "category": "web",
+  "publishedAt": "2023-12-10",
+  "updatedAt": "2023-12-10"
+}

@@ -1,45 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Download,
-  Calendar,
-  MapPin,
-  Briefcase,
-  Code,
-  Users,
-  Award,
-  Globe,
-} from "lucide-react";
-import { ExperienceSection } from "@/components/organisms/ExperienceSection";
 
 const AboutSection = () => {
-  const highlights = [
-    {
-      icon: Code,
-      title: "Desarrollo Full-Stack",
-      description:
-        "React, Angular, Java SpringBoot, C# .NET, JavaScript, TypeScript, Python",
-    },
-    {
-      icon: Users,
-      title: "Tecnologías Modernas",
-      description:
-        "Frameworks y librerías: Bootstrap, jQuery, React, .NET, Django, Laravel",
-    },
-    {
-      icon: Award,
-      title: "Bases de Datos",
-      description:
-        "MySQL, PostgreSQL, SQL Server - Diseño y optimización de BD",
-    },
-    {
-      icon: Globe,
-      title: "Desarrollo Móvil",
-      description: "Flutter, Xamarin - Aplicaciones multiplataforma",
-    },
-  ];
-
   return (
     <section className="about">
       <div className="about__container">

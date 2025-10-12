@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Heart, Download, Sun, Moon } from "lucide-react";
+import { Menu, X, Download, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/atoms/Button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -17,10 +17,15 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme");
-      if (stored === "light") {
+      const hasLightClass = document.body.classList.contains("light");
+      if (hasLightClass) {
         setIsLight(true);
-        document.body.classList.add("light");
+      } else {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light") {
+          setIsLight(true);
+          document.body.classList.add("light");
+        }
       }
     }
   }, []);
@@ -136,7 +141,7 @@ export const Header: React.FC = () => {
         }`}
       >
         <nav className="header__mobile-nav">
-          {siteConfig.mobileNavigation.map((item) => (
+          {siteConfig.navigation.map((item) => (
             <Link
               key={item.id}
               href={item.href}

@@ -1,117 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/components/organisms/Header";
+import { useRouter } from "next/navigation";
 import { Search } from "@/components/molecules/Search";
 import { TagList } from "@/components/molecules/Tag";
 import { BlogCard } from "@/components/molecules/Card";
 import { Button } from "@/components/atoms/Button";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { BlogPost } from "@/types";
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "Desarrollo Full-Stack con React y Java SpringBoot",
-    excerpt:
-      "Guía completa para crear aplicaciones web modernas combinando React en el frontend y Java SpringBoot en el backend. Incluye configuración, mejores prácticas y deployment.",
-    content: "Contenido completo del post...",
-    author: "Christopher David Erazo",
-    date: "2024-01-15",
-    readTime: "12 min",
-    tags: ["React", "Java", "SpringBoot", "Full-Stack"],
-    featured: true,
-    slug: "desarrollo-fullstack-react-springboot",
-  },
-  {
-    id: 2,
-    title: "Creando APIs REST con .NET 6 y PostgreSQL",
-    excerpt:
-      "Tutorial paso a paso para desarrollar APIs REST robustas usando .NET 6, Entity Framework Core y PostgreSQL. Incluye autenticación JWT y documentación Swagger.",
-    content: "Contenido completo del post...",
-    author: "Christopher David Erazo",
-    date: "2024-01-10",
-    readTime: "15 min",
-    tags: ["C#", ".NET", "PostgreSQL", "API"],
-    featured: true,
-    slug: "apis-rest-dotnet-postgresql",
-  },
-  {
-    id: 3,
-    title: "Desarrollo Móvil con Flutter: Primeros Pasos",
-    excerpt:
-      "Introducción al desarrollo móvil multiplataforma con Flutter. Configuración del entorno, widgets básicos y creación de tu primera aplicación.",
-    content: "Contenido completo del post...",
-    author: "Christopher David Erazo",
-    date: "2024-01-05",
-    readTime: "18 min",
-    tags: ["Flutter", "Mobile", "Dart", "Cross-Platform"],
-    featured: true,
-    slug: "desarrollo-movil-flutter-primeros-pasos",
-  },
-  {
-    id: 4,
-    title: "Optimización de Performance en Aplicaciones React",
-    excerpt:
-      "Técnicas avanzadas para mejorar el rendimiento de aplicaciones React. Memoización, lazy loading, code splitting y mejores prácticas.",
-    content: "Contenido completo del post...",
-    author: "Christopher David Erazo",
-    date: "2023-12-28",
-    readTime: "10 min",
-    tags: ["React", "Performance", "JavaScript", "Optimization"],
-    featured: false,
-    slug: "optimizacion-performance-react",
-  },
-  {
-    id: 5,
-    title: "Integración de APIs con JavaScript y Axios",
-    excerpt:
-      "Cómo consumir APIs REST de manera eficiente usando JavaScript y Axios. Manejo de errores, interceptores y mejores prácticas.",
-    content: "Contenido completo del post...",
-    author: "Christopher David Erazo",
-    date: "2023-12-20",
-    readTime: "8 min",
-    tags: ["JavaScript", "Axios", "API", "HTTP"],
-    featured: false,
-    slug: "integracion-apis-javascript-axios",
-  },
-  {
-    id: 6,
-    title: "Desarrollo Web con Laravel y MySQL",
-    excerpt:
-      "Construyendo aplicaciones web completas con Laravel PHP y MySQL. Desde la configuración inicial hasta el deployment en producción.",
-    content: "Contenido completo del post...",
-    author: "Christopher David Erazo",
-    date: "2023-12-15",
-    readTime: "20 min",
-    tags: ["Laravel", "PHP", "MySQL", "Web Development"],
-    featured: false,
-    slug: "desarrollo-web-laravel-mysql",
-  },
-];
+interface BlogPageProps {
+  readonly posts: BlogPost[];
+  readonly tags: string[];
+}
 
-const allTags = [
-  "React",
-  "Java",
-  "SpringBoot",
-  "C#",
-  ".NET",
-  "Flutter",
-  "JavaScript",
-  "PHP",
-  "Laravel",
-  "MySQL",
-  "PostgreSQL",
-  "API",
-  "Full-Stack",
-  "Mobile",
-  "Performance",
-  "Web Development",
-  "Cross-Platform",
-  "Optimization",
-  "HTTP",
-];
-
-export default function BlogPage() {
+export default function BlogPage({ posts: blogPosts, tags: allTags }: Readonly<BlogPageProps>) {
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -121,7 +24,7 @@ export default function BlogPage() {
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+      post.description.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesTags =
       selectedTags.length === 0 ||
@@ -143,9 +46,8 @@ export default function BlogPage() {
     setCurrentPage(1);
   };
 
-  const handleReadMore = (slug: string): void => {
-    // Implementar navegación al post completo
-    console.log("Navegar a:", slug);
+  const handleReadMore = (id: string): void => {
+    router.push(`/blog/${id}`);
   };
 
   return (
@@ -183,28 +85,18 @@ export default function BlogPage() {
         <div className="blog-page__posts-content">
           {currentPosts.length > 0 ? (
             <div className="blog-page__posts-grid">
-              {currentPosts.map((post) => {
-                const { elementRef, isVisible } = useScrollAnimation();
-                return (
-                  <div
-                    key={post.id}
-                    ref={elementRef}
-                    className={`scroll-animate--scale ${
-                      isVisible ? "visible" : ""
-                    }`}
-                  >
-                    <BlogCard
-                      title={post.title}
-                      excerpt={post.excerpt}
-                      date={post.date}
-                      readTime={post.readTime}
-                      tags={post.tags}
-                      featured={post.featured}
-                      onReadMore={() => handleReadMore(post.slug)}
-                    />
-                  </div>
-                );
-              })}
+              {currentPosts.map((post) => (
+                <div key={post.id} className="scroll-animate--scale">
+                  <BlogCard
+                    title={post.title}
+                    excerpt={post.description}
+                    date={post.publishedAt}
+                    readTime={post.readingTime}
+                    tags={post.tags}
+                    onReadMore={() => handleReadMore(post.id)}
+                  />
+                </div>
+              ))}
             </div>
           ) : (
             <div className="blog-page__no-posts">

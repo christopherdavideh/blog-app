@@ -1,16 +1,17 @@
 import ContactPage from "@/components/pages/contact/ContactPage";
+import { siteConfig } from "@/lib/site-config";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Contacto | Christopher Erazo - Desarrollador Full-Stack",
+export const metadata: Metadata = {
+  title: "Contacto",
   description:
     "Ponte en contacto conmigo para proyectos, colaboraciones o consultas profesionales. Estoy listo para escuchar tus ideas y trabajar juntos.",
   openGraph: {
     title: "Contacto | Christopher Erazo - Desarrollador Full-Stack",
     description:
       "Ponte en contacto conmigo para proyectos, colaboraciones o consultas profesionales.",
-    url: "https://tusitio.com/contact",
+    url: `${siteConfig.url}/contact`,
     type: "website",
-    locale: "es_ES",
     images: [
       {
         url: "/images/LOGO.png",

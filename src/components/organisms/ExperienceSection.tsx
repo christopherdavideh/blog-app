@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, MapPin, Building, Award, Users, Code } from "lucide-react";
+import { Award, Users } from "lucide-react";
 import { Timeline } from "@/components/ui/Timeline";
 
 const ExperienceSection = () => {
