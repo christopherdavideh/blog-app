@@ -1,76 +1,97 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .projects__container {
   max-width: 1200px;
-  padding: 5rem 0 2rem 0;
+  padding: 5rem 0 $spacing-xl 0;
 }
+
 .projects__header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: $spacing-2xl;
 }
+
 .projects__title {
   font-size: 1.8rem;
   font-weight: 700;
   color: $text-primary;
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-md;
+  
   @include desktop {
     font-size: 2.5rem;
   }
+
+  @include light-mode {
+    color: $light-text-primary;
+  }
 }
+
 .projects__divider {
   width: 96px;
   height: 4px;
   background: $accent-cyan;
-  margin: 0 auto 1.5rem auto;
-  border-radius: 2px;
+  margin: 0 auto $spacing-lg auto;
+  border-radius: $border-radius-sm;
+
+  @include light-mode {
+    background: $light-accent-cyan;
+  }
 }
+
 .projects__subtitle {
   font-size: 1.25rem;
   color: $text-secondary;
   max-width: 700px;
   margin: 0 auto;
-  .light & {
+  
+  @include light-mode {
     color: $light-text-secondary;
   }
 }
 .projects__filters {
-  display: flex;
+  @include flex-center;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: $spacing-md;
+  margin-bottom: $spacing-2xl;
 }
 .projects__filter-btn {
-  padding: 0.75rem 2rem;
+  padding: $spacing-sm $spacing-xl;
   border-radius: 1.75rem;
   font-weight: 500;
   font-size: 1rem;
   background: $secondary-bg;
   color: $text-secondary;
   border: 1.5px solid $secondary-bg;
-  transition: all 0.3s;
+  transition: all $transition-normal;
   cursor: pointer;
-  .light & {
+  
+  @include light-mode {
     background: $light-secondary-bg;
     border: 1.5px solid $light-border-color;
     color: $light-text-secondary;
   }
+  
   &:hover {
     border-color: $accent-cyan;
     background: $accent-cyan;
     color: $primary-bg;
     box-shadow: 0 4px 12px rgba($accent-cyan, 0.15);
-    .light & {
+    
+    @include light-mode {
       border-color: $light-accent-cyan;
       background: $light-accent-cyan;
       color: $light-primary-bg;
       box-shadow: 0 4px 12px rgba($light-accent-cyan, 0.15);
     }
   }
+  
   &--active {
     background: $accent-cyan;
     color: $primary-bg;
     box-shadow: 0 4px 12px rgba($accent-cyan, 0.15);
     transform: scale(1.05);
-    .light & {
+    
+    @include light-mode {
       background: $light-accent-cyan;
       color: $light-primary-bg;
       box-shadow: 0 4px 12px rgba($light-accent-cyan, 0.15);
@@ -78,25 +99,18 @@
   }
 }
 .projects__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  @include grid-responsive(3);
+  margin-bottom: $spacing-2xl;
 }
 .projects__item {
   background: $secondary-bg;
-  border-radius: 1.25rem;
+  border-radius: $border-radius-xl;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
   border: 1.5px solid rgba($accent-cyan, 0.2);
-  transition: all 0.3s;
-  .light & {
+  transition: all $transition-normal;
+  
+  @include light-mode {
     background: $light-secondary-bg;
     border: 1.5px solid $light-border-color;
     box-shadow: 0 8px 25px rgba($light-accent-cyan, 0.1);
@@ -104,18 +118,24 @@
 }
 .projects__card {
   background: $secondary-bg;
-  border-radius: 1.25rem;
+  border-radius: $border-radius-xl;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
   border: 1.5px solid $secondary-bg;
-  transition: all 0.3s;
+  transition: all $transition-normal;
   display: flex;
   flex-direction: column;
+  
   &:hover {
     border-color: $accent-cyan;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+
+    @include light-mode {
+      border-color: $light-accent-cyan;
+    }
   }
-  .light & {
+  
+  @include light-mode {
     background: $light-secondary-bg;
     border: 1.5px solid $light-border-color;
     box-shadow: 0 8px 25px rgba($light-accent-cyan, 0.1);
@@ -134,17 +154,16 @@
     text-decoration: none;
   }
 
-  .light & {
+  @include light-mode {
     background: $light-secondary-bg;
     color: $light-text-primary;
   }
 }
+
 .projects__card-image-content {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
 }
 .projects__card-image-title {
   font-size: 2rem;
@@ -153,15 +172,20 @@
 }
 .projects__card-featured {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: $spacing-md;
+  left: $spacing-md;
   background: $accent-cyan;
   color: $primary-bg;
-  padding: 0.25rem 1rem;
-  border-radius: 1rem;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-xl;
   font-size: 0.85rem;
   font-weight: 600;
   z-index: 2;
+
+  @include light-mode {
+    background: $light-accent-cyan;
+    color: white;
+  }
 }
 .projects__card-overlay {
   position: absolute;

@@ -1,9 +1,18 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+@use "../atoms/input" as *;
+
 .search {
   width: 100%;
   background: $secondary-bg;
-  border-radius: 0.75rem;
+  border-radius: $border-radius-lg;
   padding: 0.2rem 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  @include light-mode {
+    background: $light-secondary-bg;
+    border: 1px solid $light-border-color;
+  }
 
   input:focus-visible {
     cursor: pointer;
@@ -13,18 +22,6 @@
     box-shadow: none;
   }
 
-  .light & {
-    background: $light-secondary-bg;
-    border: 1px solid $light-border-color;
-    input:focus-visible {
-      cursor: pointer;
-      border: none;
-      outline: none;
-      background: transparent;
-      box-shadow: none;
-    }
-  }
-
   &__input {
     width: 100%;
     background: transparent;
@@ -32,11 +29,20 @@
     outline: none;
     font-size: 1rem;
     color: $text-primary;
-    padding: 0.7rem 1rem;
-    border-radius: 0.5rem;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+
+    @include light-mode {
+      color: $light-text-primary;
+    }
+
     &::placeholder {
       color: $text-secondary;
       opacity: 0.8;
+
+      @include light-mode {
+        color: $light-text-secondary;
+      }
     }
   }
 }

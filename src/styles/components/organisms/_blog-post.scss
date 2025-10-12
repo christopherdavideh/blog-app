@@ -1,3 +1,6 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .blog-post {
   &-header {
     margin-bottom: $spacing-xl;
@@ -6,18 +9,24 @@
       @include heading-lg;
       color: $text-primary;
       margin-bottom: $spacing-lg;
+
+      @include light-mode {
+        color: $light-text-primary;
+      }
     }
 
     .post-meta {
-      display: flex;
-      align-items: center;
+      @include flex-center;
       gap: $spacing-md;
       color: $text-secondary;
       font-size: $spacing-sm;
 
+      @include light-mode {
+        color: $light-text-secondary;
+      }
+
       .meta-item {
-        display: flex;
-        align-items: center;
+        @include flex-center;
         gap: $spacing-xs;
       }
     }
@@ -27,6 +36,10 @@
     color: $text-secondary;
     line-height: 1.8;
 
+    @include light-mode {
+      color: $light-text-secondary;
+    }
+
     h1,
     h2,
     h3,
@@ -35,6 +48,10 @@
     h6 {
       color: $text-primary;
       margin: $spacing-xl 0 $spacing-md;
+
+      @include light-mode {
+        color: $light-text-primary;
+      }
     }
 
     p {
@@ -47,6 +64,11 @@
       padding: $spacing-xs $spacing-sm;
       border-radius: $border-radius-sm;
       font-family: $font-family-mono;
+
+      @include light-mode {
+        background-color: $light-secondary-bg;
+        color: $light-accent-cyan;
+      }
     }
 
     pre {
@@ -58,7 +80,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       max-width: 100%;
 
-      .light & {
+      @include light-mode {
         background: #f6f8fa;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       }
@@ -66,6 +88,7 @@
       code {
         background: none;
         padding: 0;
+        color: inherit;
       }
     }
   }

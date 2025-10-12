@@ -1,3 +1,6 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .heading {
   &-xl {
     @include heading-xl;
@@ -27,14 +30,26 @@
 
   &-primary {
     color: $text-primary;
+
+    @include light-mode {
+      color: $light-text-primary;
+    }
   }
 
   &-secondary {
     color: $text-secondary;
+
+    @include light-mode {
+      color: $light-text-secondary;
+    }
   }
 
   &-accent {
     color: $accent-cyan;
+
+    @include light-mode {
+      color: $light-accent-cyan;
+    }
   }
 
   &-center {
@@ -59,5 +74,13 @@
 
   &:hover {
     color: $accent-blue;
+
+    @include light-mode {
+      color: $light-accent-blue;
+    }
+  }
+
+  @include light-mode {
+    color: $light-accent-cyan;
   }
 }

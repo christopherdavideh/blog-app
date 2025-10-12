@@ -1,3 +1,6 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .experience__container {
   max-width: 1200px;
   margin: 0 auto;

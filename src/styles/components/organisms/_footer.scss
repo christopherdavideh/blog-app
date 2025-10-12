@@ -1,66 +1,83 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .footer {
   background: $primary-bg;
+
+  @include light-mode {
+    background: $light-primary-bg;
+  }
+
   &__container {
     border-top: 1px solid $secondary-bg;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 1.5rem;
-    display: flex;
+    padding: $spacing-xl $spacing-lg $spacing-lg;
+    @include flex-center;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    
+    @include light-mode {
+      border-top-color: $light-border-color;
+    }
+    
     @media (min-width: 836px) {
       justify-content: space-between;
-      padding: 0.5rem 1.5rem 1.5rem;
+      padding: $spacing-sm $spacing-lg $spacing-lg;
     }
   }
   &__bottom {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    @include flex-center;
+    gap: $spacing-md;
   }
   &__copyright {
     color: $text-secondary;
     font-size: 0.95rem;
     text-align: center;
-    margin-top: 0.5rem;
-    .light & {
+    margin-top: $spacing-sm;
+    
+    @include light-mode {
       color: $light-text-secondary;
     }
   }
   &__grid {
-    margin: 1rem 0rem;
+    margin: $spacing-md 0;
   }
   &__brand {
     grid-column: 1 / span 2;
-    display: flex;
-    align-items: center;
+    @include flex-center;
     justify-content: flex-start;
   }
   &__social {
     display: flex;
-    gap: 1.5rem;
+    gap: $spacing-lg;
     margin-top: 7px;
     justify-content: center;
   }
   &__social-link {
-    padding: 0.75rem;
-    border-radius: 0.75rem;
+    padding: $spacing-sm;
+    border-radius: $border-radius-lg;
     background: $secondary-bg;
     color: $text-secondary;
     border: 1px solid $secondary-bg;
-    transition: color 0.22s, transform 0.18s;
-    .light & {
+    transition: color $transition-fast, transform $transition-fast;
+    
+    @include light-mode {
       color: $light-text-secondary !important;
       background: transparent !important;
-      transition: color 0.2s;
+      transition: color $transition-fast;
     }
+    
     &:hover,
     &:focus {
       color: $accent-cyan;
       transform: scale(1.13);
+
+      @include light-mode {
+        color: $light-accent-cyan;
+      }
     }
   }
 }

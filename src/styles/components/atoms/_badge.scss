@@ -1,49 +1,69 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .badge {
   display: inline-block;
   padding: 0.25em 0.9em;
-  border-radius: 0.5em;
+  border-radius: $border-radius-md;
   font-size: 1rem;
   font-weight: 600;
   background: $accent-cyan;
   color: $primary-bg;
   border: none;
-  transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.18s;
+  transition: background $transition-fast, color $transition-fast, 
+              border-color $transition-fast, transform $transition-fast;
+  
   &:hover {
     background: $accent-blue;
     color: $primary-bg;
     transform: scale(1.06);
   }
+  
   &--primary {
     background: $accent-cyan;
     color: $primary-bg;
+
+    @include light-mode {
+      background: $light-accent-cyan;
+      color: white;
+    }
   }
+  
   &--secondary {
     background: $secondary-bg;
     color: $accent-cyan;
+
+    @include light-mode {
+      background: $light-secondary-bg;
+      color: $light-accent-cyan;
+    }
   }
+  
   &--outline {
     background: transparent;
     color: $accent-cyan;
     border: 1.5px solid $accent-cyan;
 
-    .light & {
+    @include light-mode {
       color: $light-accent-cyan;
       border-color: $light-accent-cyan;
-      background: rgba(4, 120, 87, 0.08);
+      background: rgba($light-accent-cyan, 0.08);
     }
 
     &:hover {
       background: rgba($accent-cyan, 0.15);
       
-      .light & {
-        background: rgba(4, 120, 87, 0.15);
+      @include light-mode {
+        background: rgba($light-accent-cyan, 0.15);
       }
     }
   }
+  
   &--small {
     font-size: 0.85rem;
     padding: 0.15em 0.7em;
   }
+  
   &--large {
     font-size: 1.15rem;
     padding: 0.35em 1.2em;

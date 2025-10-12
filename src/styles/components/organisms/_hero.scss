@@ -1,3 +1,6 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -170,12 +173,10 @@
   }
 
   &__social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     width: 56px;
     height: 56px;
-    border-radius: 16px;
+    border-radius: $border-radius-lg;
     border: 2px solid rgba($accent-cyan, 0.3);
     background: rgba($accent-cyan, 0.05);
     color: $text-secondary;
@@ -190,7 +191,7 @@
       box-shadow: 0 8px 20px rgba($accent-cyan, 0.3);
     }
 
-    .light & {
+    @include light-mode {
       border-color: rgba($light-accent-cyan, 0.3);
       background: rgba($light-accent-cyan, 0.08);
       color: $light-text-secondary;
@@ -214,15 +215,11 @@
   }
 
   &__visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
   }
 
   &__image-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     margin: 0 auto;
     position: relative;
     width: 300px;
@@ -239,18 +236,17 @@
     height: 100%;
     background: linear-gradient(135deg, $accent-cyan, $accent-blue);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     position: relative;
-    box-shadow: 0 0 40px 0 rgba(37, 99, 235, 0.15);
+    box-shadow: 0 0 40px 0 rgba($accent-blue, 0.15);
 
-    .light & {
+    @include light-mode {
       background: linear-gradient(
         135deg,
         $light-accent-blue,
         $light-accent-cyan
       );
+      box-shadow: 0 0 40px 0 rgba($light-accent-blue, 0.15);
     }
 
     &::before {
@@ -266,7 +262,7 @@
       opacity: 0.3;
       filter: blur(20px);
 
-      .light & {
+      @include light-mode {
         background: linear-gradient(
           135deg,
           $light-accent-cyan,
@@ -288,7 +284,7 @@
     font-size: 4rem;
     filter: drop-shadow(0 0 20px rgba($accent-cyan, 0.5));
 
-    .light & {
+    @include light-mode {
       filter: drop-shadow(0 0 20px rgba($light-accent-cyan, 0.5));
     }
   }
@@ -305,9 +301,7 @@
   }
 
   &__scroll-indicator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     margin-top: 1rem;
     animation: fadeInDown 1.2s 1.2s both;
   }
@@ -318,7 +312,8 @@
     animation: bounceDown 1.5s infinite;
     -webkit-user-select: none;
     user-select: none;
-    .light & {
+
+    @include light-mode {
       color: $light-accent-cyan;
     }
   }

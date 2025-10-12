@@ -1,72 +1,112 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  @include flex-center;
+  gap: $spacing-sm;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: $border-radius-md;
   border: none;
   cursor: pointer;
   padding: 0.75rem 0.85rem;
   background: $accent-cyan;
   color: $primary-bg;
-  transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.18s;
+  transition: background $transition-fast, color $transition-fast, 
+              box-shadow $transition-fast, transform $transition-fast;
+  
   &--primary {
     background: $accent-cyan;
     color: $primary-bg;
+    
     &:hover:not(:disabled) {
       background: darken($accent-cyan, 8%);
     }
+
+    @include light-mode {
+      background: $light-accent-cyan;
+      color: white;
+      
+      &:hover:not(:disabled) {
+        background: darken($light-accent-cyan, 8%);
+      }
+    }
   }
+  
   &--secondary {
     background: $secondary-bg;
     color: $text-secondary;
     border: 1.5px solid $border-color;
+    
     &:hover:not(:disabled) {
       border-color: $accent-cyan;
       color: $accent-cyan;
     }
+
+    @include light-mode {
+      background: $light-secondary-bg;
+      color: $light-text-secondary;
+      border-color: $light-border-color;
+      
+      &:hover:not(:disabled) {
+        border-color: $light-accent-cyan;
+        color: $light-accent-cyan;
+      }
+    }
   }
+  
   &--ghost {
     background: transparent;
     color: $accent-cyan;
     border: 1.5px solid transparent;
+    
     &:hover:not(:disabled) {
       background: rgba($accent-cyan, 0.08);
       color: $accent-cyan;
       border-color: $accent-cyan;
     }
+
+    @include light-mode {
+      color: $light-accent-cyan;
+      
+      &:hover:not(:disabled) {
+        background: rgba($light-accent-cyan, 0.08);
+        color: $light-accent-cyan;
+        border-color: $light-accent-cyan;
+      }
+    }
   }
+  
   &--small {
     font-size: 0.95rem;
     padding: 0.45rem 1rem;
-    border-radius: 0.4rem;
+    border-radius: $border-radius-sm;
   }
+  
   &--large {
     font-size: 1.15rem;
-    padding: 1rem 2rem;
-    border-radius: 0.7rem;
+    padding: $spacing-md $spacing-xl;
+    border-radius: $border-radius-lg;
   }
+  
   &__icon {
-    display: inline-flex;
-    align-items: center;
-    margin-right: 0.4rem;
+    @include flex-center;
+    margin-right: $spacing-xs;
     font-size: 1.1em;
   }
+  
   &:hover:not(:disabled) {
     transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 6px 18px rgba(100, 255, 218, 0.18);
+    box-shadow: 0 6px 18px rgba($accent-cyan, 0.18);
   }
+  
   &:active:not(:disabled) {
     transform: scale(0.98);
-    box-shadow: 0 2px 8px rgba(100, 255, 218, 0.1);
+    box-shadow: 0 2px 8px rgba($accent-cyan, 0.1);
   }
-  &:focus-visible {
-    outline: 2.5px solid $accent-cyan;
-    outline-offset: 2px;
-    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.18);
-  }
+  
+  @include focus-ring;
+  
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;

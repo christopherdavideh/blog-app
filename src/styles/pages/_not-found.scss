@@ -1,3 +1,6 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
 .not-found-page {
   min-height: 70vh;
   display: flex;

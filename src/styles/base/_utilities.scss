@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 // Utility Classes
 
 // Spacing
@@ -169,12 +172,26 @@
 
 .text-primary {
   color: $text-primary;
+
+  @include light-mode {
+    color: $light-text-primary;
+  }
 }
+
 .text-secondary {
   color: $text-secondary;
+
+  @include light-mode {
+    color: $light-text-secondary;
+  }
 }
+
 .text-accent {
   color: $accent-cyan;
+
+  @include light-mode {
+    color: $light-accent-cyan;
+  }
 }
 
 .font-light {

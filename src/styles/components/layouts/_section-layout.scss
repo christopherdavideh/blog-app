@@ -1,8 +1,19 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
 .section-layout {
   @include section;
 
+  @include light-mode {
+    background: $light-primary-bg;
+  }
+
   &--secondary {
     background-color: $secondary-bg;
+
+    @include light-mode {
+      background-color: $light-secondary-bg;
+    }
   }
 
   &-container {
@@ -16,6 +27,10 @@
     .section-title {
       @include heading-xl;
       margin-bottom: $spacing-xl;
+
+      @include light-mode {
+        color: $light-text-primary;
+      }
     }
 
     .section-divider {
@@ -23,6 +38,10 @@
       height: 0.25rem;
       background-color: $accent-cyan;
       margin: 0 auto $spacing-xl;
+
+      @include light-mode {
+        background-color: $light-accent-cyan;
+      }
     }
 
     .section-description {
@@ -30,6 +49,10 @@
       color: $text-secondary;
       max-width: 42rem;
       margin: 0 auto;
+
+      @include light-mode {
+        color: $light-text-secondary;
+      }
     }
   }
 }

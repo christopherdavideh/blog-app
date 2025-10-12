@@ -56,11 +56,56 @@ $border-color: #233554;
 // Light Mode Palette
 $light-secondary-bg: #e0eaf6;
 $light-primary-bg: #f8f8fc;
-//$light-secondary-bg: #e2e8f0;
 $light-text-primary: #1e293b;
 $light-text-secondary: #4f5c6f;
-// $light-accent-cyan: #2c4a69; // Verde teal oscuro, excelente contraste
-$light-accent-cyan: #004283; // Verde teal oscuro, excelente contraste
+$light-accent-cyan: #004283;
 $light-accent-blue: #2563eb;
 $light-accent-purple: #7c3aed;
 $light-border-color: #cbd5e1;
+
+// SASS Maps for better organization
+$colors: (
+  "primary-bg": $primary-bg,
+  "secondary-bg": $secondary-bg,
+  "text-primary": $text-primary,
+  "text-secondary": $text-secondary,
+  "accent-cyan": $accent-cyan,
+  "accent-blue": $accent-blue,
+  "accent-purple": $accent-purple,
+  "border": $border-color
+);
+
+$light-colors: (
+  "primary-bg": $light-primary-bg,
+  "secondary-bg": $light-secondary-bg,
+  "text-primary": $light-text-primary,
+  "text-secondary": $light-text-secondary,
+  "accent-cyan": $light-accent-cyan,
+  "accent-blue": $light-accent-blue,
+  "accent-purple": $light-accent-purple,
+  "border": $light-border-color
+);
+
+$spacings: (
+  "xs": $spacing-xs,
+  "sm": $spacing-sm,
+  "md": $spacing-md,
+  "lg": $spacing-lg,
+  "xl": $spacing-xl,
+  "2xl": $spacing-2xl,
+  "3xl": $spacing-3xl,
+  "4xl": $spacing-4xl
+);
+
+$border-radii: (
+  "sm": $border-radius-sm,
+  "md": $border-radius-md,
+  "lg": $border-radius-lg,
+  "xl": $border-radius-xl
+);
+
+$transitions: (
+  "fast": $transition-fast,
+  "normal": $transition-normal,
+  "slow": $transition-slow
+);

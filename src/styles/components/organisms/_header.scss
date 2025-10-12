@@ -1,3 +1,8 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+@use "../atoms/button" as *;
+@use "../atoms/typography" as *;
+
 .header {
   position: fixed;
   top: 0;
@@ -12,10 +17,8 @@
   &__container {
     @include container;
     height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
+    @include flex-between;
+    gap: $spacing-lg;
   }
 
   &__logo {
@@ -26,8 +29,7 @@
     display: none;
 
     @include desktop {
-      display: flex;
-      align-items: center;
+      @include flex-center;
       gap: 1.8rem;
     }
 
@@ -38,9 +40,9 @@
       transition: all $transition-normal;
       position: relative;
       padding: 0.3rem 0.7rem;
-      border-radius: 0.5rem;
+      border-radius: $border-radius-md;
 
-      .light & {
+      @include light-mode {
         color: $light-text-primary;
         background: transparent;
       }
@@ -53,7 +55,8 @@
       &--active {
         color: $accent-cyan;
         background: rgba($accent-cyan, 0.12);
-        .light & {
+        
+        @include light-mode {
           color: $light-accent-cyan;
         }
       }
@@ -67,7 +70,8 @@
         height: 2px;
         background-color: $accent-cyan;
         transition: width $transition-normal;
-        .light & {
+        
+        @include light-mode {
           color: $light-text-primary;
           background-color: $light-accent-cyan;
         }
@@ -81,9 +85,8 @@
   }
 
   &__nav-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    @include flex-center;
+    gap: $spacing-md;
   }
 
   &__mobile {
@@ -101,7 +104,7 @@
 
   &__social-links {
     display: flex;
-    gap: 2rem;
+    gap: $spacing-xl;
     margin-top: 7px;
 
     .social-link {
@@ -110,9 +113,18 @@
       border-radius: $border-radius-md;
       transition: all $transition-normal;
 
+      @include light-mode {
+        color: $light-text-secondary;
+      }
+
       &:hover {
         color: $accent-cyan;
         background-color: rgba($accent-cyan, 0.1);
+
+        @include light-mode {
+          color: $light-accent-cyan;
+          background-color: rgba($light-accent-cyan, 0.1);
+        }
       }
     }
   }
@@ -123,17 +135,21 @@
     color: $text-secondary;
     padding: 0.45rem 1rem;
     font-size: 1.2rem;
-    border-radius: 0.5rem;
+    border-radius: $border-radius-md;
     background: transparent;
     border: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    transition: background 0.2s, color 0.2s;
+    @include flex-center;
+    gap: $spacing-sm;
+    transition: background $transition-fast, color $transition-fast;
+    
     &:hover {
       color: $accent-cyan;
       background-color: rgba($accent-cyan, 0.1);
+
+      @include light-mode {
+        color: $light-accent-cyan;
+        background-color: rgba($light-accent-cyan, 0.1);
+      }
     }
   }
 
@@ -149,7 +165,7 @@
       padding: $spacing-md 0.5rem;
       border-bottom: 1px solid rgba($accent-cyan, 0.2);
       transition: color 0.22s, background 0.22s, box-shadow 0.18s;
-      .light & {
+      @include light-mode {
         color: $light-text-primary;
         border-bottom: 1px solid rgba($light-accent-cyan, 0.2);
         background: transparent;
@@ -161,11 +177,12 @@
       &--active {
         color: $accent-cyan;
         background: rgba($accent-cyan, 0.12);
-        box-shadow: 0 2px 8px rgba(100, 255, 218, 0.1);
-        .light & {
+        box-shadow: 0 2px 8px rgba($accent-cyan, 0.1);
+        
+        @include light-mode {
           color: $light-accent-cyan;
           background: rgba($light-accent-cyan, 0.12);
-          box-shadow: 0 2px 8px rgba(28, 127, 233, 0.458);
+          box-shadow: 0 2px 8px rgba($light-accent-cyan, 0.15);
         }
       }
 
@@ -187,7 +204,8 @@
     opacity: 0;
     visibility: hidden;
     transition: all $transition-normal;
-    .light & {
+    
+    @include light-mode {
       background-color: $light-primary-bg !important;
       border-bottom: 1px solid $light-border-color;
     }
@@ -195,8 +213,9 @@
       transform: translateY(0);
       opacity: 1;
       visibility: visible;
-      background-color: rgba(17, 38, 69, 0.906);
-      .light & {
+      background-color: rgba($primary-bg, 0.95);
+      
+      @include light-mode {
         background-color: $light-secondary-bg !important;
       }
     }
@@ -209,7 +228,8 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-md;
-    .light & {
+    
+    @include light-mode {
       border-top: 1px solid $light-border-color;
     }
     .header__cv-button {
@@ -223,15 +243,13 @@
   }
 
   &__theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 0.75rem;
+    border-radius: $border-radius-lg;
     border: 2px solid transparent;
     background: transparent;
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color $transition-fast, background $transition-fast;
     cursor: pointer;
     position: relative;
     outline: none;
@@ -254,26 +272,32 @@
     .header__theme-icon {
       color: $text-primary;
       font-size: 1.5rem;
-      transition: color 0.2s;
+      transition: color $transition-fast;
     }
-    .light & {
+    
+    @include light-mode {
       border-color: transparent;
       background: transparent;
+      
       &:hover,
       &:focus {
         border-color: $light-accent-cyan;
         background: rgba($light-accent-cyan, 0.08);
+        
         .header__theme-icon {
           color: $light-accent-cyan;
         }
       }
+      
       &:active {
         border-color: $light-accent-blue;
         background: rgba($light-accent-blue, 0.12);
+        
         .header__theme-icon {
           color: $light-accent-blue;
         }
       }
+      
       .header__theme-icon {
         color: $light-text-primary;
       }

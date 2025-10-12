@@ -1,110 +1,150 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
 .blog-page {
   &__hero {
-    padding: 5rem 1.5rem 2rem 1.5rem;
+    padding: 5rem $spacing-lg $spacing-xl $spacing-lg;
     background: $primary-bg;
     text-align: center;
-    .light & {
+    
+    @include light-mode {
       background: $light-primary-bg;
     }
   }
+  
   &__hero-content {
     max-width: 700px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 $spacing-md;
   }
+  
   &__hero-title {
     font-size: 1.8rem;
     font-weight: 700;
     color: $text-primary;
-    margin-bottom: 0.5rem;
+    margin-bottom: $spacing-sm;
+    
     @include desktop {
       font-size: 2.5rem;
     }
+
+    @include light-mode {
+      color: $light-text-primary;
+    }
   }
+  
   &__hero-divider {
     width: 96px;
     height: 4px;
     background: $accent-cyan;
-    margin: 0 auto 1.5rem auto;
-    border-radius: 2px;
+    margin: 0 auto $spacing-lg auto;
+    border-radius: $border-radius-sm;
+
+    @include light-mode {
+      background: $light-accent-cyan;
+    }
   }
+  
   &__hero-description {
     font-size: 1.1rem;
     color: $text-secondary;
-    margin-bottom: 1.5rem;
-    .light & {
+    margin-bottom: $spacing-lg;
+    
+    @include light-mode {
       color: $light-text-secondary;
     }
   }
+  
   &__filters {
-    padding: 2rem 0 1rem 0;
+    padding: $spacing-xl 0 $spacing-md 0;
     background: $primary-bg;
+
+    @include light-mode {
+      background: $light-primary-bg;
+    }
   }
+  
   &__filters-content {
     max-width: 900px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 0 1rem;
+    gap: $spacing-lg;
+    padding: 0 $spacing-md;
   }
+  
   &__posts {
-    padding: 2rem 0 4rem 0;
+    padding: $spacing-xl 0 $spacing-3xl 0;
     background: $primary-bg;
-    .light & {
+    
+    @include light-mode {
       background: $light-primary-bg;
     }
   }
+  
   &__posts-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 $spacing-md;
   }
+  
   &__posts-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    @include grid-responsive(3);
+    margin-bottom: $spacing-xl;
   }
   &__no-posts {
     text-align: center;
     color: $text-secondary;
-    margin: 2rem 0;
+    margin: $spacing-xl 0;
+
+    @include light-mode {
+      color: $light-text-secondary;
+    }
   }
+  
   &__pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+    @include flex-center;
+    margin-top: $spacing-xl;
   }
+  
   &__pagination-list {
     display: flex;
-    gap: 0.5rem;
+    gap: $spacing-sm;
   }
+  
   &__pagination-item {
     display: flex;
   }
+  
   &__pagination-button {
     min-width: 2.5rem;
     min-height: 2.5rem;
     font-size: 1rem;
-    border-radius: 0.5rem;
+    border-radius: $border-radius-md;
     font-weight: 600;
     background: $secondary-bg;
     color: $text-secondary;
     border: 1.5px solid $secondary-bg;
-    transition: all 0.3s;
+    transition: all $transition-normal;
     cursor: pointer;
+
+    @include light-mode {
+      background: $light-secondary-bg;
+      color: $light-text-secondary;
+      border-color: $light-border-color;
+    }
+    
     &:hover,
     &.active {
       color: $accent-cyan;
       border-color: $accent-cyan;
       background: rgba($accent-cyan, 0.08);
+
+      @include light-mode {
+        color: $light-accent-cyan;
+        border-color: $light-accent-cyan;
+        background: rgba($light-accent-cyan, 0.08);
+      }
     }
   }
 }

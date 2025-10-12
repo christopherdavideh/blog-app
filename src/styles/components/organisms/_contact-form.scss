@@ -1,3 +1,8 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+@use "../atoms/input" as *;
+@use "../atoms/button" as *;
+
 .contact-form {
   &-group {
     margin-bottom: $spacing-lg;
@@ -7,6 +12,10 @@
       color: $text-primary;
       margin-bottom: $spacing-sm;
       font-weight: 500;
+
+      @include light-mode {
+        color: $light-text-primary;
+      }
     }
 
     .form-input {
@@ -29,7 +38,7 @@
   }
 
   &-actions {
-    display: flex;
+    @include flex-center;
     gap: $spacing-md;
 
     @include mobile {
@@ -41,8 +50,8 @@
       @extend .button--primary;
       flex: 1;
       font-size: 1rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
+      padding: $spacing-sm $spacing-lg;
+      border-radius: $border-radius-md;
       font-weight: 600;
     }
 
@@ -51,8 +60,8 @@
       @extend .button--secondary;
       flex: 1;
       font-size: 1rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
+      padding: $spacing-sm $spacing-lg;
+      border-radius: $border-radius-md;
       font-weight: 600;
     }
   }

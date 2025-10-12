@@ -1,45 +1,46 @@
-// Base
-@import "base/variables";
-@import "base/reset";
-@import "base/mixins";
-@import "base/animations";
+// Base - Importar con 'as *' para mantener en ámbito global
+@use "base/variables" as *;
+@use "base/reset" as *;
+@use "base/mixins" as *;
+@use "base/animations" as *;
+@use "base/utilities" as *;
 
 // Import component styles
-@import "components/atoms/button";
-@import "components/atoms/input";
-@import "components/atoms/typography";
-@import "components/atoms/badge";
+@use "components/atoms/button";
+@use "components/atoms/input";
+@use "components/atoms/typography";
+@use "components/atoms/badge";
 
-@import "components/molecules/card";
-@import "components/molecules/search";
-@import "components/molecules/tag";
+@use "components/molecules/card";
+@use "components/molecules/search";
+@use "components/molecules/tag";
 
-@import "components/organisms/header";
-@import "components/organisms/footer";
-@import "components/organisms/navigation";
-@import "components/organisms/hero";
-@import "components/organisms/blog-post";
-@import "components/organisms/contact-form";
-@import "components/organisms/about-section";
-@import "components/organisms/skills-section";
-@import "components/organisms/projects-section";
-@import "components/organisms/experience-section";
-@import "components/ui/loading-spinner";
-@import "components/ui/typewriter";
-@import "components/ui/timeline";
+@use "components/organisms/header";
+@use "components/organisms/footer";
+@use "components/organisms/navigation";
+@use "components/organisms/hero";
+@use "components/organisms/blog-post";
+@use "components/organisms/contact-form";
+@use "components/organisms/about-section";
+@use "components/organisms/skills-section";
+@use "components/organisms/projects-section";
+@use "components/organisms/experience-section";
+@use "components/ui/loading-spinner";
+@use "components/ui/typewriter";
+@use "components/ui/timeline";
 
-@import "components/layouts/page-layout";
-@import "components/layouts/section-layout";
+@use "components/layouts/page-layout";
+@use "components/layouts/section-layout";
 
 // Import page-specific styles
-@import "pages/home";
-@import "pages/about";
-@import "pages/projects";
-@import "pages/project-detail";
-@import "pages/blog";
-@import "pages/blog-detail";
-@import "pages/contact";
-@import "pages/not-found";
+@use "pages/home";
+@use "pages/about";
+@use "pages/projects";
+@use "pages/project-detail";
+@use "pages/blog";
+@use "pages/blog-detail";
+@use "pages/contact";
+@use "pages/not-found";
 
 // Cursor spotlight effect
 .cursor-spotlight {
@@ -59,13 +60,13 @@
   height: 100%;
   background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y),
-    rgba(100, 255, 218, 0.08),
+    rgba($accent-cyan, 0.08),
     transparent 50%
   );
   z-index: 1;
   pointer-events: none;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: opacity $transition-normal;
 }
 
 // Ensure content is above the spotlight effect
@@ -75,10 +76,18 @@
 
 .contact-page__content {
   background: $primary-bg;
+
+  @include light-mode {
+    background: $light-primary-bg;
+  }
 }
 
 .contact-page__form {
   background: $secondary-bg;
+
+  @include light-mode {
+    background: $light-secondary-bg;
+  }
 }
 
 .light {
@@ -219,25 +228,21 @@ textarea:focus-visible {
 
 .global-loader {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   background: linear-gradient(
     135deg,
-    var(--color-bg-primary),
-    var(--color-bg-secondary)
+    $primary-bg,
+    $secondary-bg
   );
   z-index: 9999;
-}
 
-img,
-video,
-canvas,
-svg {
-  max-width: 100%;
-  min-width: 25px;
-  height: auto;
-  display: block;
+  @include light-mode {
+    background: linear-gradient(
+      135deg,
+      $light-primary-bg,
+      $light-secondary-bg
+    );
+  }
 }
 
 .container,
@@ -246,8 +251,8 @@ svg {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
   box-sizing: border-box;
 }
 
