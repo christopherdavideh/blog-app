@@ -4,12 +4,9 @@ import "./globals.scss";
 import SchemaMarkup from "@/components/organisms/SchemaMarkup";
 import ClientLayoutShell from "@/components/ClientLayoutShell";
 import { siteConfig } from "@/lib/site-config";
-import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
-import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// CRÍTICO: metadataBase permite resolver URLs relativas a absolutas para Open Graph
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
