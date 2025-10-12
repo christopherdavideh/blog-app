@@ -1,8 +1,14 @@
 import React, { forwardRef } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/atoms/Badge";
 import { Button } from "@/components/atoms/Button";
-import { Calendar, ArrowRight, ExternalLink, Github as GithubIcon } from "lucide-react";
+import {
+  Calendar,
+  ArrowRight,
+  ExternalLink,
+  Github as GithubIcon,
+} from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export interface CardProps {
@@ -39,6 +45,7 @@ export interface BlogCardProps {
   title: string;
   excerpt: string;
   date: string;
+  image?: string;
   readTime: string;
   tags: string[];
   featured?: boolean;
@@ -51,6 +58,7 @@ export const BlogCard: React.FC<BlogCardProps> = React.memo(
     title,
     excerpt,
     date,
+    image,
     readTime,
     tags,
     featured = false,
@@ -77,7 +85,11 @@ export const BlogCard: React.FC<BlogCardProps> = React.memo(
           </Badge>
         )}
         <div className="card__image hover--bright">
-          <div className="card__logo">CE</div>
+          {image && (
+            <div className="card__image-wrapper">
+              <Image src={image} alt={title} fill={true} priority />
+            </div>
+          )}
         </div>
         <div className="card__content">
           <div className="card__meta">

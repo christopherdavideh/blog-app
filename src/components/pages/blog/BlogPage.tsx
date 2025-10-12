@@ -13,7 +13,10 @@ interface BlogPageProps {
   readonly tags: string[];
 }
 
-export default function BlogPage({ posts: blogPosts, tags: allTags }: Readonly<BlogPageProps>) {
+export default function BlogPage({
+  posts: blogPosts,
+  tags: allTags,
+}: Readonly<BlogPageProps>) {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -91,6 +94,7 @@ export default function BlogPage({ posts: blogPosts, tags: allTags }: Readonly<B
                     title={post.title}
                     excerpt={post.description}
                     date={post.publishedAt}
+                    image={post.image}
                     readTime={post.readingTime}
                     tags={post.tags}
                     onReadMore={() => handleReadMore(post.id)}

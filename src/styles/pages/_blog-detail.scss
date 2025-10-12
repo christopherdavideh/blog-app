@@ -460,11 +460,7 @@
     text-align: center;
 
     .light & {
-      background: linear-gradient(
-        135deg,
-        white 0%,
-        $light-secondary-bg 100%
-      );
+      background: linear-gradient(135deg, white 0%, $light-secondary-bg 100%);
       border-color: $light-border-color;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }

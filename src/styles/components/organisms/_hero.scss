@@ -87,13 +87,13 @@
   }
 
   &__subtitle-main {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 600;
     color: $text-secondary;
     margin-bottom: $spacing-lg;
     text-align: center;
     @include desktop {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       margin-bottom: $spacing-xl;
       text-align: left;
     }
@@ -118,6 +118,19 @@
     .light & {
       color: $light-text-secondary;
     }
+
+    &__location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+
+      svg {
+        flex-shrink: 0;
+        opacity: 0.8;
+      }
+    }
   }
 
   &__actions {
@@ -141,6 +154,52 @@
       }
       @include desktop {
         flex-direction: row;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    margin-top: $spacing-xl;
+    
+    @include desktop {
+      justify-content: flex-start;
+    }
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    border: 2px solid rgba($accent-cyan, 0.3);
+    background: rgba($accent-cyan, 0.05);
+    color: $text-secondary;
+    transition: all $transition-fast;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $accent-cyan;
+      background: rgba($accent-cyan, 0.15);
+      color: $accent-cyan;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba($accent-cyan, 0.3);
+    }
+
+    .light & {
+      border-color: rgba($light-accent-cyan, 0.3);
+      background: rgba($light-accent-cyan, 0.08);
+      color: $light-text-secondary;
+
+      &:hover {
+        border-color: $light-accent-cyan;
+        background: rgba($light-accent-cyan, 0.15);
+        color: $light-accent-cyan;
+        box-shadow: 0 8px 20px rgba($light-accent-cyan, 0.25);
       }
     }
   }

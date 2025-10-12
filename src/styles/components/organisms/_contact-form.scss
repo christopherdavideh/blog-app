@@ -37,8 +37,6 @@
     }
 
     .submit-button {
-      // @extend .btn;
-      // @extend .btn--primary;
       @extend .button;
       @extend .button--primary;
       flex: 1;
@@ -49,8 +47,6 @@
     }
 
     .reset-button {
-      // @extend .btn;
-      // @extend .btn--secondary;
       @extend .button;
       @extend .button--secondary;
       flex: 1;

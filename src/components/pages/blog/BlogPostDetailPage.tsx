@@ -12,7 +12,9 @@ interface BlogPostDetailPageProps {
   post: BlogPost;
 }
 
-export default function BlogPostDetailPage({ post }: Readonly<BlogPostDetailPageProps>) {
+export default function BlogPostDetailPage({
+  post,
+}: Readonly<BlogPostDetailPageProps>) {
   return (
     <div className="blog-post-detail">
       <div className="blog-post-detail__container">
@@ -100,15 +102,19 @@ export default function BlogPostDetailPage({ post }: Readonly<BlogPostDetailPage
                   let inList = false;
                   let codeBlockContent: string[] = [];
 
-                  for (let i = 0; i < lines.length; i++) {
-                    const line = lines[i];
+                  for (const element of lines) {
+                    const line = element;
                     const trimmedLine = line.trim();
 
                     // Manejo de bloques de código
                     if (trimmedLine.startsWith("```")) {
                       if (inCodeBlock) {
                         // Cerrar bloque de código
-                        result.push(`<pre><code>${codeBlockContent.join("\n")}</code></pre>`);
+                        result.push(
+                          `<pre><code>${codeBlockContent.join(
+                            "\n"
+                          )}</code></pre>`
+                        );
                         codeBlockContent = [];
                         inCodeBlock = false;
                       } else {
@@ -126,23 +132,35 @@ export default function BlogPostDetailPage({ post }: Readonly<BlogPostDetailPage
 
                     // Títulos
                     if (trimmedLine.startsWith("### ")) {
-                      if (inList) { result.push("</ul>"); inList = false; }
+                      if (inList) {
+                        result.push("</ul>");
+                        inList = false;
+                      }
                       result.push(`<h3>${trimmedLine.substring(4)}</h3>`);
                       continue;
                     }
                     if (trimmedLine.startsWith("## ")) {
-                      if (inList) { result.push("</ul>"); inList = false; }
+                      if (inList) {
+                        result.push("</ul>");
+                        inList = false;
+                      }
                       result.push(`<h2>${trimmedLine.substring(3)}</h2>`);
                       continue;
                     }
                     if (trimmedLine.startsWith("# ")) {
-                      if (inList) { result.push("</ul>"); inList = false; }
+                      if (inList) {
+                        result.push("</ul>");
+                        inList = false;
+                      }
                       result.push(`<h1>${trimmedLine.substring(2)}</h1>`);
                       continue;
                     }
 
                     // Listas
-                    if (trimmedLine.startsWith("- ") || trimmedLine.startsWith("* ")) {
+                    if (
+                      trimmedLine.startsWith("- ") ||
+                      trimmedLine.startsWith("* ")
+                    ) {
                       if (!inList) {
                         result.push("<ul>");
                         inList = true;
@@ -167,13 +185,22 @@ export default function BlogPostDetailPage({ post }: Readonly<BlogPostDetailPage
 
                     // Código inline
                     let processedLine = trimmedLine;
-                    processedLine = processedLine.replace(/`([^`]+)`/g, "<code>$1</code>");
-                    
+                    processedLine = processedLine.replace(
+                      /`([^`]+)`/g,
+                      "<code>$1</code>"
+                    );
+
                     // Negritas
-                    processedLine = processedLine.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-                    
+                    processedLine = processedLine.replace(
+                      /\*\*([^*]+)\*\*/g,
+                      "<strong>$1</strong>"
+                    );
+
                     // Cursivas
-                    processedLine = processedLine.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+                    processedLine = processedLine.replace(
+                      /\*([^*]+)\*/g,
+                      "<em>$1</em>"
+                    );
 
                     // Párrafos
                     result.push(`<p>${processedLine}</p>`);
@@ -224,7 +251,8 @@ export default function BlogPostDetailPage({ post }: Readonly<BlogPostDetailPage
           <div className="blog-post-detail__cta">
             <h2>¿Te gustó este artículo?</h2>
             <p>
-              Sígueme para más contenido sobre desarrollo web y mejores prácticas
+              Sígueme para más contenido sobre desarrollo web y mejores
+              prácticas
             </p>
             <Link href="/contact" className="blog-post-detail__cta-btn">
               Contáctame

@@ -10,7 +10,9 @@ interface ProjectsSectionProps {
   readonly projects?: Project[];
 }
 
-export default function ProjectsSection({ projects = [] }: Readonly<ProjectsSectionProps>) {
+export default function ProjectsSection({
+  projects = [],
+}: Readonly<ProjectsSectionProps>) {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filters = [
@@ -68,7 +70,7 @@ export default function ProjectsSection({ projects = [] }: Readonly<ProjectsSect
                   <div className="projects__card-image-content">
                     <Image
                       src={project.image}
-                      alt="Christopher Erazo"
+                      alt={project.title}
                       priority
                       fill={true}
                     />

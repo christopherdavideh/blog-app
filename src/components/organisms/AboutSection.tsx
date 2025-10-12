@@ -18,27 +18,22 @@ const AboutSection = () => {
             <div className="about__main-content">
               <div className="about__main-texts">
                 <p className="about__main-paragraph">
-                  Mi nombre es Christopher David Erazo Herrera, de Quito,
-                  Ecuador 🇪🇨. Mi pasión por la programación empezó al descubrir
-                  cómo unas líneas de código generan un alto impacto en nuestras
-                  actividades diarias a través de Webs y Apps. Actualmente
-                  lidero equipos de desarrollo en el Sector Financiero
+                  Soy Christopher Erazo, Ingeniero de Software con más de 5 años
+                  de experiencia y líder de equipos de desarrollo en el sector
+                  financiero. Mi especialidad es la creación de aplicaciones web
+                  que transforman la experiencia del usuario.
                 </p>
                 <p className="about__main-paragraph">
-                  Ingeniero de Software con más de 5 años de experiencia en el
-                  desarrollo de aplicaciones móviles y web en el sector
-                  financiero. Uno de los proyectos más relevantes en mi
-                  trayectoria fue el desarrollo del flujo digital para la
-                  apertura de la Cuenta Ahorro Flexible de Banco Pichincha, una
-                  de las más grandes entidades financieras del Ecuador. Esta
-                  solución tuvo un impacto significativo en la forma de ahorrar
-                  de los clientes, fortaleciendo la estrategia de captación
-                  digital.
+                  En 2023 y 2024, un hito fundamental en mi carrera fue liderar
+                  el desarrollo de los flujos digitales "Ahorro Flexible" y
+                  "Cuenta Joven" para Banco Pichincha, soluciones clave que
+                  fortalecieron la estrategia de captación digital a nivel
+                  nacional.
                 </p>
                 <p className="about__main-paragraph">
-                  Mi propósito es seguir creciendo profesionalmente, liderando o
-                  participando en proyectos que generen un alto impacto, tanto
-                  en startups en etapa inicial como en empresas consolidadas.
+                  Mi objetivo es seguir colaborando en proyectos desafiantes, ya
+                  sea en startups o en empresas consolidadas, para construir
+                  soluciones tecnológicas que marquen la diferencia.
                 </p>
               </div>
             </div>

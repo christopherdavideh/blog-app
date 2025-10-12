@@ -16,7 +16,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 25px;
-    padding: 0 1.5rem;
   }
 
   &__logo {
@@ -29,7 +28,7 @@
     @include desktop {
       display: flex;
       align-items: center;
-      gap: $spacing-xl;
+      gap: 1.8rem;
     }
 
     &-link {

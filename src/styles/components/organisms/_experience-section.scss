@@ -8,10 +8,13 @@
   margin-bottom: 3rem;
 }
 .experience__title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: $text-primary;
   margin-bottom: 1rem;
+  @include desktop {
+    font-size: 2.5rem;
+  }
 }
 .experience__divider {
   width: 96px;
