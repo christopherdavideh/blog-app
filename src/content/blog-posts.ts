@@ -1,9 +1,3 @@
-/**
- * @deprecated Este archivo se mantiene por compatibilidad.
- * El contenido ahora se carga dinámicamente desde src/content/blog/
- * Usa las funciones de src/lib/content-loader.ts en su lugar.
- */
-
 import { BlogPost } from "@/types";
 import {
   loadAllBlogPosts,
