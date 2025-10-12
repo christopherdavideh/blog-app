@@ -15,14 +15,21 @@
   transition: all $transition-normal;
 
   &__container {
-    @include container;
     height: 4rem;
-    @include flex-between;
     gap: $spacing-lg;
+    @include flex-between;
+    @include container;
   }
 
   &__logo {
     @extend .logo;
+
+    &-img {
+      display: block;
+      max-width: 120px;
+      height: auto;
+      object-fit: contain;
+    }
   }
 
   &__nav {

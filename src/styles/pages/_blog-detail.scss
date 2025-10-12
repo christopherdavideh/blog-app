@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
@@ -340,10 +341,10 @@
       }
 
       &:hover {
-        color: lighten($accent-cyan, 10%);
+        color: color.adjust($accent-cyan, $lightness: 10%);
 
         @include light-mode {
-          color: darken($light-accent-cyan, 10%);
+          color: color.adjust($light-accent-cyan, $lightness: -10%);
         }
       }
     }

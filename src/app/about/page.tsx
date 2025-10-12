@@ -5,11 +5,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sobre mí",
   description:
-    "Conoce mi experiencia, habilidades y valores como desarrollador full-stack. Descubre mi pasión por la tecnología y el aprendizaje continuo.",
+    "Conoce mi experiencia, habilidades y valores como Ingeniero de Software. Descubre mi pasión por la tecnología y el aprendizaje continuo.",
   openGraph: {
-    title: "Sobre mí | Christopher Erazo - Desarrollador Full-Stack",
+    title: "Sobre mí | Christopher Erazo - Ingeniero de Software",
     description:
-      "Conoce mi experiencia, habilidades y trayectoria como desarrollador full-stack.",
+      "Conoce mi experiencia, habilidades y trayectoria como Ingeniero de Software.",
     url: `${siteConfig.url}/about`,
     type: "profile",
     images: [
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sobre mí | Christopher Erazo - Desarrollador Full-Stack",
+    title: "Sobre mí | Christopher Erazo - Ingeniero de Software",
     description:
-      "Conoce mi experiencia, habilidades y trayectoria como desarrollador full-stack.",
+      "Conoce mi experiencia, habilidades y trayectoria como Ingeniero de Software.",
     images: ["/images/ChristopherErazo_1.png"],
   },
 };

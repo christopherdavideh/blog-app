@@ -72,6 +72,10 @@
     @include flex-center;
     overflow: hidden;
 
+    img {
+      object-fit: cover;
+    }
+
     @include light-mode {
       background: $light-primary-bg;
     }

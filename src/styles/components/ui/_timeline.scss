@@ -1,8 +1,6 @@
 @use "../../base/variables" as *;
 @use "../../base/mixins" as *;
 
-@import "../../base/variables";
-
 .timeline {
   &__list {
     display: flex;

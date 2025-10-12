@@ -16,12 +16,12 @@
   }
 
   &__container {
-    @include container;
     width: 100%;
     display: flex;
     flex-direction: column-reverse;
     gap: $spacing-3xl;
     align-items: center;
+    @include container;
 
     @include desktop {
       flex-direction: row;

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Explora proyectos en desarrollo web, móvil y APIs. Descubre cómo puedo aportar valor a tu empresa o idea.",
   openGraph: {
-    title: "Proyectos | Christopher Erazo - Desarrollador Full-Stack",
+    title: "Proyectos | Christopher Erazo - Ingeniero de Software",
     description: "Explora proyectos en desarrollo web, móvil y APIs.",
     url: `${siteConfig.url}/projects`,
     type: "website",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Proyectos | Christopher Erazo - Desarrollador Full-Stack",
+    title: "Proyectos | Christopher Erazo - Ingeniero de Software",
     description: "Explora proyectos en desarrollo web, móvil y APIs.",
     images: ["/images/todo-react.png"],
   },
@@ -32,6 +32,6 @@ export const metadata: Metadata = {
 export default function Projects() {
   // Cargar proyectos en el servidor
   const projects = loadAllProjects();
-  
+
   return <ProjectsPage projects={projects} />;
 }

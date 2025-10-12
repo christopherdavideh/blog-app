@@ -87,7 +87,13 @@ export const BlogCard: React.FC<BlogCardProps> = React.memo(
         <div className="card__image hover--bright">
           {image && (
             <div className="card__image-wrapper">
-              <Image src={image} alt={title} fill={true} priority />
+              <Image 
+                src={image} 
+                alt={title} 
+                fill={true} 
+                priority 
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
             </div>
           )}
         </div>

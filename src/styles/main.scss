@@ -1,4 +1,5 @@
 // Base - Importar con 'as *' para mantener en ámbito global
+@use "sass:color";
 @use "base/variables" as *;
 @use "base/reset" as *;
 @use "base/mixins" as *;
@@ -145,9 +146,9 @@
   }
   .button--primary:hover,
   .badge--primary:hover {
-    background: darken($light-accent-cyan, 8%) !important;
+    background: color.adjust($light-accent-cyan, $lightness: -8%) !important;
     color: $light-primary-bg !important;
-    border-color: darken($light-accent-cyan, 8%) !important;
+    border-color: color.adjust($light-accent-cyan, $lightness: -8%) !important;
   }
   .button--secondary,
   .badge--secondary {
@@ -182,7 +183,7 @@
   .projects__card-link:hover,
   .about__cv-link:hover,
   .header__social-links .social-link:hover {
-    color: darken($light-accent-cyan, 8%) !important;
+    color: color.adjust($light-accent-cyan, $lightness: -8%) !important;
   }
   // Spotlight efecto
   .cursor-spotlight::before {

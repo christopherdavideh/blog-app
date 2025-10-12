@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Ponte en contacto conmigo para proyectos, colaboraciones o consultas profesionales. Estoy listo para escuchar tus ideas y trabajar juntos.",
   openGraph: {
-    title: "Contacto | Christopher Erazo - Desarrollador Full-Stack",
+    title: "Contacto | Christopher Erazo - Ingeniero de Software",
     description:
       "Ponte en contacto conmigo para proyectos, colaboraciones o consultas profesionales.",
     url: `${siteConfig.url}/contact`,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contacto | Christopher Erazo - Desarrollador Full-Stack",
+    title: "Contacto | Christopher Erazo - Ingeniero de Software",
     description:
       "Ponte en contacto conmigo para proyectos, colaboraciones o consultas profesionales.",
     images: ["/images/LOGO.png"],

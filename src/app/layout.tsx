@@ -10,11 +10,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Christopher Erazo - Desarrollador Full-Stack",
+    default: "Christopher Erazo - Ingeniero de Software",
     template: "%s | Christopher Erazo",
   },
   description:
-    "Portfolio personal de Christopher Erazo, desarrollador Full-Stack especializado en React, Node.js y tecnologías modernas.",
+    "Portfolio personal de Christopher Erazo, Ingeniero de Software especializado en React, Node.js y tecnologías modernas.",
   keywords: [
     "desarrollador",
     "full-stack",
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: siteConfig.url,
     siteName: siteConfig.title,
-    title: "Christopher Erazo - Desarrollador Full-Stack",
+    title: "Christopher Erazo - Ingeniero de Software",
     description:
-      "Portfolio personal de Christopher Erazo, desarrollador Full-Stack especializado en React, Node.js y tecnologías modernas.",
+      "Portfolio personal de Christopher Erazo, Ingeniero de Software especializado en React, Node.js y tecnologías modernas.",
     images: [
       {
         url: "/images/seo.png",
         width: 1200,
         height: 630,
-        alt: "Christopher Erazo - Desarrollador Full-Stack",
+        alt: "Christopher Erazo - Ingeniero de Software",
       },
     ],
   },
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@christopdavideh",
     creator: "@christopdavideh",
-    title: "Christopher Erazo - Desarrollador Full-Stack",
+    title: "Christopher Erazo - Ingeniero de Software",
     description:
-      "Portfolio personal de Christopher Erazo, desarrollador Full-Stack especializado en React, Node.js y tecnologías modernas.",
+      "Portfolio personal de Christopher Erazo, Ingeniero de Software especializado en React, Node.js y tecnologías modernas.",
     images: ["/images/seo.png"],
   },
   robots: {
@@ -68,6 +68,22 @@ export const metadata: Metadata = {
     // Agregar cuando tengas las verificaciones
     // google: "tu-codigo-google",
   },
+  icons: {
+    icon: [
+      { url: "/images/favicon.ico", sizes: "any" },
+      {
+        url: "/images/ChristopherErazo.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      { url: "/images/LOGO.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: {
+      url: "/images/ChristopherErazo_1.png",
+      sizes: "180x180",
+    },
+    shortcut: "/images/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -76,28 +92,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/favicon.ico" sizes="any" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/images/ChristopherErazo.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/images/LOGO.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/images/ChristopherErazo_1.png"
-        />
-        <link rel="shortcut icon" href="/images/flavicon.ico" />
-        <meta property="og:image" content="/images/seo.png" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-YBENWP3XCS"

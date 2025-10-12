@@ -89,8 +89,8 @@
   }
   
   &__posts-grid {
-    @include grid-responsive(3);
     margin-bottom: $spacing-xl;
+    @include grid-responsive(3);
   }
   &__no-posts {
     text-align: center;

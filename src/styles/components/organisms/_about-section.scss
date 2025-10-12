@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../../base/variables" as *;
 @use "../../base/mixins" as *;
 
@@ -101,7 +102,7 @@
     transition: all $transition-normal;
 
     &:hover {
-      background: lighten($accent-cyan, 10%);
+      background: color.adjust($accent-cyan, $lightness: 10%);
       transform: scale(1.05);
     }
 
@@ -184,8 +185,8 @@
   }
 
   &__highlights {
-    @include grid-responsive(4);
     margin-bottom: $spacing-2xl;
+    @include grid-responsive(4);
   }
 
   &__highlight {

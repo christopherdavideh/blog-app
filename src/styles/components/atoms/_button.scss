@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../../base/variables" as *;
 @use "../../base/mixins" as *;
 
@@ -20,7 +21,7 @@
     color: $primary-bg;
     
     &:hover:not(:disabled) {
-      background: darken($accent-cyan, 8%);
+      background: color.adjust($accent-cyan, $lightness: -8%);
     }
 
     @include light-mode {
@@ -28,7 +29,7 @@
       color: white;
       
       &:hover:not(:disabled) {
-        background: darken($light-accent-cyan, 8%);
+        background: color.adjust($light-accent-cyan, $lightness: -8%);
       }
     }
   }

@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -759,7 +760,7 @@
 
 // Hover utilities
 .hover\:bg-secondary:hover {
-  background-color: adjust-color($secondary-bg, $lightness: -5%);
+  background-color: color.adjust($secondary-bg, $lightness: -5%);
 }
 
 .hover\:text-accent:hover {
