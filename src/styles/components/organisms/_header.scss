@@ -166,6 +166,7 @@
         .light & {
           color: $light-accent-cyan;
           background: rgba($light-accent-cyan, 0.12);
+          box-shadow: 0 2px 8px rgba(28, 127, 233, 0.458);
         }
       }
 

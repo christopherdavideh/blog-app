@@ -14,7 +14,7 @@ export const siteConfig: SiteConfig = {
   },
   navigation: [
     { id: "inicio", href: "/", label: "Inicio" },
-    // { id: "sobre-mi", href: "/about", label: "Sobre mí" },
+    { id: "sobre-mi", href: "/about", label: "Sobre mí" },
     { id: "proyectos", href: "/projects", label: "Proyectos" },
     { id: "blog", href: "/blog", label: "Blog" },
     { id: "contacto", href: "/contact", label: "Contacto" },

@@ -1,24 +1,8 @@
-// Funciones de utilidad para Analytics (separación de responsabilidades)
-
-// Configuración de Analytics
-export const GA_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
-
-// Tipos de eventos
 export type GtagEvent = {
   action: string;
   category: string;
   label?: string;
   value?: number;
-};
-
-// Track page views
-export const pageview = (url: string): void => {
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("config", GA_MEASUREMENT_ID, {
-      page_path: url,
-    });
-  }
 };
 
 // Track custom events

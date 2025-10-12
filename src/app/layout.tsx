@@ -96,7 +96,7 @@ export default function RootLayout({
           sizes="180x180"
           href="/images/ChristopherErazo_1.png"
         />
-        <link rel="shortcut icon" href="/images/ChristopherErazo.ico" />
+        <link rel="shortcut icon" href="/images/flavicon.ico" />
         <meta property="og:image" content="/images/seo.png" />
         <script
           async
