@@ -70,16 +70,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/favicon.ico", sizes: "any" },
+      { url: "/images/christopher.png", sizes: "any" },
       {
-        url: "/images/ChristopherErazo.png",
+        url: "/images/christopher.png",
         sizes: "32x32",
         type: "image/png",
       },
       { url: "/images/LOGO.png", sizes: "16x16", type: "image/png" },
     ],
     apple: {
-      url: "/images/ChristopherErazo_1.png",
+      url: "/images/christopher.png",
       sizes: "180x180",
     },
     shortcut: "/images/favicon.ico",
