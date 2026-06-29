@@ -1,4 +1,4 @@
-// Base - Importar con 'as *' para mantener en ámbito global
+// Base - Importar con 'as *' para mantener en ámbito global.
 @use "sass:color";
 @use "base/variables" as *;
 @use "base/reset" as *;
@@ -199,7 +199,9 @@
   outline: 2.5px solid var(--color-accent-cyan, #64ffda);
   outline-offset: 2px;
   box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.18);
-  transition: outline 0.2s, box-shadow 0.2s;
+  transition:
+    outline 0.2s,
+    box-shadow 0.2s;
   z-index: 2;
 }
 
@@ -230,19 +232,11 @@ textarea:focus-visible {
 .global-loader {
   min-height: 100vh;
   @include flex-center;
-  background: linear-gradient(
-    135deg,
-    $primary-bg,
-    $secondary-bg
-  );
+  background: linear-gradient(135deg, $primary-bg, $secondary-bg);
   z-index: 9999;
 
   @include light-mode {
-    background: linear-gradient(
-      135deg,
-      $light-primary-bg,
-      $light-secondary-bg
-    );
+    background: linear-gradient(135deg, $light-primary-bg, $light-secondary-bg);
   }
 }
 
